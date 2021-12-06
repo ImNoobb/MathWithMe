@@ -62,6 +62,11 @@ lop9_Hinh_IV = False
 # Start Buttons ================================================================== #
 def start_cmd():
 	global start,select_class
+	lop6_button.set_index(5)
+	lop7_button.set_index(5)
+	lop8_button.set_index(5)
+	lop9_button.set_index(5)
+	setting_button.set_index(5)
 	start = False
 	select_class = True
 
@@ -132,7 +137,7 @@ lop9_list = [lop9_1,lop9_2,lop9_3,lop9_4,lop9_5,lop9_6]
 lop9_button = A_Button(lop9_list,0.5,(920,180),lop9_cmd)
 # Back Button ===================================================================== #
 def back_now(s1,s2):
-	global select_class,start,lop6,lop7,lop8,lop9
+	global select_class,start,lop6,lop7,lop8,lop9,setting
 	if s1 == 'select_class':
 		select_class = True
 	elif s1 == 'start':
@@ -148,10 +153,33 @@ def back_now(s1,s2):
 		lop8 = False
 	elif s2 == 'lop9':
 		lop9 = False
+	elif s2 == 'setting':
+		setting = False
 
 back1 = pygame.image.load('assets\\buttons\\back_button_1.png').convert_alpha()
 back2 = pygame.image.load('assets\\buttons\\back_button_2.png').convert_alpha()
 back_button_to_start = N_Button(back1,back2,(0,0),lambda: back_now('start','select_class'))
+back_button_to_sc = N_Button(back1,back2,(0,0),lambda: back_now('select_class','setting'))
+
+back_button_to_sc6 = N_Button(back1,back2,(0,0),lambda: back_now('select_class','lop6'))
+back_button_to_sc7 = N_Button(back1,back2,(0,0),lambda: back_now('select_class','lop7'))
+back_button_to_sc8 = N_Button(back1,back2,(0,0),lambda: back_now('select_class','lop8'))
+back_button_to_sc9 = N_Button(back1,back2,(0,0),lambda: back_now('select_class','lop9'))
+# Settings Button ================================================================= #
+def settings_cmd():
+	global setting,select_class
+	select_class = False
+	setting = True
+
+setting_1 = pygame.image.load('assets\\buttons\\settings_1.png').convert_alpha()
+setting_2 = pygame.image.load('assets\\buttons\\settings_2.png').convert_alpha()
+setting_3 = pygame.image.load('assets\\buttons\\settings_3.png').convert_alpha()
+setting_4 = pygame.image.load('assets\\buttons\\settings_4.png').convert_alpha()
+setting_5 = pygame.image.load('assets\\buttons\\settings_5.png').convert_alpha()
+setting_6 = pygame.image.load('assets\\buttons\\settings_6.png').convert_alpha()
+
+setting_list = [setting_1,setting_2,setting_3,setting_4,setting_5,setting_6]
+setting_button = A_Button(setting_list,0.5,(1280-205,720-155),settings_cmd)
 # BackGrounds ===================================================================== #
 start_bg = pygame.image.load('assets\\backgrounds\\start_bg.jpg').convert()
 ####################
@@ -178,14 +206,96 @@ while running:
 		lop8_button.run(screen,click,s_m_o_f)
 		lop9_button.run(screen,click,s_m_o_f)
 		back_button_to_start.run(screen,click,s_m_o_f)
+		setting_button.run(screen,click,s_m_o_f)
 	elif lop6:
-		screen.fill((255,255,255))
+		if lop6_Dai_I:
+			pass
+		elif lop6_Dai_II:
+			pass
+		elif lop6_Dai_III:
+			pass
+		elif lop6_Dai_IV:
+			pass
+		elif lop6_Hinh_I:
+			pass
+		elif lop6_Hinh_II:
+			pass
+		elif lop6_Hinh_III:
+			pass
+		elif lop6_Hinh_IV:
+			pass
+		else:
+			screen.fill((255,255,255))
+			back_button_to_sc6.run(screen,click,s_m_o_f)
 	elif lop7:
-		screen.fill((0,0,0))
+		if lop7_Dai_I:
+			pass
+		elif lop7_Dai_II:
+			pass
+		elif lop7_Dai_III:
+			pass
+		elif lop7_Dai_IV:
+			pass
+		elif lop7_Hinh_I:
+			pass
+		elif lop7_Hinh_II:
+			pass
+		elif lop7_Hinh_III:
+			pass
+		elif lop7_Hinh_IV:
+			pass
+		else:
+			screen.fill((255,255,255))
+			back_button_to_sc7.run(screen,click,s_m_o_f)
 	elif lop8:
-		screen.fill((0,0,0))
+		if lop8_Dai_I:
+			pass
+		elif lop8_Dai_II:
+			pass
+		elif lop8_Dai_III:
+			pass
+		elif lop8_Dai_IV:
+			pass
+		elif lop8_Hinh_I:
+			pass
+		elif lop8_Hinh_II:
+			pass
+		elif lop8_Hinh_III:
+			pass
+		elif lop8_Hinh_IV:
+			pass
+		else:
+			screen.fill((255,255,255))
+			back_button_to_sc8.run(screen,click,s_m_o_f)
 	elif lop9:
-		screen.fill((0,0,0))
+		if lop9_Dai_I:
+			pass
+		elif lop9_Dai_II:
+			pass
+		elif lop9_Dai_III:
+			pass
+		elif lop9_Dai_IV:
+			pass
+		elif lop9_Hinh_I:
+			pass
+		elif lop9_Hinh_II:
+			pass
+		elif lop9_Hinh_III:
+			pass
+		elif lop9_Hinh_IV:
+			pass
+		else:
+			screen.fill((255,255,255))
+			back_button_to_sc9.run(screen,click,s_m_o_f)
+	elif setting:
+		screen.fill((255,255,255))
+		back_button_to_sc.run(screen,click,s_m_o_f)
+
+
+
+
+
+
 	if pygame.mouse.get_pressed()[0] == False and can_c==False:
 			can_c = True
 	pygame.display.update()

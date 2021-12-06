@@ -25,6 +25,9 @@ class A_Button():
 
 		scr.blit(self.button_img[int(self.index)],self.rect)
 
+	def set_index(self,index):
+		self.index = index
+
 class N_Button():
 	def __init__(self,btn_img,btn_img_hover,pos,cmd):
 		self.button = [btn_img,btn_img_hover]
