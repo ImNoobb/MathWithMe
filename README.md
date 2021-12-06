@@ -16,3 +16,6 @@ __Tích hợp thêm nhiều trò chơi__: Chương trình đã thêm nhiều tr�
 ## Thời gian đã tốn
 
 Tôi... không biết nữa, chắc cũng khoảng __5,6__ tiếng gì đó :)
+
+## Tải về
+Bạn có thể tải về bằng cách click vào link này : [https://github.com/ImNoobb/MathWithMe/archive/refs/heads/main.zip](url)
