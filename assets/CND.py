@@ -8,10 +8,12 @@ class A_Button():
 		self.index = 0
 		self.rect = self.button_img[0].get_rect(topleft=pos)
 		self.cmd = cmd
+		self.collide = False
 
 	def run(self,scr,click,s_m_o_f):
 		mouse_pos = pygame.mouse.get_pos()
 		if self.rect.collidepoint(mouse_pos):
+			self.collide = True
 			self.index += self.speed
 			if int(self.index) > len(self.button_img)-1:
 				self.index = len(self.button_img)-1
@@ -19,6 +21,7 @@ class A_Button():
 				self.cmd()
 				s_m_o_f()
 		elif not self.rect.collidepoint(mouse_pos):
+			self.collide = False
 			self.index -= self.speed
 			if int(self.index) < 0:
 				self.index = 0
@@ -27,6 +30,9 @@ class A_Button():
 
 	def set_index(self,index):
 		self.index = index
+
+	def get_collide(self):
+		return self.collide
 
 class N_Button():
 	def __init__(self,btn_img,btn_img_hover,pos,cmd):
@@ -46,5 +52,11 @@ class N_Button():
 			self.index = 0
 
 		scr.blit(self.button[self.index],self.rect)
+
+
+def show_label(scr,text,font,color,center_pos):
+	img = font.render(text, True, color)
+	rect = img.get_rect(center = center_pos)
+	scr.blit(img,rect)
 
 		

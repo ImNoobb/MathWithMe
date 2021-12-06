@@ -191,6 +191,7 @@ def s_m_o_f():     #
 ####################
 running = True
 #pygame.mouse.set_pos((1280/2,720/2))
+font = pygame.font.Font('assets\\arial.TTF',20)
 # ===================================================== #
 while running:
 	if pygame.mouse.get_pressed()[0] and can_c:
@@ -207,6 +208,15 @@ while running:
 		lop9_button.run(screen,click,s_m_o_f)
 		back_button_to_start.run(screen,click,s_m_o_f)
 		setting_button.run(screen,click,s_m_o_f)
+
+		if lop6_button.get_collide():
+			show_label(screen,'Học chương trình lớp 6',font,(0,0,0),(1280/2,700))
+		if lop7_button.get_collide():
+			show_label(screen,'Học chương trình lớp 7',font,(0,0,0),(1280/2,700))
+		if lop8_button.get_collide():
+			show_label(screen,'Học chương trình lớp 8',font,(0,0,0),(1280/2,700))
+		if lop9_button.get_collide():
+			show_label(screen,'Học chương trình lớp 9',font,(0,0,0),(1280/2,700))
 	elif lop6:
 		if lop6_Dai_I:
 			pass
