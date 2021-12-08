@@ -53,6 +53,8 @@ class N_Button():
 
 		scr.blit(self.button[self.index],self.rect)
 
+	def change_cmd(self,cmd):
+		self.cmd = cmd
 
 def show_label(scr,text,font,color,center_pos):
 	img = font.render(text, True, color)
