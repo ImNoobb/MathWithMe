@@ -1,17 +1,23 @@
 import pygame
 from pygame.locals import *
 from assets.CND import *
-
+from assets.lop_import import *
 
 pygame.init()
-screen = pygame.display.set_mode((1280,720),pygame.NOFRAME)
+screen = pygame.display.set_mode((1280,720))#,pygame.NOFRAME)
 pygame.display.set_caption('MathWithMe!')
 clock = pygame.time.Clock()
+scroll_y  = 0
 def check_quit():
-	global running
+	global running,scroll_y
 	for event in pygame.event.get():
 		if event.type == QUIT:
 			running = False
+		if event.type == MOUSEBUTTONDOWN:
+			if event.button ==4:
+				scroll_y += 30
+			elif event.button == 5:
+				scroll_y -= 30
 
 # Pages Varibles ================================================================= #
 start = True
@@ -21,12 +27,9 @@ lop6 = False
 lop6_Dai_I = False
 lop6_Dai_II = False
 lop6_Dai_III = False
-lop6_Dai_IV = False
 
 lop6_Hinh_I = False
 lop6_Hinh_II = False
-lop6_Hinh_III = False
-lop6_Hinh_IV = False
 
 
 lop7 = False
@@ -69,14 +72,12 @@ def close_func():
 def minimize_func():
 	pygame.display.iconify()
 
-tile_bg = pygame.image.load('assets\\backgrounds\\tile_menu.png').convert_alpha()
-
 close_img = pygame.image.load('assets\\buttons\\X_Button.png').convert_alpha()
 close_img_1 = pygame.image.load('assets\\buttons\\X_Button_2.png').convert_alpha()
 minimize_img = pygame.image.load('assets\\buttons\\minimize.png').convert_alpha()
 minimize_img_1 = pygame.image.load('assets\\buttons\\minimize_2.png').convert_alpha()
-close_button = N_Button(close_img,close_img_1,(640+3,2),close_func)
-minimize_button = N_Button(minimize_img,minimize_img_1,(640-32-3,2),minimize_func)
+close_button = N_Button(close_img,close_img_1,(1238,2),close_func)
+minimize_button = N_Button(minimize_img,minimize_img_1,(1188,2),minimize_func)
 # Start Buttons ================================================================== #
 def start_cmd():
 	global start,select_class
@@ -104,6 +105,10 @@ def lop6_cmd():
 	select_class = False
 	Chuong_I_Dai_Button.change_cmd(lambda:Chuong_I_cmd(6,'dai'))
 	Chuong_I_Hinh_Button.change_cmd(lambda: Chuong_I_cmd(6,'hinh'))
+	Chuong_II_Dai_Button.change_cmd(lambda:Chuong_II_cmd(6,'dai'))
+	Chuong_II_Hinh_Button.change_cmd(lambda: Chuong_II_cmd(6,'hinh'))
+	Chuong_III_Dai_Button.change_cmd(lambda:Chuong_III_cmd(6,'dai'))
+
 
 lop6_1 = pygame.image.load('assets\\buttons\\lop6_1.png').convert_alpha()
 lop6_2 = pygame.image.load('assets\\buttons\\lop6_2.png').convert_alpha()
@@ -120,6 +125,12 @@ def lop7_cmd():
 	select_class = False
 	Chuong_I_Dai_Button.change_cmd(lambda:Chuong_I_cmd(7,'dai'))
 	Chuong_I_Hinh_Button.change_cmd(lambda: Chuong_I_cmd(7,'hinh'))
+	Chuong_II_Dai_Button.change_cmd(lambda:Chuong_II_cmd(7,'dai'))
+	Chuong_II_Hinh_Button.change_cmd(lambda: Chuong_II_cmd(7,'hinh'))
+	Chuong_III_Dai_Button.change_cmd(lambda:Chuong_II_cmd(7,'dai'))
+	Chuong_III_Hinh_Button.change_cmd(lambda: Chuong_II_cmd(7,'hinh'))
+	Chuong_IV_Dai_Button.change_cmd(lambda:Chuong_II_cmd(7,'dai'))
+	Chuong_IV_Hinh_Button.change_cmd(lambda: Chuong_II_cmd(7,'hinh'))
 
 lop7_1 = pygame.image.load('assets\\buttons\\lop7_1.png').convert_alpha()
 lop7_2 = pygame.image.load('assets\\buttons\\lop7_2.png').convert_alpha()
@@ -136,6 +147,12 @@ def lop8_cmd():
 	select_class = False
 	Chuong_I_Dai_Button.change_cmd(lambda:Chuong_I_cmd(8,'dai'))
 	Chuong_I_Hinh_Button.change_cmd(lambda: Chuong_I_cmd(8,'hinh'))
+	Chuong_II_Dai_Button.change_cmd(lambda:Chuong_II_cmd(8,'dai'))
+	Chuong_II_Hinh_Button.change_cmd(lambda: Chuong_II_cmd(8,'hinh'))
+	Chuong_III_Dai_Button.change_cmd(lambda:Chuong_II_cmd(8,'dai'))
+	Chuong_III_Hinh_Button.change_cmd(lambda: Chuong_II_cmd(8,'hinh'))
+	Chuong_IV_Dai_Button.change_cmd(lambda:Chuong_II_cmd(8,'dai'))
+	Chuong_IV_Hinh_Button.change_cmd(lambda: Chuong_II_cmd(8,'hinh'))
 
 lop8_1 = pygame.image.load('assets\\buttons\\lop8_1.png').convert_alpha()
 lop8_2 = pygame.image.load('assets\\buttons\\lop8_2.png').convert_alpha()
@@ -152,6 +169,12 @@ def lop9_cmd():
 	select_class = False
 	Chuong_I_Dai_Button.change_cmd(lambda:Chuong_I_cmd(9,'dai'))
 	Chuong_I_Hinh_Button.change_cmd(lambda: Chuong_I_cmd(9,'hinh'))
+	Chuong_II_Dai_Button.change_cmd(lambda:Chuong_II_cmd(9,'dai'))
+	Chuong_II_Hinh_Button.change_cmd(lambda: Chuong_II_cmd(9,'hinh'))
+	Chuong_III_Dai_Button.change_cmd(lambda:Chuong_II_cmd(9,'dai'))
+	Chuong_III_Hinh_Button.change_cmd(lambda: Chuong_II_cmd(9,'hinh'))
+	Chuong_IV_Dai_Button.change_cmd(lambda:Chuong_II_cmd(9,'dai'))
+	Chuong_IV_Hinh_Button.change_cmd(lambda: Chuong_II_cmd(9,'hinh'))
 
 lop9_1 = pygame.image.load('assets\\buttons\\lop9_1.png').convert_alpha()
 lop9_2 = pygame.image.load('assets\\buttons\\lop9_2.png').convert_alpha()
@@ -219,6 +242,91 @@ chuong_I_2 = pygame.image.load('assets\\buttons\\chuong_I_2.png').convert_alpha(
 
 Chuong_I_Dai_Button = N_Button(chuong_I_1,chuong_I_2,(76,252),lambda: Chuong_I_cmd(6,'dai'))
 Chuong_I_Hinh_Button = N_Button(chuong_I_1,chuong_I_2,(82,497),lambda: Chuong_I_cmd(6,'hinh'))
+# Chuong II Button ================================================================= #
+def Chuong_II_cmd(lop,which):
+	global lop6_Dai_II,lop7_Dai_II,lop8_Dai_II,lop9_Dai_II,lop6_Hinh_II,lop7_Hinh_II,lop8_Hinh_II,lop9_Hinh_II,lop6,lop7,lop8,lop9
+	if which == 'dai':
+		if lop == 6:
+			lop6_Dai_II = True
+		elif lop == 7:
+			lop7_Dai_II = True
+		elif lop == 8:
+			lop8_Dai_II = True
+		elif lop == 9:
+			lop9_Dai_II = True
+	elif which == 'hinh':
+		if lop == 6:
+			lop6_Hinh_II = True
+		elif lop == 7:
+			lop7_Hinh_II = True
+		elif lop == 8:
+			lop8_Hinh_II = True
+		elif lop == 9:
+			lop9_Hinh_II = True
+
+
+chuong_II_1 = pygame.image.load('assets\\buttons\\chuong_II_1.png').convert_alpha()
+chuong_II_2 = pygame.image.load('assets\\buttons\\chuong_II_2.png').convert_alpha()
+
+Chuong_II_Dai_Button = N_Button(chuong_II_1,chuong_II_2,(238,252),lambda: Chuong_II_cmd(6,'dai'))
+Chuong_II_Hinh_Button = N_Button(chuong_II_1,chuong_II_2,(243,497),lambda: Chuong_II_cmd(6,'hinh'))
+# Chuong III Button ================================================================= #
+def Chuong_III_cmd(lop,which):
+	global lop6_Dai_III,lop7_Dai_III,lop8_Dai_III,lop9_Dai_III,lop6_Hinh_III,lop7_Hinh_III,lop8_Hinh_III,lop9_Hinh_III,lop6,lop7,lop8,lop9
+	if which == 'dai':
+		if lop == 6:
+			lop6_Dai_III = True
+		elif lop == 7:
+			lop7_Dai_III = True
+		elif lop == 8:
+			lop8_Dai_III = True
+		elif lop == 9:
+			lop9_Dai_III = True
+	elif which == 'hinh':
+		if lop == 6:
+			lop6_Hinh_III = True
+		elif lop == 7:
+			lop7_Hinh_III = True
+		elif lop == 8:
+			lop8_Hinh_III = True
+		elif lop == 9:
+			lop9_Hinh_III = True
+
+
+chuong_III_1 = pygame.image.load('assets\\buttons\\chuong_III_1.png').convert_alpha()
+chuong_III_2 = pygame.image.load('assets\\buttons\\chuong_III_2.png').convert_alpha()
+
+Chuong_III_Dai_Button = N_Button(chuong_III_1,chuong_III_2,(76,317),lambda: Chuong_III_cmd(6,'dai'))
+Chuong_III_Hinh_Button = N_Button(chuong_III_1,chuong_III_2,(81,560),lambda: Chuong_III_cmd(6,'hinh'))
+# Chuong IV Button ================================================================= #
+def Chuong_IV_cmd(lop,which):
+	global lop6_Dai_IV,lop7_Dai_IV,lop8_Dai_IV,lop9_Dai_IV,lop6_Hinh_IV,lop7_Hinh_IV,lop8_Hinh_IV,lop9_Hinh_IV,lop6,lop7,lop8,lop9
+	if which == 'dai':
+		if lop == 6:
+			lop6_Dai_IV = True
+		elif lop == 7:
+			lop7_Dai_IV = True
+		elif lop == 8:
+			lop8_Dai_IV = True
+		elif lop == 9:
+			lop9_Dai_IV = True
+	elif which == 'hinh':
+		if lop == 6:
+			lop6_Hinh_IV = True
+		elif lop == 7:
+			lop7_Hinh_IV = True
+		elif lop == 8:
+			lop8_Hinh_IV = True
+		elif lop == 9:
+			lop9_Hinh_IV = True
+
+
+chuong_IV_1 = pygame.image.load('assets\\buttons\\chuong_IV_1.png').convert_alpha()
+chuong_IV_2 = pygame.image.load('assets\\buttons\\chuong_IV_2.png').convert_alpha()
+
+Chuong_IV_Dai_Button = N_Button(chuong_IV_1,chuong_IV_2,(238,317),lambda: Chuong_IV_cmd(6,'dai'))
+Chuong_IV_Hinh_Button = N_Button(chuong_IV_1,chuong_IV_2,(243,560),lambda: Chuong_IV_cmd(6,'hinh'))
+
 # Settings Button ================================================================= #
 def settings_cmd():
 	global setting,select_class
@@ -234,12 +342,157 @@ setting_6 = pygame.image.load('assets\\buttons\\settings_6.png').convert_alpha()
 
 setting_list = [setting_1,setting_2,setting_3,setting_4,setting_5,setting_6]
 setting_button = A_Button(setting_list,0.5,(1280-205,720-155),settings_cmd)
+# Back to lop 6 =================================================================== #
+def back_6():
+	global lop6,lop6_Dai_I,lop6_Dai_II,lop6_Dai_III,lop6_Hinh_I,lop6_Hinh_II
+	lop6_Dai_I = False
+	lop6_Dai_II = False
+	lop6_Dai_III = False
+	lop6_Hinh_I = False
+	lop6_Hinh_II = False
+back_button_to_l6 = N_Button(back1,back2,(0,0),back_6)
+
+def back___():
+	global baigiang_running
+	baigiang_running = False
+back_to_class = N_Button(back1, back2, (0,0), back___)
+
+class_button_img = []
+for i in range(19):
+	temp = pygame.image.load(f'assets\\buttons\\bai{i+1}_1.png').convert_alpha()
+	temp2 = pygame.image.load(f'assets\\buttons\\bai{i+1}_2.png').convert_alpha()
+	class_button_img.append([temp,temp2])
+
+# Bai 6 Buttons === #
+def l6_screen_display_dai_I(bai):
+	global scroll_y,running,baigiang_running
+	screen.fill((255,255,255))
+	if scroll_y>0:
+		scroll_y = 0
+	elif scroll_y<720-lop6_dai_I[0][bai].get_height():
+		scroll_y = 720-lop6_dai_I[0][bai].get_height()
+	screen.blit(lop6_dai_I[0][bai],(200,scroll_y))
+	back_to_class.run(screen,click,s_m_o_f)
+	pygame.display.update()
+	clock.tick(60)
+	for event in pygame.event.get():
+		if event.type == MOUSEBUTTONDOWN:
+			if event.button == 4:
+				scroll_y += 40
+			elif event.button == 5:
+				scroll_y -= 40
+		if event.type == QUIT:
+			quit()
+
+def lop6_bai(bai,chuong):
+	global scroll_y,running,baigiang_running
+	baigiang_running = True
+	if chuong == 'daiI':
+		scroll_y = 0
+		while baigiang_running:
+			l6_screen_display_dai_I(bai)
+
+				
+
+lop6_buttons_Dai_I = []
+for i in range(1,19):
+	if i<=5:
+		posX = 100+(i-1)*230
+		posY = 100
+	elif i<=10:
+		posX = 100+(i-6)*230
+		posY = 225
+	elif i<=15:
+		posX = 100+(i-11)*230
+		posY = 350
+	else:
+		posX = 100+(i-16)*230
+		posY = 475
+
+	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop6_bai(i,'daiI'))
+	lop6_buttons_Dai_I.append(temp)
+
+
+lop6_buttons_Dai_II = []
+for i in range(1,14):
+	if i<=5:
+		posX = 100+(i-1)*230
+		posY = 100
+	elif i<=10:
+		posX = 100+(i-6)*230
+		posY = 225
+	elif i<=15:
+		posX = 100+(i-11)*230
+		posY = 350
+	else:
+		posX = 100+(i-16)*230
+		posY = 475
+
+	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop6_bai(i,'daiII'))
+	lop6_buttons_Dai_II.append(temp)
+
+
+lop6_buttons_Dai_III = []
+for i in range(1,18):
+	if i<=5:
+		posX = 100+(i-1)*230
+		posY = 100
+	elif i<=10:
+		posX = 100+(i-6)*230
+		posY = 225
+	elif i<=15:
+		posX = 100+(i-11)*230
+		posY = 350
+	else:
+		posX = 100+(i-16)*230
+		posY = 475
+
+	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop6_bai(i,'daiIII'))
+	lop6_buttons_Dai_III.append(temp)
+
+
+lop6_buttons_Hinh_I = []
+for i in range(1,11):
+	if i<=5:
+		posX = 100+(i-1)*230
+		posY = 100
+	elif i<=10:
+		posX = 100+(i-6)*230
+		posY = 225
+	elif i<=15:
+		posX = 100+(i-11)*230
+		posY = 350
+	else:
+		posX = 100+(i-16)*230
+		posY = 475
+
+	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop6_bai(i,'hinhI'))
+	lop6_buttons_Hinh_I.append(temp)
+
+lop6_buttons_Hinh_II = []
+for i in range(1,10):
+	if i<=5:
+		posX = 100+(i-1)*230
+		posY = 100
+	elif i<=10:
+		posX = 100+(i-6)*230
+		posY = 225
+	elif i<=15:
+		posX = 100+(i-11)*230
+		posY = 350
+	else:
+		posX = 100+(i-16)*230
+		posY = 475
+
+	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop6_bai(i,'hinhI'))
+	lop6_buttons_Hinh_II.append(temp)
 # BackGrounds ===================================================================== #
 lop6_bg = pygame.image.load('assets\\backgrounds\\lop6_bg.png').convert()
 lop7_bg = pygame.image.load('assets\\backgrounds\\lop7_bg.png').convert()
 lop8_bg = pygame.image.load('assets\\backgrounds\\lop8_bg.png').convert()
 lop9_bg = pygame.image.load('assets\\backgrounds\\lop9_bg.png').convert()
 start_bg = pygame.image.load('assets\\backgrounds\\start_bg.jpg').convert()
+choose_class_bg = pygame.image.load('assets\\backgrounds\\choose_class_bg.jpg')
 ####################
 click = False      #
 can_c = True       #
@@ -277,40 +530,96 @@ while running:
 			show_label(screen,'Học chương trình lớp 9',font,(0,0,0),(1280/2,700))
 	elif lop6:
 		if lop6_Dai_I:
-			pass
+			screen.blit(choose_class_bg,(-10,-10))
+			back_button_to_l6.run(screen,click,s_m_o_f)
+			for i in range(18):
+				lop6_buttons_Dai_I[i].run(screen,click,s_m_o_f)
+				if lop6_buttons_Dai_I[i].get_collide():
+					if i == 0:
+						show_label(screen,'Bài 1: TẬP HỢP, PHẦN TỬ CỦA TẬP HỢP',font,(0,0,0),(640,630))
+					elif i == 1:
+						show_label(screen,'Bài 2: TẬP HỢP CÁC SỐ TỰ NHIÊN',font,(0,0,0),(640,630))
+					elif i == 2:
+						show_label(screen,'Bài 3: GHI SỐ TỰ NHIÊN',font,(0,0,0),(640,630))
+					elif i == 3:
+						show_label(screen,'Bài 4: SỐ PHẦN TỬ CỦA TẬP HỢP. TẬP HỢP CON',font,(0,0,0),(640,630))
+					elif i == 4:
+						show_label(screen,'Bài 5: PHÉP CỘNG VÀ PHÉP NHÂN',font,(0,0,0),(640,630))
+					elif i == 5:
+						show_label(screen,'Bài 6: PHÉP TRỪ VÀ PHÉP CHIA',font,(0,0,0),(640,630))
+					elif i == 6:
+						show_label(screen,'Bài 7: LŨY THỪA VỚI SỐ MŨ TỰ NHIÊN. NHÂN HAI LŨY THỪA CÙNG CƠ SỐ',font,(0,0,0),(640,630))
+					elif i == 7:
+						show_label(screen,'Bài 8: CHIA LŨY THỪA CÙNG CƠ SỐ',font,(0,0,0),(640,630))
+					elif i == 8:
+						show_label(screen,'Bài 9: THỨ TỰ THỰC HIỆN CÁC PHÉP TÍNH',font,(0,0,0),(640,630))
+					elif i == 9:
+						show_label(screen,'Bài 10: TÍNH CHẤT CHIA HẾT CỦA MỘT TỔNG',font,(0,0,0),(640,630))
+					elif i == 10:
+						show_label(screen,f'Bài {i+1}: DẤU HIỆU CHIA HẾT CHO 2, CHO 5',font,(0,0,0),(640,630))
+					elif i == 11:
+						show_label(screen,f'Bài {i+1}: DẤU HIỆU CHIA HẾT CHO 3, CHO 9',font,(0,0,0),(640,630))
+					elif i == 12:
+						show_label(screen,f'Bài {i+1}: ƯỚC VÀ BỘI',font,(0,0,0),(640,630))
+					elif i == 13:
+						show_label(screen,f'Bài {i+1}: SỐ NGUYÊN TỐ. HỢP SỐ. BẢNG SỐ NGUYÊN TỐ',font,(0,0,0),(640,630))
+					elif i == 14:
+						show_label(screen,f'Bài {i+1}: PHÂN TÍCH RA THỪA SỐ NGUYÊN TỐ',font,(0,0,0),(640,630))
+					elif i == 15:
+						show_label(screen,f'Bài {i+1}: ƯỚC CHUNG VÀ BỘI CHUNG',font,(0,0,0),(640,630))
+					elif i == 16:
+						show_label(screen,f'Bài {i+1}: ƯỚC CHUNG LỚN NHẤT',font,(0,0,0),(640,630))
+					elif i == 17:
+						show_label(screen,f'Bài {i+1}: BỘI CHUNG NHỎ NHẤT',font,(0,0,0),(640,630))
+
 		elif lop6_Dai_II:
-			pass
+			screen.blit(choose_class_bg,(-10,-10))
+			back_button_to_l6.run(screen,click,s_m_o_f)
+			for i in range(13):
+				lop6_buttons_Dai_II[i].run(screen,click,s_m_o_f)
+
 		elif lop6_Dai_III:
-			pass
-		elif lop6_Dai_IV:
-			pass
+			screen.blit(choose_class_bg,(-10,-10))
+			back_button_to_l6.run(screen,click,s_m_o_f)
+			for i in range(17):
+				lop6_buttons_Dai_III[i].run(screen,click,s_m_o_f)
+
 		elif lop6_Hinh_I:
-			pass
+			screen.blit(choose_class_bg,(-10,-10))
+			back_button_to_l6.run(screen,click,s_m_o_f)
+			for i in range(10):
+				lop6_buttons_Hinh_I[i].run(screen,click,s_m_o_f)
+
 		elif lop6_Hinh_II:
-			pass
-		elif lop6_Hinh_III:
-			pass
-		elif lop6_Hinh_IV:
-			pass
+			screen.blit(choose_class_bg,(-10,-10))
+			back_button_to_l6.run(screen,click,s_m_o_f)
+			for i in range(9):
+				lop6_buttons_Hinh_II[i].run(screen,click,s_m_o_f)
+
 		else:
 			screen.blit(lop6_bg,(0,0))
 			back_button_to_sc6.run(screen,click,s_m_o_f)
 			Chuong_I_Dai_Button.run(screen,click,s_m_o_f)
 			Chuong_I_Hinh_Button.run(screen,click,s_m_o_f)
 
+			Chuong_II_Dai_Button.run(screen,click,s_m_o_f)
+			Chuong_II_Hinh_Button.run(screen,click,s_m_o_f)
+
+			Chuong_III_Dai_Button.run(screen,click,s_m_o_f)
+
 	elif lop7:
 		if lop7_Dai_I:
-			pass
+			print('lop7_Dai_I')
 		elif lop7_Dai_II:
-			pass
+			print('lop7_Dai_II')
 		elif lop7_Dai_III:
 			pass
 		elif lop7_Dai_IV:
 			pass
 		elif lop7_Hinh_I:
-			pass
+			print('lop7_I')
 		elif lop7_Hinh_II:
-			pass
+			print('lop7_II')
 		elif lop7_Hinh_III:
 			pass
 		elif lop7_Hinh_IV:
@@ -320,19 +629,28 @@ while running:
 			back_button_to_sc7.run(screen,click,s_m_o_f)
 			Chuong_I_Dai_Button.run(screen,click,s_m_o_f)
 			Chuong_I_Hinh_Button.run(screen,click,s_m_o_f)
+
+			Chuong_II_Dai_Button.run(screen,click,s_m_o_f)
+			Chuong_II_Hinh_Button.run(screen,click,s_m_o_f)
+
+			Chuong_III_Dai_Button.run(screen,click,s_m_o_f)
+			Chuong_III_Hinh_Button.run(screen,click,s_m_o_f)
+
+			Chuong_IV_Dai_Button.run(screen,click,s_m_o_f)
+			Chuong_IV_Hinh_Button.run(screen,click,s_m_o_f)
 	elif lop8:
 		if lop8_Dai_I:
-			pass
+			print('lop8_Dai_I')
 		elif lop8_Dai_II:
-			pass
+			print('lop8_Dai_II')
 		elif lop8_Dai_III:
 			pass
 		elif lop8_Dai_IV:
 			pass
 		elif lop8_Hinh_I:
-			pass
+			print('lop8I')
 		elif lop8_Hinh_II:
-			pass
+			print('lop8II')
 		elif lop8_Hinh_III:
 			pass
 		elif lop8_Hinh_IV:
@@ -342,19 +660,28 @@ while running:
 			back_button_to_sc8.run(screen,click,s_m_o_f)
 			Chuong_I_Dai_Button.run(screen,click,s_m_o_f)
 			Chuong_I_Hinh_Button.run(screen,click,s_m_o_f)
+
+			Chuong_II_Dai_Button.run(screen,click,s_m_o_f)
+			Chuong_II_Hinh_Button.run(screen,click,s_m_o_f)
+
+			Chuong_III_Dai_Button.run(screen,click,s_m_o_f)
+			Chuong_III_Hinh_Button.run(screen,click,s_m_o_f)
+
+			Chuong_IV_Dai_Button.run(screen,click,s_m_o_f)
+			Chuong_IV_Hinh_Button.run(screen,click,s_m_o_f)
 	elif lop9:
 		if lop9_Dai_I:
-			pass
+			print('lop9_Dai_I')
 		elif lop9_Dai_II:
-			pass
+			print('lop9_Dai_II')
 		elif lop9_Dai_III:
 			pass
 		elif lop9_Dai_IV:
 			pass
 		elif lop9_Hinh_I:
-			pass
+			print('lop9_I')
 		elif lop9_Hinh_II:
-			pass
+			print('lop9II')
 		elif lop9_Hinh_III:
 			pass
 		elif lop9_Hinh_IV:
@@ -364,19 +691,30 @@ while running:
 			back_button_to_sc9.run(screen,click,s_m_o_f)
 			Chuong_I_Dai_Button.run(screen,click,s_m_o_f)
 			Chuong_I_Hinh_Button.run(screen,click,s_m_o_f)
+
+			Chuong_II_Dai_Button.run(screen,click,s_m_o_f)
+			Chuong_II_Hinh_Button.run(screen,click,s_m_o_f)
+
+			Chuong_III_Dai_Button.run(screen,click,s_m_o_f)
+			Chuong_III_Hinh_Button.run(screen,click,s_m_o_f)
+
+			Chuong_IV_Dai_Button.run(screen,click,s_m_o_f)
+			Chuong_IV_Hinh_Button.run(screen,click,s_m_o_f)
 	elif setting:
 		screen.fill((255,255,255))
 		back_button_to_sc.run(screen,click,s_m_o_f)
 
 
-	screen.blit(tile_bg,(640-48,0))
 	close_button.run(screen,click,s_m_o_f)
 	minimize_button.run(screen,click,s_m_o_f)
 
 
 	if pygame.mouse.get_pressed()[0] == False and can_c==False:
-			can_c = True
+		can_c = True
+
+
 	pygame.display.update()
 	clock.tick(60)
 	check_quit()
+
 
