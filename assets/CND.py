@@ -40,21 +40,30 @@ class N_Button():
 		self.rect = self.button[0].get_rect(topleft=pos)
 		self.cmd = cmd
 		self.index = 0
+		self.col = False
 
 	def run(self,scr,click,s_m_o_f):
 		mouse_pos = pygame.mouse.get_pos()
 		if self.rect.collidepoint(mouse_pos):
+			self.col = True
 			self.index = 1
 			if click and pygame.mouse.get_pressed()[0]:
 				self.cmd()
 				s_m_o_f()
 		else:
 			self.index = 0
+			self.col = False
 
 		scr.blit(self.button[self.index],self.rect)
 
 	def change_cmd(self,cmd):
 		self.cmd = cmd
+
+	def get_collide(self):
+		return self.col
+
+	def get_cmd(self):
+		return self.cmd
 
 def show_label(scr,text,font,color,center_pos):
 	img = font.render(text, True, color)
