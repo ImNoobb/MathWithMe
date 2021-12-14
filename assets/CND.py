@@ -70,4 +70,9 @@ def show_label(scr,text,font,color,center_pos):
 	rect = img.get_rect(center = center_pos)
 	scr.blit(img,rect)
 
+class TC_X_O():
+	def __init__(self):
+		self.running = True
+		self.turn = 'player'
+		self.bg = pygame.image.load('assets\\backgrounds\\X_O_bg.png').convert()
 		
