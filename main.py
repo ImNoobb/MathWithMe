@@ -127,10 +127,10 @@ def lop7_cmd():
 	Chuong_I_Hinh_Button.change_cmd(lambda: Chuong_I_cmd(7,'hinh'))
 	Chuong_II_Dai_Button.change_cmd(lambda:Chuong_II_cmd(7,'dai'))
 	Chuong_II_Hinh_Button.change_cmd(lambda: Chuong_II_cmd(7,'hinh'))
-	Chuong_III_Dai_Button.change_cmd(lambda:Chuong_II_cmd(7,'dai'))
-	Chuong_III_Hinh_Button.change_cmd(lambda: Chuong_II_cmd(7,'hinh'))
-	Chuong_IV_Dai_Button.change_cmd(lambda:Chuong_II_cmd(7,'dai'))
-	Chuong_IV_Hinh_Button.change_cmd(lambda: Chuong_II_cmd(7,'hinh'))
+	Chuong_III_Dai_Button.change_cmd(lambda:Chuong_III_cmd(7,'dai'))
+	Chuong_III_Hinh_Button.change_cmd(lambda: Chuong_III_cmd(7,'hinh'))
+	Chuong_IV_Dai_Button.change_cmd(lambda:Chuong_IV_cmd(7,'dai'))
+
 
 lop7_1 = pygame.image.load('assets\\buttons\\lop7_1.png').convert_alpha()
 lop7_2 = pygame.image.load('assets\\buttons\\lop7_2.png').convert_alpha()
@@ -373,6 +373,7 @@ def l6_screen_display_dai_I(bai):
 		scroll_y = 720-lop6_dai_I[0][bai].get_height()
 	screen.blit(lop6_dai_I[0][bai],(200,scroll_y))
 	back_to_class.run(screen,click,s_m_o_f)
+	show_label(screen, 'Bản quyền thuộc về Bộ GD và ĐT', font, (255,0,0), (1100,700))
 	pygame.display.update()
 	clock.tick(60)
 	for event in pygame.event.get():
@@ -484,8 +485,191 @@ for i in range(1,10):
 		posX = 100+(i-16)*230
 		posY = 475
 
-	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop6_bai(i,'hinhI'))
+	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop6_bai(i,'hinhII'))
 	lop6_buttons_Hinh_II.append(temp)
+# Back to lop 7 =================================================================== #
+def back_7():
+	global lop7,lop7_Dai_I,lop7_Dai_II,lop7_Dai_III,lop7_Dai_IV,lop7_Hinh_I,lop7_Hinh_II,lop7_Hinh_III
+	lop7_Dai_I = False
+	lop7_Dai_II = False
+	lop7_Dai_III = False
+	lop7_Dai_IV = False
+	lop7_Hinh_I = False
+	lop7_Hinh_II = False
+	lop7_Hinh_III = False
+back_button_to_l7 = N_Button(back1,back2,(0,0),back_7)
+
+def back___():
+	global baigiang_running
+	baigiang_running = False
+back_to_class = N_Button(back1, back2, (0,0), back___)
+
+class_button_img = []
+for i in range(19):
+	temp = pygame.image.load(f'assets\\buttons\\bai{i+1}_1.png').convert_alpha()
+	temp2 = pygame.image.load(f'assets\\buttons\\bai{i+1}_2.png').convert_alpha()
+	class_button_img.append([temp,temp2])
+
+# Bai 7 Buttons === #
+def l7_screen_display_dai_I(bai):
+	global scroll_y,running,baigiang_running
+	screen.fill((255,255,255))
+	if scroll_y>0:
+		scroll_y = 0
+	elif scroll_y<720-lop7_dai_I[0][bai].get_height():
+		scroll_y = 720-lop7_dai_I[0][bai].get_height()
+	screen.blit(lop7_dai_I[0][bai],(200,scroll_y))
+	back_to_class.run(screen,click,s_m_o_f)
+	show_label(screen, 'Bản quyền thuộc về Bộ GD và ĐT', font, (255,0,0), (1100,700))
+	pygame.display.update()
+	clock.tick(60)
+	for event in pygame.event.get():
+		if event.type == MOUSEBUTTONDOWN:
+			if event.button == 4:
+				scroll_y += 40
+			elif event.button == 5:
+				scroll_y -= 40
+		if event.type == QUIT:
+			quit()
+
+def lop7_bai(bai,chuong):
+	global scroll_y,running,baigiang_running
+	baigiang_running = True
+	if chuong == 'daiI':
+		scroll_y = 0
+		while baigiang_running:
+			l7_screen_display_dai_I(bai)
+
+				
+
+lop7_buttons_Dai_I = []
+for i in range(1,13):
+	if i<=5:
+		posX = 100+(i-1)*230
+		posY = 100
+	elif i<=10:
+		posX = 100+(i-7)*230
+		posY = 225
+	elif i<=15:
+		posX = 100+(i-11)*230
+		posY = 350
+	else:
+		posX = 100+(i-17)*230
+		posY = 475
+
+	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop7_bai(i,'daiI'))
+	lop7_buttons_Dai_I.append(temp)
+
+
+lop7_buttons_Dai_II = []
+for i in range(1,8):
+	if i<=5:
+		posX = 100+(i-1)*230
+		posY = 100
+	elif i<=10:
+		posX = 100+(i-7)*230
+		posY = 225
+	elif i<=15:
+		posX = 100+(i-11)*230
+		posY = 350
+	else:
+		posX = 100+(i-17)*230
+		posY = 475
+
+	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop7_bai(i,'daiII'))
+	lop7_buttons_Dai_II.append(temp)
+
+
+lop7_buttons_Dai_III = []
+for i in range(1,5):
+	if i<=5:
+		posX = 100+(i-1)*230
+		posY = 100
+	elif i<=10:
+		posX = 100+(i-7)*230
+		posY = 225
+	elif i<=15:
+		posX = 100+(i-11)*230
+		posY = 350
+	else:
+		posX = 100+(i-17)*230
+		posY = 475
+
+	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop7_bai(i,'daiIII'))
+	lop7_buttons_Dai_III.append(temp)
+
+lop7_buttons_Dai_IV = []
+for i in range(1,10):
+	if i<=5:
+		posX = 100+(i-1)*230
+		posY = 100
+	elif i<=10:
+		posX = 100+(i-7)*230
+		posY = 225
+	elif i<=15:
+		posX = 100+(i-11)*230
+		posY = 350
+	else:
+		posX = 100+(i-17)*230
+		posY = 475
+
+	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop7_bai(i,'daiIV'))
+	lop7_buttons_Dai_IV.append(temp)
+
+
+lop7_buttons_Hinh_I = []
+for i in range(1,8):
+	if i<=5:
+		posX = 100+(i-1)*230
+		posY = 100
+	elif i<=10:
+		posX = 100+(i-7)*230
+		posY = 225
+	elif i<=15:
+		posX = 100+(i-11)*230
+		posY = 350
+	else:
+		posX = 100+(i-17)*230
+		posY = 475
+
+	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop7_bai(i,'hinhI'))
+	lop7_buttons_Hinh_I.append(temp)
+
+lop7_buttons_Hinh_II = []
+for i in range(1,10):
+	if i<=5:
+		posX = 100+(i-1)*230
+		posY = 100
+	elif i<=10:
+		posX = 100+(i-7)*230
+		posY = 225
+	elif i<=15:
+		posX = 100+(i-11)*230
+		posY = 350
+	else:
+		posX = 100+(i-17)*230
+		posY = 475
+
+	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop7_bai(i,'hinhII'))
+	lop7_buttons_Hinh_II.append(temp)
+
+lop7_buttons_Hinh_III = []
+for i in range(1,10):
+	if i<=5:
+		posX = 100+(i-1)*230
+		posY = 100
+	elif i<=10:
+		posX = 100+(i-7)*230
+		posY = 225
+	elif i<=15:
+		posX = 100+(i-11)*230
+		posY = 350
+	else:
+		posX = 100+(i-17)*230
+		posY = 475
+
+	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop7_bai(i,'hinhIII'))
+	lop7_buttons_Hinh_III.append(temp)
 # BackGrounds ===================================================================== #
 lop6_bg = pygame.image.load('assets\\backgrounds\\lop6_bg.png').convert()
 lop7_bg = pygame.image.load('assets\\backgrounds\\lop7_bg.png').convert()
@@ -577,24 +761,127 @@ while running:
 			back_button_to_l6.run(screen,click,s_m_o_f)
 			for i in range(13):
 				lop6_buttons_Dai_II[i].run(screen,click,s_m_o_f)
+				if lop6_buttons_Dai_II[i].get_collide():
+					if i == 0:
+						show_label(screen,f'Bài {i+1}: LÀM QUEN VỚI SỐ NGUYÊN ÂM',font,(0,0,0),(640,630))
+					elif i == 1:
+						show_label(screen,f'Bài {i+1}: TẬP HỢP CÁC SỐ NGUYÊN',font,(0,0,0),(640,630))
+					elif i == 2:
+						show_label(screen,f'Bài {i+1}: THỨ TỰ TRONG TẬP HỢP CÁC SỐ NGUYÊN',font,(0,0,0),(640,630))
+					elif i == 3:
+						show_label(screen,f'Bài {i+1}: CỘNG HAI SỐ NGUYÊN CÙNG DẤU',font,(0,0,0),(640,630))
+					elif i == 4:
+						show_label(screen,f'Bài {i+1}: CỘNG HAI SỐ NGUYÊN KHÁC DẤU',font,(0,0,0),(640,630))
+					elif i == 5:
+						show_label(screen,f'Bài {i+1}: TÍNH CHẤT CỦA PHÉP CỘNG CÁC SỐ NGUYÊN',font,(0,0,0),(640,630))
+					elif i == 6:
+						show_label(screen,f'Bài {i+1}: PHÉP TRỪ HAI SỐ NGUYÊN',font,(0,0,0),(640,630))
+					elif i == 7:
+						show_label(screen,f'Bài {i+1}: QUY TẮC DẤU NGOẶC',font,(0,0,0),(640,630))
+					elif i == 8:
+						show_label(screen,f'Bài {i+1}: QUY TẮC CHUYỂN VẾ',font,(0,0,0),(640,630))
+					elif i == 9:
+						show_label(screen,f'Bài {i+1}: NHÂN HAI SỐ NGUYÊN KHÁC DẤU',font,(0,0,0),(640,630))
+					elif i == 10:
+						show_label(screen,f'Bài {i+1}: NHÂN HAI SÔ NGUYÊN CÙNG DẤU',font,(0,0,0),(640,630))
+					elif i == 11:
+						show_label(screen,f'Bài {i+1}: TÍNH CHẤT CỦA PHÉP NHÂN',font,(0,0,0),(640,630))
+					elif i == 12:
+						show_label(screen,f'Bài {i+1}: BỘI VÀ ƯỚC CỦA MỘT SỐ NGUYÊN',font,(0,0,0),(640,630))
 
 		elif lop6_Dai_III:
 			screen.blit(choose_class_bg,(-10,-10))
 			back_button_to_l6.run(screen,click,s_m_o_f)
 			for i in range(17):
 				lop6_buttons_Dai_III[i].run(screen,click,s_m_o_f)
+				if lop6_buttons_Dai_III[i].get_collide():
+					if i == 0:
+						show_label(screen,f'Bài {i+1}: MỞ RỘNG KHÁI NIỆM PHÂN SỐ',font,(0,0,0),(640,630))
+					elif i == 1:
+						show_label(screen,f'Bài {i+1}: PHÂN SỐ BẰNG NHAU',font,(0,0,0),(640,630))
+					elif i == 2:
+						show_label(screen,f'Bài {i+1}: TÍNH CHẤT CƠ BẢN CỦA PHÂN SỐ',font,(0,0,0),(640,630))
+					elif i == 3:
+						show_label(screen,f'Bài {i+1}: RÚT GỌN PHÂN SỐ',font,(0,0,0),(640,630))
+					elif i == 4:
+						show_label(screen,f'Bài {i+1}: QUY ĐỒNG MẪU NHIỀU PHÂN SỐ',font,(0,0,0),(640,630))
+					elif i == 5:
+						show_label(screen,f'Bài {i+1}: SO SÁNH PHÂN SỐ',font,(0,0,0),(640,630))
+					elif i == 6:
+						show_label(screen,f'Bài {i+1}: PHÉP CỘNG PHÂN SỐ',font,(0,0,0),(640,630))
+					elif i == 7:
+						show_label(screen,f'Bài {i+1}: TÍNH CHẤT CƠ BẢN CỦA PHÉP CỘNG PHÂN SỐ',font,(0,0,0),(640,630))
+					elif i == 8:
+						show_label(screen,f'Bài {i+1}: PHÉP TRỪ PHÂN SỐ',font,(0,0,0),(640,630))
+					elif i == 9:
+						show_label(screen,f'Bài {i+1}: PHÉP NHÂN PHÂN SỐ',font,(0,0,0),(640,630))
+					elif i == 10:
+						show_label(screen,f'Bài {i+1}: TÍNH CHẤT CƠ BẢN CỦA PHÉP NHÂN PHÂN SỐ',font,(0,0,0),(640,630))
+					elif i == 11:
+						show_label(screen,f'Bài {i+1}: PHÉP CHIA PHÂN SỐ',font,(0,0,0),(640,630))
+					elif i == 12:
+						show_label(screen,f'Bài {i+1}: HỖN SỐ. SỐ THẬP PHÂN. PHẦN TRĂM',font,(0,0,0),(640,630))
+					elif i == 13:
+						show_label(screen,f'Bài {i+1}: TÌM GIÁ TRỊ PHÂN SỐ CỦA MỘT SỐ CHO TRƯỚC',font,(0,0,0),(640,630))
+					elif i == 14:
+						show_label(screen,f'Bài {i+1}: TÌM MỘT SỐ BIẾT GIÁ TRỊ CỦA MỘT PHÂN SỐ CỦA NÓ',font,(0,0,0),(640,630))
+					elif i == 15:
+						show_label(screen,f'Bài {i+1}: TÌM TỈ SỐ CỦA HAI SỐ',font,(0,0,0),(640,630))
+					elif i == 16:
+						show_label(screen,f'Bài {i+1}: BIỂU ĐỒ PHẦN TRĂM',font,(0,0,0),(640,630))
 
 		elif lop6_Hinh_I:
 			screen.blit(choose_class_bg,(-10,-10))
 			back_button_to_l6.run(screen,click,s_m_o_f)
 			for i in range(10):
 				lop6_buttons_Hinh_I[i].run(screen,click,s_m_o_f)
+				if lop6_buttons_Hinh_I[i].get_collide():
+					if i == 0:
+						show_label(screen,f'Bài {i+1}: ĐIỂM. ĐƯỜNG THẰNG',font,(0,0,0),(640,630))
+					elif i == 1:
+						show_label(screen,f'Bài {i+1}: BA ĐIỂM THẰNG HÀNG',font,(0,0,0),(640,630))
+					elif i == 2:
+						show_label(screen,f'Bài {i+1}: ĐƯỜNG THẰNG ĐI QUA HAI ĐIỂM',font,(0,0,0),(640,630))
+					elif i == 3:
+						show_label(screen,f'Bài {i+1}: THỰC HÀNH (KHÔNG CÓ LÝ THUYẾT)',font,(0,0,0),(640,630))
+					elif i == 4:
+						show_label(screen,f'Bài {i+1}: TIA',font,(0,0,0),(640,630))
+					elif i == 5:
+						show_label(screen,f'Bài {i+1}: ĐOẠN THẰNG',font,(0,0,0),(640,630))
+					elif i == 6:
+						show_label(screen,f'Bài {i+1}: ĐỘ DÀI ĐOẠN THẰNG',font,(0,0,0),(640,630))
+					elif i == 7:
+						show_label(screen,f'Bài {i+1}: KHI NÀO THÌ AM + MB = AB ?',font,(0,0,0),(640,630))
+					elif i == 8:
+						show_label(screen,f'Bài {i+1}: VẼ ĐOẠN THẲNG CHO BIẾT ĐỘ DÀI',font,(0,0,0),(640,630))
+					elif i == 9:
+						show_label(screen,f'Bài {i+1}: TRUNG ĐIỂM CỦA ĐOẠN THẲNG',font,(0,0,0),(640,630))
+					
 
 		elif lop6_Hinh_II:
 			screen.blit(choose_class_bg,(-10,-10))
 			back_button_to_l6.run(screen,click,s_m_o_f)
 			for i in range(9):
 				lop6_buttons_Hinh_II[i].run(screen,click,s_m_o_f)
+				if lop6_buttons_Hinh_II[i].get_collide():
+					if i == 0:
+						show_label(screen,f'Bài {i+1}: NỬA MẶT PHẲNG',font,(0,0,0),(640,630))
+					elif i == 1:
+						show_label(screen,f'Bài {i+1}: GÓC',font,(0,0,0),(640,630))
+					elif i == 2:
+						show_label(screen,f'Bài {i+1}: SỐ ĐO GÓC',font,(0,0,0),(640,630))
+					elif i == 3:
+						show_label(screen,f'Bài {i+1}: KHI NÀO THÌ xOy + yOz = xOz?',font,(0,0,0),(640,630))
+					elif i == 4:
+						show_label(screen,f'Bài {i+1}: VẼ GÓC CHO BIẾT SỐ ĐO',font,(0,0,0),(640,630))
+					elif i == 5:
+						show_label(screen,f'Bài {i+1}: TIA PHÂN GIÁC CỦA GÓC',font,(0,0,0),(640,630))
+					elif i == 6:
+						show_label(screen,f'Bài {i+1}: THỰC HÀNH',font,(0,0,0),(640,630))
+					elif i == 7:
+						show_label(screen,f'Bài {i+1}: ĐƯỜNG TRÒN',font,(0,0,0),(640,630))
+					elif i == 8:
+						show_label(screen,f'Bài {i+1}: TAM GIÁC',font,(0,0,0),(640,630))
 
 		else:
 			screen.blit(lop6_bg,(0,0))
@@ -609,21 +896,40 @@ while running:
 
 	elif lop7:
 		if lop7_Dai_I:
-			print('lop7_Dai_I')
+			screen.blit(choose_class_bg,(-10,-10))
+			back_button_to_l7.run(screen,click,s_m_o_f)
+			for i in range(12):
+				lop7_buttons_Dai_I[i].run(screen,click,s_m_o_f)
 		elif lop7_Dai_II:
-			print('lop7_Dai_II')
+			screen.blit(choose_class_bg,(-10,-10))
+			back_button_to_l7.run(screen,click,s_m_o_f)
+			for i in range(7):
+				lop7_buttons_Dai_II[i].run(screen,click,s_m_o_f)
 		elif lop7_Dai_III:
-			pass
+			screen.blit(choose_class_bg,(-10,-10))
+			back_button_to_l7.run(screen,click,s_m_o_f)
+			for i in range(4):
+				lop7_buttons_Dai_III[i].run(screen,click,s_m_o_f)
 		elif lop7_Dai_IV:
-			pass
+			screen.blit(choose_class_bg,(-10,-10))
+			back_button_to_l7.run(screen,click,s_m_o_f)
+			for i in range(9):
+				lop7_buttons_Dai_IV[i].run(screen,click,s_m_o_f)
 		elif lop7_Hinh_I:
-			print('lop7_I')
+			screen.blit(choose_class_bg,(-10,-10))
+			back_button_to_l7.run(screen,click,s_m_o_f)
+			for i in range(7):
+				lop7_buttons_Dai_I[i].run(screen,click,s_m_o_f)
 		elif lop7_Hinh_II:
-			print('lop7_II')
+			screen.blit(choose_class_bg,(-10,-10))
+			back_button_to_l7.run(screen,click,s_m_o_f)
+			for i in range(9):
+				lop7_buttons_Dai_I[i].run(screen,click,s_m_o_f)
 		elif lop7_Hinh_III:
-			pass
-		elif lop7_Hinh_IV:
-			pass
+			screen.blit(choose_class_bg,(-10,-10))
+			back_button_to_l7.run(screen,click,s_m_o_f)
+			for i in range(9):
+				lop7_buttons_Dai_I[i].run(screen,click,s_m_o_f)
 		else:
 			screen.blit(lop7_bg,(0,0))
 			back_button_to_sc7.run(screen,click,s_m_o_f)
@@ -637,7 +943,6 @@ while running:
 			Chuong_III_Hinh_Button.run(screen,click,s_m_o_f)
 
 			Chuong_IV_Dai_Button.run(screen,click,s_m_o_f)
-			Chuong_IV_Hinh_Button.run(screen,click,s_m_o_f)
 	elif lop8:
 		if lop8_Dai_I:
 			print('lop8_Dai_I')
