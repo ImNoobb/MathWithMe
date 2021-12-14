@@ -1,13 +1,13 @@
 import pygame
 from pygame.locals import *
 from assets.CND import *
-from assets.lop_import import *
 
 pygame.init()
 screen = pygame.display.set_mode((1280,720))#,pygame.NOFRAME)
 pygame.display.set_caption('MathWithMe!')
 clock = pygame.time.Clock()
 scroll_y  = 0
+from assets.lop_import import *
 def check_quit():
 	global running,scroll_y
 	for event in pygame.event.get():
@@ -364,14 +364,16 @@ for i in range(19):
 	class_button_img.append([temp,temp2])
 
 # Bai 6 Buttons === #
-def l6_screen_display_dai_I(bai):
+def l6_screen_display_dai(bai,y):
 	global scroll_y,running,baigiang_running
 	screen.fill((255,255,255))
-	if scroll_y>0:
+	if 720-lop6_dai[y][bai].get_height()>0:
 		scroll_y = 0
-	elif scroll_y<720-lop6_dai_I[0][bai].get_height():
-		scroll_y = 720-lop6_dai_I[0][bai].get_height()
-	screen.blit(lop6_dai_I[0][bai],(200,scroll_y))
+	elif scroll_y>0:
+		scroll_y = 0
+	elif scroll_y<720-lop6_dai[y][bai].get_height():
+		scroll_y = 720-lop6_dai[y][bai].get_height()
+	screen.blit(lop6_dai[y][bai],(200,scroll_y))
 	back_to_class.run(screen,click,s_m_o_f)
 	show_label(screen, 'Bản quyền thuộc về Bộ GD và ĐT', font, (255,0,0), (1100,700))
 	pygame.display.update()
@@ -391,7 +393,11 @@ def lop6_bai(bai,chuong):
 	if chuong == 'daiI':
 		scroll_y = 0
 		while baigiang_running:
-			l6_screen_display_dai_I(bai)
+			l6_screen_display_dai(bai,0)
+	elif chuong == 'daiII':
+		scroll_y = 0
+		while baigiang_running:
+			l6_screen_display_dai(bai,1)
 
 				
 
