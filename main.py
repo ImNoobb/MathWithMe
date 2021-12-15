@@ -367,13 +367,13 @@ for i in range(19):
 def l6_screen_display_dai(bai,y):
 	global scroll_y,running,baigiang_running
 	screen.fill((255,255,255))
-	if 720-lop6_dai[y][bai].get_height()>0:
+	if 720-lop6_baigiang[y][bai].get_height()>0:
 		scroll_y = 0
 	elif scroll_y>0:
 		scroll_y = 0
-	elif scroll_y<720-lop6_dai[y][bai].get_height():
-		scroll_y = 720-lop6_dai[y][bai].get_height()
-	screen.blit(lop6_dai[y][bai],(200,scroll_y))
+	elif scroll_y<720-lop6_baigiang[y][bai].get_height():
+		scroll_y = 720-lop6_baigiang[y][bai].get_height()
+	screen.blit(lop6_baigiang[y][bai],(200,scroll_y))
 	back_to_class.run(screen,click,s_m_o_f)
 	show_label(screen, 'Bản quyền thuộc về Bộ GD và ĐT', font, (255,0,0), (1100,700))
 	pygame.display.update()
@@ -398,6 +398,15 @@ def lop6_bai(bai,chuong):
 		scroll_y = 0
 		while baigiang_running:
 			l6_screen_display_dai(bai,1)
+	elif chuong == 'daiIII':
+		scroll_y = 0
+		while baigiang_running:
+			l6_screen_display_dai(bai,2)
+	elif chuong == 'hinhI':
+		scroll_y = 0
+		while baigiang_running:
+			l6_screen_display_dai(bai,3)
+		
 
 				
 
