@@ -700,10 +700,6 @@ for i in range(1,10):
 # X O Games Lop6 Button ========== #
 temp1 = pygame.image.load('assets\\buttons\\toanXO_1.png').convert_alpha()
 temp2 = pygame.image.load('assets\\buttons\\toanXO_2.png').convert_alpha()
-def run_game_6():
-	while 1==1:
-		X_O_Games.run6(screen,check_quit,s_m_o_f)
-X_O_play6 = N_Button(temp1,temp2,(770,252),run_game_6)
 # BackGrounds ===================================================================== #
 lop6_bg = pygame.image.load('assets\\backgrounds\\lop6_bg.png').convert()
 lop7_bg = pygame.image.load('assets\\backgrounds\\lop7_bg.png').convert()
@@ -723,7 +719,6 @@ running = True
 font = pygame.font.Font('assets\\arial.TTF',20)
 # ===================================================== #
 while running:
-	X_O_Games.update(click)
 	if pygame.mouse.get_pressed()[0] and can_c:
 			click = True
 			can_c = False
@@ -928,7 +923,6 @@ while running:
 			Chuong_II_Hinh_Button.run(screen,click,s_m_o_f)
 
 			Chuong_III_Dai_Button.run(screen,click,s_m_o_f)
-			X_O_play6.run(screen,click,s_m_o_f)
 			if Chuong_I_Dai_Button.get_collide():
 				show_label(screen,'CHƯƠNG I: ÔN TẬP VÀ BỔ TÚC KIẾN THỨC VỀ SỐ TỰ NHIÊN',font,(0,0,0),(640,630))
 			if Chuong_I_Hinh_Button.get_collide():
