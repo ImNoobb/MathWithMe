@@ -10,8 +10,6 @@ screen.blit(load_scr,(0,0))
 pygame.display.set_caption('MathWithMe!')
 icon = pygame.image.load('assets\\icon.png')
 pygame.display.set_icon(icon)
-
-
 pygame.display.update()
 clock = pygame.time.Clock()
 scroll_y  = 0
