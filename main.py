@@ -1,13 +1,22 @@
 import pygame
 from pygame.locals import *
-from assets.CND import *
+
 
 pygame.init()
 screen = pygame.display.set_mode((1280,680))#,pygame.NOFRAME)
+load_scr = pygame.image.load('assets\\backgrounds\\load_scr.png').convert()
+screen.blit(load_scr,(0,0))
+
 pygame.display.set_caption('MathWithMe!')
+icon = pygame.image.load('assets\\icon.png')
+pygame.display.set_icon(icon)
+
+
+pygame.display.update()
 clock = pygame.time.Clock()
 scroll_y  = 0
 from assets.lop_import import *
+from assets.CND import *
 def check_quit():
 	global running,scroll_y
 	for event in pygame.event.get():
@@ -375,7 +384,7 @@ def l6_screen_display_dai(bai,y):
 		scroll_y = 680-lop6_baigiang[y][bai].get_height()
 	screen.blit(lop6_baigiang[y][bai],(200,scroll_y))
 	back_to_class.run(screen,click,s_m_o_f)
-	show_label(screen, 'Bản quyền thuộc về Bộ GD và ĐT', font, (255,0,0), (1100,700))
+	show_label(screen, 'Bản quyền thuộc về Bộ GD và ĐT', font, (255,0,0), (1100,660))
 	pygame.display.update()
 	clock.tick(60)
 	for event in pygame.event.get():
@@ -529,11 +538,13 @@ for i in range(19):
 def l7_screen_display_dai_I(bai):
 	global scroll_y,running,baigiang_running
 	screen.fill((255,255,255))
-	if scroll_y>0:
+	if 720-lop7_baigiang[y][bai].get_height()>0:
 		scroll_y = 0
-	elif scroll_y<720-lop7_baigiang[0][bai].get_height():
-		scroll_y = 720-lop7_baigiang[0][bai].get_height()
-	screen.blit(lop7_baigiang[0][bai],(200,scroll_y))
+	elif scroll_y>0:
+		scroll_y = 0
+	elif scroll_y<720-lop7_baigiang[y][bai].get_height():
+		scroll_y = 720-lop7_baigiang[y][bai].get_height()
+	screen.blit(lop7_baigiang[y][bai],(200,scroll_y))
 	back_to_class.run(screen,click,s_m_o_f)
 	show_label(screen, 'Bản quyền thuộc về Bộ GD và ĐT', font, (255,0,0), (1100,700))
 	pygame.display.update()
@@ -685,6 +696,14 @@ for i in range(1,10):
 
 	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop7_bai(i,'hinhIII'))
 	lop7_buttons_Hinh_III.append(temp)
+
+# X O Games Lop6 Button ========== #
+temp1 = pygame.image.load('assets\\buttons\\toanXO_1.png').convert_alpha()
+temp2 = pygame.image.load('assets\\buttons\\toanXO_2.png').convert_alpha()
+def run_game_6():
+	while 1==1:
+		X_O_Games.run6(screen,check_quit,s_m_o_f)
+X_O_play6 = N_Button(temp1,temp2,(770,252),run_game_6)
 # BackGrounds ===================================================================== #
 lop6_bg = pygame.image.load('assets\\backgrounds\\lop6_bg.png').convert()
 lop7_bg = pygame.image.load('assets\\backgrounds\\lop7_bg.png').convert()
@@ -704,6 +723,7 @@ running = True
 font = pygame.font.Font('assets\\arial.TTF',20)
 # ===================================================== #
 while running:
+	X_O_Games.update(click)
 	if pygame.mouse.get_pressed()[0] and can_c:
 			click = True
 			can_c = False
@@ -908,43 +928,170 @@ while running:
 			Chuong_II_Hinh_Button.run(screen,click,s_m_o_f)
 
 			Chuong_III_Dai_Button.run(screen,click,s_m_o_f)
-
+			X_O_play6.run(screen,click,s_m_o_f)
+			if Chuong_I_Dai_Button.get_collide():
+				show_label(screen,'CHƯƠNG I: ÔN TẬP VÀ BỔ TÚC KIẾN THỨC VỀ SỐ TỰ NHIÊN',font,(0,0,0),(640,630))
+			if Chuong_I_Hinh_Button.get_collide():
+				show_label(screen,'CHƯƠNG I: ĐOẠN THẲNG',font,(0,0,0),(640,630))
+			if Chuong_II_Dai_Button.get_collide():
+				show_label(screen,'CHƯƠNG II: SỐ NGUYÊN',font,(0,0,0),(640,630))
+			if Chuong_II_Hinh_Button.get_collide():
+				show_label(screen,'CHƯƠNG II: PHÂN SỐ',font,(0,0,0),(640,630))
+			if Chuong_III_Dai_Button.get_collide():
+				show_label(screen,'CHƯƠNG III: GÓC',font,(0,0,0),(640,630))
 	elif lop7:
 		if lop7_Dai_I:
 			screen.blit(choose_class_bg,(-10,-10))
 			back_button_to_l7.run(screen,click,s_m_o_f)
 			for i in range(12):
 				lop7_buttons_Dai_I[i].run(screen,click,s_m_o_f)
+				if lop7_buttons_Dai_I[i].get_collide():
+					if i == 0:
+						show_label(screen, f'BÀI {i+1}: TẬP HỢP Q CÁC SỐ HỮU TỈ', font, (0,0,0), (640,630))
+					elif i == 1:
+						show_label(screen, f'BÀI {i+1}: CỘNG TRỪ SỐ HỮU TỈ', font, (0,0,0), (640,630))
+					elif i == 2:
+						show_label(screen, f'BÀI {i+1}: NHÂN, CHIA CÁC SỐ HỮU TỈ', font, (0,0,0), (640,630))
+					elif i == 3:
+						show_label(screen, f'BÀI {i+1}: GIÁ TRỊ TUYỆT ĐỐI CỦA MỘT SÔ HỮU TỈ. CỘNG, TRỪ, NHÂN CHIA SỐ THẬP PHÂN', font, (0,0,0), (640,630))
+					elif i == 4:
+						show_label(screen, f'BÀI {i+1}: LŨY THỪA CỦA MỘT SỐ HỮU TỈ', font, (0,0,0), (640,630))
+					elif i == 5:
+						show_label(screen, f'BÀI {i+1}: LŨY THỪA CỦA MỘT SỐ HỮU TỈ (TIẾP)', font, (0,0,0), (640,630))
+					elif i == 6:
+						show_label(screen, f'BÀI {i+1}: TỈ LỆ THỨC', font, (0,0,0), (640,630))
+					elif i == 7:
+						show_label(screen, f'BÀI {i+1}: TÍNH CHẤT CỦA DÃY TỈ SỐ BẰNG NHAU', font, (0,0,0), (640,630))
+					elif i == 8:
+						show_label(screen, f'BÀI {i+1}: SỐ THẬP PHÂN HỮU HẠN. SỐ THẬP PHÂN VÔ HẠN TUẦN HOÀN', font, (0,0,0), (640,630))
+					elif i == 9:
+						show_label(screen, f'BÀI {i+1}: LÀM TRÒN SỐ', font, (0,0,0), (640,630))
+					elif i == 10:
+						show_label(screen, f'BÀI {i+1}: SỐ VÔ TỈ. KHÁI NIỆM VỀ CĂN BẬC HAI', font, (0,0,0), (640,630))
+					elif i == 11:
+						show_label(screen, f'BÀI {i+1}: SỐ THỰC', font, (0,0,0), (640,630))
 		elif lop7_Dai_II:
 			screen.blit(choose_class_bg,(-10,-10))
 			back_button_to_l7.run(screen,click,s_m_o_f)
 			for i in range(7):
 				lop7_buttons_Dai_II[i].run(screen,click,s_m_o_f)
+				if lop7_buttons_Dai_II[i].get_collide():
+					if i == 0:
+						show_label(screen, f'BÀI {i+1}: ĐẠI LƯỢNG TỈ LỆ THUẬN', font, (0,0,0), (640,630))
+					elif i == 1:
+						show_label(screen, f'BÀI {i+1}: MỘT SỐ BÀI TOÁN VỀ ĐẠI LƯỢNG TỈ LỆ THUẬN', font, (0,0,0), (640,630))
+					elif i == 2:
+						show_label(screen, f'BÀI {i+1}: ĐẠI LƯỢNG TỈ LỆ NGHỊCH', font, (0,0,0), (640,630))
+					elif i == 3:
+						show_label(screen, f'BÀI {i+1}: MỘT SỐ BÀI TOÁN VỀ ĐẠI LƯỢNG TỈ LỆ NGHỊCH', font, (0,0,0), (640,630))
+					elif i == 4:
+						show_label(screen, f'BÀI {i+1}: HÀM SỐ', font, (0,0,0), (640,630))
+					elif i == 5:
+						show_label(screen, f'BÀI {i+1}: MẶT PHẲNG TỌA ĐỘ', font, (0,0,0), (640,630))
+					elif i == 6:
+						show_label(screen, f'BÀI {i+1}: ĐỒ THỊ HÀM SỐ y = ax (a khác 0)', font, (0,0,0), (640,630))
 		elif lop7_Dai_III:
 			screen.blit(choose_class_bg,(-10,-10))
 			back_button_to_l7.run(screen,click,s_m_o_f)
 			for i in range(4):
 				lop7_buttons_Dai_III[i].run(screen,click,s_m_o_f)
+				if lop7_buttons_Dai_III[i].get_collide():
+					if i == 0:
+						show_label(screen, f'BÀI {i+1}: THU THẬP SỐ LIỆU THỐNG KÊ, TẦN SỐ', font, (0,0,0), (640,630))
+					elif i == 1:
+						show_label(screen, f'BÀI {i+1}: BẢNG "TẦN SỐ" CÁC GIÁ TRỊ CỦA DẤU HIỆU*', font, (0,0,0), (640,630))
+					elif i == 2:
+						show_label(screen, f'BÀI {i+1}: BIỂU ĐỒ', font, (0,0,0), (640,630))
+					elif i == 3:
+						show_label(screen, f'BÀI {i+1}: SỐ TRUNG BÌNH CỘNG', font, (0,0,0), (640,630))
 		elif lop7_Dai_IV:
 			screen.blit(choose_class_bg,(-10,-10))
 			back_button_to_l7.run(screen,click,s_m_o_f)
 			for i in range(9):
 				lop7_buttons_Dai_IV[i].run(screen,click,s_m_o_f)
+				if lop7_buttons_Dai_IV[i].get_collide():
+					if i == 0:
+						show_label(screen, f'BÀI {i+1}: KHÁI NIỆM VỀ BIỂU THỨC ĐẠI SỐ', font, (0,0,0), (640,630))
+					elif i == 1:
+						show_label(screen, f'BÀI {i+1}: GIÁ TRỊ CỦA MỘT BIỂU THỨC ĐẠI SỐ', font, (0,0,0), (640,630))
+					elif i == 2:
+						show_label(screen, f'BÀI {i+1}: ĐƠN THỨC', font, (0,0,0), (640,630))
+					elif i == 3:
+						show_label(screen, f'BÀI {i+1}: ĐƠN THỨC ĐỒNG DẠNG', font, (0,0,0), (640,630))
+					elif i == 4:
+						show_label(screen, f'BÀI {i+1}: ĐA THỨC', font, (0,0,0), (640,630))
+					elif i == 5:
+						show_label(screen, f'BÀI {i+1}: CỘNG, TRỪ ĐA THỨC', font, (0,0,0), (640,630))
+					elif i == 6:
+						show_label(screen, f'BÀI {i+1}: NGHIỆM CỦA ĐA THỨC MỘT BIẾN', font, (0,0,0), (640,630))
 		elif lop7_Hinh_I:
 			screen.blit(choose_class_bg,(-10,-10))
 			back_button_to_l7.run(screen,click,s_m_o_f)
 			for i in range(7):
-				lop7_buttons_Dai_I[i].run(screen,click,s_m_o_f)
+				lop7_buttons_Hinh_I[i].run(screen,click,s_m_o_f)
+				if lop7_buttons_Hinh_I[i].get_collide():
+					if i == 0:
+						show_label(screen, f'BÀI {i+1}: HAI GÓC ĐỐI ĐỈNH', font, (0,0,0), (640,630))
+					elif i == 1:
+						show_label(screen, f'BÀI {i+1}: HAI ĐƯỜNG THẲNG VUÔNG GÓC', font, (0,0,0), (640,630))
+					elif i == 2:
+						show_label(screen, f'BÀI {i+1}: CÁC GÓC TẠO BỞI MỘT ĐƯỜNG THẲNG CẮT HAI ĐƯỜNG THẲNG', font, (0,0,0), (640,630))
+					elif i == 3:
+						show_label(screen, f'BÀI {i+1}: HAI ĐƯỜNG THẲNG SONG SONG', font, (0,0,0), (640,630))
+					elif i == 4:
+						show_label(screen, f'BÀI {i+1}: TIÊN ĐỀ Ơ-CLIT VỀ ĐƯỜNG THẲNG SONG SONG', font, (0,0,0), (640,630))
+					elif i == 5:
+						show_label(screen, f'BÀI {i+1}: TỪ VUÔNG GÓC ĐẾN SONG SONG', font, (0,0,0), (640,630))
+					elif i == 6:
+						show_label(screen, f'BÀI {i+1}: ĐỊNH LÍ', font, (0,0,0), (640,630))
 		elif lop7_Hinh_II:
 			screen.blit(choose_class_bg,(-10,-10))
 			back_button_to_l7.run(screen,click,s_m_o_f)
 			for i in range(9):
-				lop7_buttons_Dai_I[i].run(screen,click,s_m_o_f)
+				lop7_buttons_Hinh_II[i].run(screen,click,s_m_o_f)
+				if lop7_buttons_Hinh_II[i].get_collide():
+					if i == 0:
+						show_label(screen, f'BÀI {i+1}: TỔNG BA GÓC CỦA TAM GIÁC', font, (0,0,0), (640,630))
+					elif i == 1:
+						show_label(screen, f'BÀI {i+1}: HAI TAM GIÁC BẰNG NHAU', font, (0,0,0), (640,630))
+					elif i == 2:
+						show_label(screen, f'BÀI {i+1}: TRƯỜNG HỢP BẰNG NHAU THỨ NHẤT CỦA TAM GIÁC. CẠNH - CẠNH - CẠNH (c.c.c)', font, (0,0,0), (640,630))
+					elif i == 3:
+						show_label(screen, f'BÀI {i+1}: TRƯỜNG HỢP BẰNG NHAU THỨ HAI CỦA TAM GIÁC. CẠNH - GÓC - CẠNH (c.g.c)', font, (0,0,0), (640,630))
+					elif i == 4:
+						show_label(screen, f'BÀI {i+1}: TRƯỜNG HỢP BẰNG NHAU THỨ BA CỦA TAM GIÁC. GÓC - CẠNH - GÓC (g.c.g)', font, (0,0,0), (640,630))
+					elif i == 5:
+						show_label(screen, f'BÀI {i+1}: TAM GIÁC CÂN', font, (0,0,0), (640,630))
+					elif i == 6:
+						show_label(screen, f'BÀI {i+1}: ĐỊNH LÍ Pi-ta-go', font, (0,0,0), (640,630))
+					elif i == 7:
+						show_label(screen, f'BÀI {i+1}: CÁC TRƯỜNG HỢP BẰNG NHAU CỦA TAM GIÁC VUÔNG', font, (0,0,0), (640,630))
+					elif i == 8:
+						show_label(screen, f'BÀI {i+1}: THỰC HÀNH NGOÀI TRỜI', font, (0,0,0), (640,630))
 		elif lop7_Hinh_III:
 			screen.blit(choose_class_bg,(-10,-10))
 			back_button_to_l7.run(screen,click,s_m_o_f)
 			for i in range(9):
-				lop7_buttons_Dai_I[i].run(screen,click,s_m_o_f)
+				lop7_buttons_Hinh_III[i].run(screen,click,s_m_o_f)
+				if lop7_buttons_Hinh_III[i].get_collide():
+					if i == 0:
+						show_label(screen, f'BÀI {i+1}: QUAN HỆ GIỮA GÓC VÀ CẠNH ĐỐI DIỆN TRONG MỘT TAM GIÁC', font, (0,0,0), (640,630))
+					elif i == 1:
+						show_label(screen, f'BÀI {i+1}: QUAN HỆ GIỮA ĐƯỜNG VUÔNG GÓC VÀ ĐƯỜNG XIÊN, ĐƯỜNG XIÊN VÀ HÌNH CHIẾU', font, (0,0,0), (640,630))
+					elif i == 2:
+						show_label(screen, f'BÀI {i+1}: QUAN HỆ GIỮA CÁC CẠNH CỦA MỘT TAM GIÁC. BẤT ĐẲNG THỨC TAM GIÁC', font, (0,0,0), (640,630))
+					elif i == 3:
+						show_label(screen, f'BÀI {i+1}: TÍNH CHẤT BA ĐƯỜNG TRUNG TUYẾN CỦA TAM GIÁC', font, (0,0,0), (640,630))
+					elif i == 4:
+						show_label(screen, f'BÀI {i+1}: TÍNH CHẤT TIA PHÂN GIÁC CỦA MỘT GÓC', font, (0,0,0), (640,630))
+					elif i == 5:
+						show_label(screen, f'BÀI {i+1}: TÍNH CHẤT BA ĐƯỜNG PHÂN GIÁC CỦA TAM GIÁC', font, (0,0,0), (640,630))
+					elif i == 6:
+						show_label(screen, f'BÀI {i+1}: TÍNH CHẤT ĐƯỜNG TRUNG TRỰC CỦA MỘT ĐOẠN THẲNG', font, (0,0,0), (640,630))
+					elif i == 7:
+						show_label(screen, f'BÀI {i+1}: TÍNH CHẤT BA ĐƯỜNG TRUNG TRỰC CỦA TAM GIÁC', font, (0,0,0), (640,630))
+					elif i == 8:
+						show_label(screen, f'BÀI {i+1}: TÍNH CHẤT BA ĐƯỜNG CAO CỦA TAM GIÁC', font, (0,0,0), (640,630))
 		else:
 			screen.blit(lop7_bg,(0,0))
 			back_button_to_sc7.run(screen,click,s_m_o_f)
@@ -958,6 +1105,20 @@ while running:
 			Chuong_III_Hinh_Button.run(screen,click,s_m_o_f)
 
 			Chuong_IV_Dai_Button.run(screen,click,s_m_o_f)
+			if Chuong_I_Dai_Button.get_collide():
+				show_label(screen,'CHƯƠNG I: SỐ HỮU TỈ. SỐ THỰC',font,(0,0,0),(1280/2,700))
+			if Chuong_II_Dai_Button.get_collide():
+				show_label(screen,'CHƯƠNG II: HÀM SỐ VÀ ĐỒ THỊ',font,(0,0,0),(1280/2,700))
+			if Chuong_III_Dai_Button.get_collide():
+				show_label(screen,'CHƯƠNG III: THỐNG KÊ',font,(0,0,0),(1280/2,700))
+			if Chuong_IV_Dai_Button.get_collide():
+				show_label(screen,'CHƯƠNG IV: BIỂU THỨC ĐẠI SỐ',font,(0,0,0),(1280/2,700))
+			if Chuong_I_Hinh_Button.get_collide():
+				show_label(screen,'CHƯƠNG I: ĐƯỜNG THẲNG VUÔNG GÓC',font,(0,0,0),(1280/2,700))
+			if Chuong_II_Hinh_Button.get_collide():
+				show_label(screen,'CHƯƠNG II: TAM GIÁC',font,(0,0,0),(1280/2,700))
+			if Chuong_III_Hinh_Button.get_collide():
+				show_label(screen,'CHƯƠNG III: QUAN HỆ GIỮA CÁC YẾU TỐ TRONG TAM GIÁC. CÁC ĐƯỜNG ĐỒNG QUY CỦA TAM GIÁC',font,(0,0,0),(1280/2,700))
 	elif lop8:
 		if lop8_Dai_I:
 			print('lop8_Dai_I')
