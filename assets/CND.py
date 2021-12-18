@@ -77,4 +77,6 @@ def show_label(scr,text,font,color,center_pos):
 
 
 # X O Games ============================================== #
-XO_
+XO_running = True
+XO_wait = True
+XO_O = ['n','n','n','n','n','n','n','n','n']
