@@ -3,7 +3,7 @@ from pygame.locals import *
 from assets.CND import *
 
 pygame.init()
-screen = pygame.display.set_mode((1280,720))#,pygame.NOFRAME)
+screen = pygame.display.set_mode((1280,680))#,pygame.NOFRAME)
 pygame.display.set_caption('MathWithMe!')
 clock = pygame.time.Clock()
 scroll_y  = 0
@@ -371,8 +371,8 @@ def l6_screen_display_dai(bai,y):
 		scroll_y = 0
 	elif scroll_y>0:
 		scroll_y = 0
-	elif scroll_y<720-lop6_baigiang[y][bai].get_height():
-		scroll_y = 720-lop6_baigiang[y][bai].get_height()
+	elif scroll_y<680-lop6_baigiang[y][bai].get_height():
+		scroll_y = 680-lop6_baigiang[y][bai].get_height()
 	screen.blit(lop6_baigiang[y][bai],(200,scroll_y))
 	back_to_class.run(screen,click,s_m_o_f)
 	show_label(screen, 'Bản quyền thuộc về Bộ GD và ĐT', font, (255,0,0), (1100,700))
@@ -531,9 +531,9 @@ def l7_screen_display_dai_I(bai):
 	screen.fill((255,255,255))
 	if scroll_y>0:
 		scroll_y = 0
-	elif scroll_y<720-lop7_dai_I[0][bai].get_height():
-		scroll_y = 720-lop7_dai_I[0][bai].get_height()
-	screen.blit(lop7_dai_I[0][bai],(200,scroll_y))
+	elif scroll_y<720-lop7_baigiang[0][bai].get_height():
+		scroll_y = 720-lop7_baigiang[0][bai].get_height()
+	screen.blit(lop7_baigiang[0][bai],(200,scroll_y))
 	back_to_class.run(screen,click,s_m_o_f)
 	show_label(screen, 'Bản quyền thuộc về Bộ GD và ĐT', font, (255,0,0), (1100,700))
 	pygame.display.update()

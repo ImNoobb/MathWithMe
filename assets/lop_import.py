@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import *
 
 lop6_baigiang = []
+lop7_baigiang = []
 list_temp = []
 for i in range(18):
     tempppp = pygame.image.load(f'assets\\baigiang\\lop6\\bai{i+1}.png').convert()
