@@ -80,3 +80,5 @@ def show_label(scr,text,font,color,center_pos):
 XO_running = True
 XO_wait = True
 XO_O = ['n','n','n','n','n','n','n','n','n']
+XO_turn = 'p'
+XO_bg = pygame.image.load('')
