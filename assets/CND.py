@@ -1,4 +1,4 @@
-import pygame
+import pygame,random
 from pygame.locals import *
 
 class A_Button():
@@ -41,6 +41,7 @@ class N_Button():
 		self.cmd = cmd
 		self.index = 0
 		self.col = False
+		self.get_pressed = None
 
 	def run(self,scr,click,s_m_o_f):
 		mouse_pos = pygame.mouse.get_pos()
@@ -50,6 +51,7 @@ class N_Button():
 			if click and pygame.mouse.get_pressed()[0]:
 				self.cmd()
 				s_m_o_f()
+				self.get_pressed = True
 		else:
 			self.index = 0
 			self.col = False
@@ -65,14 +67,12 @@ class N_Button():
 	def get_cmd(self):
 		return self.cmd
 
+	def get_pressed_now(self):
+		return self.get_pressed
+
 def show_label(scr,text,font,color,center_pos):
 	img = font.render(text, True, color)
 	rect = img.get_rect(center = center_pos)
 	scr.blit(img,rect)
 
-class TC_X_O():
-	def __init__(self):
-		self.running = True
-		self.turn = 'player'
-		self.bg = pygame.image.load('assets\\backgrounds\\X_O_bg.png').convert()
-		
+
