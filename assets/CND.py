@@ -85,7 +85,7 @@ XO_running = True
 XO_wait = True
 XO_O = ['n','n','n','n','n','n','n','n','n']
 XO_turn = 'p'
-XO_bg = pygame.image.load('assets\\backgrounds\\X_O_bg.png').convert_alpha()
+XO_bg = pygame.image.load('assets\\backgrounds\\X_O_bg.png').convert()
 XO_buttons = []
 temp1 = pygame.image.load('assets\\buttons\\X_O_button.png').convert()
 temp2 = pygame.image.load('assets\\buttons\\X_O_button_1.png').convert()
@@ -93,21 +93,35 @@ for i in range(9):
 	if i == 0:
 		temp = N_Button(temp1,temp2,(116,103),lambda: set_selected(0))
 	elif i == 1:
-		temp = N_Button(temp1,temp2,(116,103),lambda: set_selected(1))
+		temp = N_Button(temp1,temp2,(236,103),lambda: set_selected(1))
 	elif i == 2:
-		temp = N_Button(temp1,temp2,(116,103),lambda: set_selected(2))
+		temp = N_Button(temp1,temp2,(363,103),lambda: set_selected(2))
 	elif i == 3:
-		temp = N_Button(temp1,temp2,(116,103),lambda: set_selected(3))
+		temp = N_Button(temp1,temp2,(116,229),lambda: set_selected(3))
 	elif i == 4:
-		temp = N_Button(temp1,temp2,(116,103),lambda: set_selected(4))
+		temp = N_Button(temp1,temp2,(236,229),lambda: set_selected(4))
 	elif i == 5:
-		temp = N_Button(temp1,temp2,(116,103),lambda: set_selected(5))
+		temp = N_Button(temp1,temp2,(363,229),lambda: set_selected(5))
 	elif i == 6:
-		temp = N_Button(temp1,temp2,(116,103),lambda: set_selected(6))
+		temp = N_Button(temp1,temp2,(116,355),lambda: set_selected(6))
 	elif i == 7:
-		temp = N_Button(temp1,temp2,(116,103),lambda: set_selected(7))
+		temp = N_Button(temp1,temp2,(236,355),lambda: set_selected(7))
 	elif i == 8:
-		temp = N_Button(temp1,temp2,(116,103),lambda: set_selected(8))
+		temp = N_Button(temp1,temp2,(363,355),lambda: set_selected(8))
+	XO_buttons.append(temp)
+
+XO_x1,XO_x2 = 0,0
+XO_ans = 0
+XO_q_ans = 0
+XO_question = ''
+XO_Ximg = pygame.image.load('assets\\buttons\\X_button_.png').convert()
+XO_Oimg = pygame.image.load('assets\\buttons\\O_button.png').convert()
+XO_win = False
+XO_lose = False
+def XO_lop6():
+	global XO_selected,XO_running,XO_wait,XO_O,XO_turn,XO_bg,XO_buttons,XO_x1,XO_x2,XO_ans,XO_q_ans,XO_question,XO_win,XO_lose
+	while XO_running:
+		
 
 
 
