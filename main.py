@@ -20,6 +20,7 @@ def check_quit():
 	for event in pygame.event.get():
 		if event.type == QUIT:
 			running = False
+			return True
 		if event.type == MOUSEBUTTONDOWN:
 			if event.button ==4:
 				scroll_y += 30
@@ -30,6 +31,7 @@ def check_quit():
 start = True
 select_class = False
 
+XO_l6 = False
 lop6 = False
 lop6_Dai_I = False
 lop6_Dai_II = False
@@ -696,8 +698,12 @@ for i in range(1,10):
 	lop7_buttons_Hinh_III.append(temp)
 
 # X O Games Lop6 Button ========== #
+def start_l6():
+	global XO_l6
+	XO_l6 = True
 temp1 = pygame.image.load('assets\\buttons\\toanXO_1.png').convert_alpha()
 temp2 = pygame.image.load('assets\\buttons\\toanXO_2.png').convert_alpha()
+X_O_game6 = N_Button(temp1,temp2,(782,282),start_l6)
 # BackGrounds ===================================================================== #
 lop6_bg = pygame.image.load('assets\\backgrounds\\lop6_bg.png').convert()
 lop7_bg = pygame.image.load('assets\\backgrounds\\lop7_bg.png').convert()
@@ -910,7 +916,76 @@ while running:
 						show_label(screen,f'Bài {i+1}: ĐƯỜNG TRÒN',font,(0,0,0),(640,630))
 					elif i == 8:
 						show_label(screen,f'Bài {i+1}: TAM GIÁC',font,(0,0,0),(640,630))
+		elif XO_l6:
+			while XO_running:
+				screen.blit(XO_bg,(0,0))
+				if XO_wait:
+					if XO_O[0] == XO_O[1] == XO_O[2] == 'O' or XO_O[3] == XO_O[4] == XO_O[5] == 'O' or XO_O[6] == XO_O[7] == XO_O[8] == 'O' or XO_O[0] == XO_O[3] == XO_O[6] == 'O' or XO_O[1] == XO_O[4] == XO_O[7] == 'O' or XO_O[2] == XO_O[5] == XO_O[8] == 'O' or XO_O[0] == XO_O[4] == XO_O[8] == 'O' or XO_O[2] == XO_O[4] == XO_O[6] == 'O':
+						XO_win = True
+						XO_wait = False
+					elif XO_O[0] == XO_O[1] == XO_O[2] == 'X' or XO_O[3] == XO_O[4] == XO_O[5] == 'X' or XO_O[6] == XO_O[7] == XO_O[8] == 'X' or XO_O[0] == XO_O[3] == XO_O[6] == 'X' or XO_O[1] == XO_O[4] == XO_O[7] == 'X' or XO_O[2] == XO_O[5] == XO_O[8] == 'X' or XO_O[0] == XO_O[4] == XO_O[8] == 'X' or XO_O[2] == XO_O[4] == XO_O[6] == 'X':
+						XO_lose = True
+						XO_wait = False
 
+					if XO_turn == 'c':
+						XO_turn = 'p'
+						XO_ingenerate = True
+						while XO_ingenerate:
+							XO_c_pick = random.randint(0,8)
+							if XO_O[XO_c_pick] == 'n':
+								XO_O[XO_c_pick] = 'X'
+								XO_ingenerate = False
+
+					for i in range(9):
+						if XO_O[i] == 'n':
+							XO_buttons[i].run(screen,click,s_m_o_f)
+						elif XO_O[i] == 'X':
+							if i == 0:
+								screen.blit(XO_Ximg,(116,103))
+							elif i == 1:
+								screen.blit(XO_Ximg,(236,103))
+							elif i == 2:
+								screen.blit(XO_Ximg,(363,103))
+							elif i == 3:
+								screen.blit(XO_Ximg,(116,229))
+							elif i == 4:
+								screen.blit(XO_Ximg,(236,229))
+							elif i == 5:
+								screen.blit(XO_Ximg,(363,229))
+							elif i == 6:
+								screen.blit(XO_Ximg,(116,355))
+							elif i == 7:
+								screen.blit(XO_Ximg,(236,355))
+							elif i == 8:
+								screen.blit(XO_Ximg,(363,355))
+						elif XO_O[i] == 'O':
+							if i == 0:
+								screen.blit(XO_Oimg,(116,103))
+							elif i == 1:
+								screen.blit(XO_Oimg,(236,103))
+							elif i == 2:
+								screen.blit(XO_Oimg,(363,103))
+							elif i == 3:
+								screen.blit(XO_Oimg,(116,229))
+							elif i == 4:
+								screen.blit(XO_Oimg,(236,229))
+							elif i == 5:
+								screen.blit(XO_Oimg,(363,229))
+							elif i == 6:
+								screen.blit(XO_Oimg,(116,355))
+							elif i == 7:
+								screen.blit(XO_Oimg,(236,355))
+							elif i == 8:
+								screen.blit(XO_Oimg,(363,355))
+				elif XO_wait == False and XO_win == False and XO_lose == False:
+					if XO_turn == 'p':
+						print('Now it is player')
+						XO_turn = 'c'
+
+				if check_quit():
+					XO_running = False
+				pygame.display.update()
+				clock.tick(60)
 		else:
 			screen.blit(lop6_bg,(0,0))
 			back_button_to_sc6.run(screen,click,s_m_o_f)
@@ -921,6 +996,8 @@ while running:
 			Chuong_II_Hinh_Button.run(screen,click,s_m_o_f)
 
 			Chuong_III_Dai_Button.run(screen,click,s_m_o_f)
+
+			X_O_game6.run(screen,click,s_m_o_f)
 			if Chuong_I_Dai_Button.get_collide():
 				show_label(screen,'CHƯƠNG I: ÔN TẬP VÀ BỔ TÚC KIẾN THỨC VỀ SỐ TỰ NHIÊN',font,(0,0,0),(640,630))
 			if Chuong_I_Hinh_Button.get_collide():
