@@ -1,4 +1,4 @@
-import pygame
+import pygame,random
 from pygame.locals import *
 
 
@@ -917,75 +917,90 @@ while running:
 					elif i == 8:
 						show_label(screen,f'Bài {i+1}: TAM GIÁC',font,(0,0,0),(640,630))
 		elif XO_l6:
-			while XO_running:
-				screen.blit(XO_bg,(0,0))
-				if XO_wait:
-					if XO_O[0] == XO_O[1] == XO_O[2] == 'O' or XO_O[3] == XO_O[4] == XO_O[5] == 'O' or XO_O[6] == XO_O[7] == XO_O[8] == 'O' or XO_O[0] == XO_O[3] == XO_O[6] == 'O' or XO_O[1] == XO_O[4] == XO_O[7] == 'O' or XO_O[2] == XO_O[5] == XO_O[8] == 'O' or XO_O[0] == XO_O[4] == XO_O[8] == 'O' or XO_O[2] == XO_O[4] == XO_O[6] == 'O':
-						XO_win = True
-						XO_wait = False
-					elif XO_O[0] == XO_O[1] == XO_O[2] == 'X' or XO_O[3] == XO_O[4] == XO_O[5] == 'X' or XO_O[6] == XO_O[7] == XO_O[8] == 'X' or XO_O[0] == XO_O[3] == XO_O[6] == 'X' or XO_O[1] == XO_O[4] == XO_O[7] == 'X' or XO_O[2] == XO_O[5] == XO_O[8] == 'X' or XO_O[0] == XO_O[4] == XO_O[8] == 'X' or XO_O[2] == XO_O[4] == XO_O[6] == 'X':
-						XO_lose = True
-						XO_wait = False
+			screen.blit(XO_bg,(0,0))
+			if XO_wait:
+				if XO_O[0] == XO_O[1] == XO_O[2] == 'O' or XO_O[3] == XO_O[4] == XO_O[5] == 'O' or XO_O[6] == XO_O[7] == XO_O[8] == 'O' or XO_O[0] == XO_O[3] == XO_O[6] == 'O' or XO_O[1] == XO_O[4] == XO_O[7] == 'O' or XO_O[2] == XO_O[5] == XO_O[8] == 'O' or XO_O[0] == XO_O[4] == XO_O[8] == 'O' or XO_O[2] == XO_O[4] == XO_O[6] == 'O':
+					XO_win = True
+					XO_wait = False
+				elif XO_O[0] == XO_O[1] == XO_O[2] == 'X' or XO_O[3] == XO_O[4] == XO_O[5] == 'X' or XO_O[6] == XO_O[7] == XO_O[8] == 'X' or XO_O[0] == XO_O[3] == XO_O[6] == 'X' or XO_O[1] == XO_O[4] == XO_O[7] == 'X' or XO_O[2] == XO_O[5] == XO_O[8] == 'X' or XO_O[0] == XO_O[4] == XO_O[8] == 'X' or XO_O[2] == XO_O[4] == XO_O[6] == 'X':
+					XO_lose = True
+					XO_wait = False
 
-					if XO_turn == 'c':
-						XO_turn = 'p'
-						XO_ingenerate = True
-						while XO_ingenerate:
-							XO_c_pick = random.randint(0,8)
-							if XO_O[XO_c_pick] == 'n':
-								XO_O[XO_c_pick] = 'X'
-								XO_ingenerate = False
+				if XO_turn == 'c':
+					XO_turn = 'p'
+					XO_ingenerate = True
+					while XO_ingenerate:
+						XO_c_pick = random.randint(0,8)
+						if XO_O[XO_c_pick] == 'n':
+							XO_O[XO_c_pick] = 'X'
+							XO_ingenerate = False
 
-					for i in range(9):
-						if XO_O[i] == 'n':
-							XO_buttons[i].run(screen,click,s_m_o_f)
-						elif XO_O[i] == 'X':
-							if i == 0:
-								screen.blit(XO_Ximg,(116,103))
-							elif i == 1:
-								screen.blit(XO_Ximg,(236,103))
-							elif i == 2:
-								screen.blit(XO_Ximg,(363,103))
-							elif i == 3:
-								screen.blit(XO_Ximg,(116,229))
-							elif i == 4:
-								screen.blit(XO_Ximg,(236,229))
-							elif i == 5:
-								screen.blit(XO_Ximg,(363,229))
-							elif i == 6:
-								screen.blit(XO_Ximg,(116,355))
-							elif i == 7:
-								screen.blit(XO_Ximg,(236,355))
-							elif i == 8:
-								screen.blit(XO_Ximg,(363,355))
-						elif XO_O[i] == 'O':
-							if i == 0:
-								screen.blit(XO_Oimg,(116,103))
-							elif i == 1:
-								screen.blit(XO_Oimg,(236,103))
-							elif i == 2:
-								screen.blit(XO_Oimg,(363,103))
-							elif i == 3:
-								screen.blit(XO_Oimg,(116,229))
-							elif i == 4:
-								screen.blit(XO_Oimg,(236,229))
-							elif i == 5:
-								screen.blit(XO_Oimg,(363,229))
-							elif i == 6:
-								screen.blit(XO_Oimg,(116,355))
-							elif i == 7:
-								screen.blit(XO_Oimg,(236,355))
-							elif i == 8:
-								screen.blit(XO_Oimg,(363,355))
-				elif XO_wait == False and XO_win == False and XO_lose == False:
-					if XO_turn == 'p':
-						print('Now it is player')
-						XO_turn = 'c'
+				for i in range(9):
+					if XO_O[i] == 'n':
+						mouse_pos = pygame.mouse.get_pos()
+						if XO_rect[i].collidepoint(mouse_pos):
+							XO_index[i] = 1
+							if click and pygame.mouse.get_pressed()[0]:
+								XO_selected = i
+								XO_wait = False
+								print('used')
+								s_m_o_f()
+						else:
+							XO_index[i] = 0
 
-				if check_quit():
-					XO_running = False
-				pygame.display.update()
-				clock.tick(60)
+						screen.blit(XO_button[XO_index[i]],XO_rect[i])
+					elif XO_O[i] == 'X':
+						if i == 0:
+							screen.blit(XO_Ximg,(116,103))
+						elif i == 1:
+							screen.blit(XO_Ximg,(243,103))
+						elif i == 2:
+							screen.blit(XO_Ximg,(370,103))
+						elif i == 3:
+							screen.blit(XO_Ximg,(116,229))
+						elif i == 4:
+							screen.blit(XO_Ximg,(243,229))
+						elif i == 5:
+							screen.blit(XO_Ximg,(370,229))
+						elif i == 6:
+							screen.blit(XO_Ximg,(116,355))
+						elif i == 7:
+							screen.blit(XO_Ximg,(243,355))
+						elif i == 8:
+							screen.blit(XO_Ximg,(370,355))
+					elif XO_O[i] == 'O':
+						if i == 0:
+							screen.blit(XO_Oimg,(116,103))
+						elif i == 1:
+							screen.blit(XO_Oimg,(243,103))
+						elif i == 2:
+							screen.blit(XO_Oimg,(370,103))
+						elif i == 3:
+							screen.blit(XO_Oimg,(116,229))
+						elif i == 4:
+							screen.blit(XO_Oimg,(243,229))
+						elif i == 5:
+							screen.blit(XO_Oimg,(370,229))
+						elif i == 6:
+							screen.blit(XO_Oimg,(116,355))
+						elif i == 7:
+							screen.blit(XO_Oimg,(243,355))
+						elif i == 8:
+							screen.blit(XO_Oimg,(370,355))
+			elif XO_wait == False and XO_win == False and XO_lose == False:
+				if XO_turn == 'p':
+					XO_turn = 'c'
+					XO_x1 = random.randint(1,10)
+					XO_x2 = random.randint(1,100)
+					XO_ans = random.randint(1,10)
+					XO_q_ans = XO_x1*XO_ans+XO_x2
+					XO_question = f'{XO_x1} x {XO_ans} + {XO_x2}= ?'
+					XO_RAP = random.randint(1,4)
+			elif XO_lose == True:
+				print('Computer win!')
+			elif XO_win == True:
+				print('PLayer WIN!!')
+
 		else:
 			screen.blit(lop6_bg,(0,0))
 			back_button_to_sc6.run(screen,click,s_m_o_f)

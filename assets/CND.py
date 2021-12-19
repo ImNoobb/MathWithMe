@@ -75,8 +75,39 @@ def show_label(scr,text,font,color,center_pos):
 	rect = img.get_rect(center = center_pos)
 	scr.blit(img,rect)
 
+class T_Button():
+	def __init__(self,btn_img,btn_img_hover,pos,varibles_return,font):
+		self.button = [btn_img,btn_img_hover]
+		self.rect = self.button[0].get_rect(topleft=pos)
+		self.cmd = cmd
+		self.index = 0
+		self.text = ''
+		self.text_img = font.render(self.text, True ,(0,0,0))
+		self.text_rect = self.text_img.get_rect(center = self.rect.center)
+		self.varibles_return = varibles_return
+
+	def run(self,scr,click,s_m_o_f):
+		mouse_pos = pygame.mouse.get_pos()
+		if self.rect.collidepoint(mouse_pos):
+			self.index = 1
+			if click and pygame.mouse.get_pressed()[0]:
+				s_m_o_f()
+				return self.varibles_return
+				print('RETURNED')
+		else:
+			self.index = 0
+			self.col = False
+
+		scr.blit(self.button[self.index],self.rect)
+
+	def set_text(self,text):
+		self.text = text
+		self.text_img = font.render(self.text, True ,(0,0,0))
+		self.text_rect = self.text_img.get_rect(center = self.rect.center)
+
 
 # X O Games ============================================== #
+XO_font = pygame.font.Font(None,15)
 XO_selected = None
 def set_selected(which):
 	global XO_selected,XO_wait
@@ -87,30 +118,9 @@ XO_wait = True
 XO_O = ['n','n','n','n','n','n','n','n','n']
 XO_turn = 'p'
 XO_bg = pygame.image.load('assets\\backgrounds\\X_O_bg.png').convert()
-XO_buttons = []
 temp1 = pygame.image.load('assets\\buttons\\X_O_button.png').convert()
 temp2 = pygame.image.load('assets\\buttons\\X_O_button_1.png').convert()
-for i in range(9):
-	if i == 0:
-		temp = N_Button(temp1,temp2,(116,103),lambda: set_selected(0))
-	elif i == 1:
-		temp = N_Button(temp1,temp2,(243,103),lambda: set_selected(1))
-	elif i == 2:
-		temp = N_Button(temp1,temp2,(370,103),lambda: set_selected(2))
-	elif i == 3:
-		temp = N_Button(temp1,temp2,(116,229),lambda: set_selected(3))
-	elif i == 4:
-		temp = N_Button(temp1,temp2,(243,229),lambda: set_selected(4))
-	elif i == 5:
-		temp = N_Button(temp1,temp2,(370,229),lambda: set_selected(5))
-	elif i == 6:
-		temp = N_Button(temp1,temp2,(116,355),lambda: set_selected(6))
-	elif i == 7:
-		temp = N_Button(temp1,temp2,(243,355),lambda: set_selected(7))
-	elif i == 8:
-		temp = N_Button(temp1,temp2,(370,355),lambda: set_selected(8))
-	XO_buttons.append(temp)
-
+XO_button = [temp1,temp2]
 XO_x1,XO_x2 = 0,0
 XO_ans = 0
 XO_q_ans = 0
@@ -119,8 +129,13 @@ XO_Ximg = pygame.image.load('assets\\buttons\\X_button_.png').convert()
 XO_Oimg = pygame.image.load('assets\\buttons\\O_button.png').convert()
 XO_win = False
 XO_lose = False
-
-
-
-
+XO_rect = [temp1.get_rect(topleft=(116,103)),temp1.get_rect(topleft=(243,103)),temp1.get_rect(topleft=(370,103)),temp1.get_rect(topleft=(116,229)),temp1.get_rect(topleft=(243,229)),temp1.get_rect(topleft=(370,229)),temp1.get_rect(topleft=(116,355)),temp1.get_rect(topleft=(243,355)),temp1.get_rect(topleft=(370,355))]
+XO_index = [0,0,0,0,0,0,0,0,0]
+XO_RAP = None
+XO_AnsButton = []
+temp1 = pygame.image.load('assets\\buttons\\ans_1.png').convert_alpha()
+temp2 = pygame.image.load('assets\\buttons\\ans_2.png').convert_alpha()
+for i in range(4):
+	if i == 0:
+	temp = T_Button(temp1,temp2,font)
 
