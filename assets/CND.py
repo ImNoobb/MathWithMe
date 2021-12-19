@@ -104,7 +104,7 @@ class T_Button():
 		scr.blit(self.text_img,self.text_rect)
 
 	def set_text(self,text):
-		self.text = text
+		self.text = str(text)
 		self.text_img = self.font.render(self.text, True ,(0,0,0))
 		self.text_rect = self.text_img.get_rect(center = self.rect.center)
 
@@ -146,10 +146,13 @@ for i in range(4):
 	if i == 0:
 		temp = T_Button(temp1,temp2,(41,641),i,XO_font)
 	elif i == 1:
-		temp = T_Button(temp1,temp2,(201,641),i,XO_font)
+		temp = T_Button(temp1,temp2,(241,641),i,XO_font)
 	elif i == 2:
-		temp = T_Button(temp1,temp2,(351,641),i,XO_font)
+		temp = T_Button(temp1,temp2,(441,641),i,XO_font)
 	elif i == 3:
-		temp = T_Button(temp1,temp2,(501,641),i,XO_font)
+		temp = T_Button(temp1,temp2,(641,641),i,XO_font)
 	XO_AnsButton.append(temp)
 
+XO_a = [None,None,None]
+XO_a_pos = [None,None,None]
+XO_OK = False

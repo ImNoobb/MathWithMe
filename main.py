@@ -943,7 +943,6 @@ while running:
 							if click and pygame.mouse.get_pressed()[0]:
 								XO_selected = i
 								XO_wait = False
-								print('used')
 								s_m_o_f()
 						else:
 							XO_index[i] = 0
@@ -999,6 +998,22 @@ while running:
 					XO_qRECT = XO_qIMG.get_rect(topleft=(47,607))
 					XO_RAP = random.randint(0,3)
 					XO_AnsButton[XO_RAP].set_text(str(XO_ans))
+					for i in range(3):
+						while True:
+							XO_a[i] = random.randint(1,10)
+							for j in range(3):
+								if j != i:
+									if XO_a[i] == XO_a[j] or XO_a[i] == XO_q_ans:
+										break
+									XO_OK = True
+
+							if XO_OK:
+								break
+					j = 0
+					for i in range(4):
+						if i != XO_RAP:
+							XO_AnsButton[i].set_text(XO_a[j])
+							j += 1
 				for i in range(4):
 					XO_AnsButton[i].run(screen,click,s_m_o_f)
 					if XO_AnsButton[i].get_return() == XO_RAP:
@@ -1010,6 +1025,45 @@ while running:
 						XO_wait = True
 
 				screen.blit(XO_qIMG,XO_qRECT)
+				for i in range(9):
+					if XO_O[i] == 'X':
+						if i == 0:
+							screen.blit(XO_Ximg,(116,103))
+						elif i == 1:
+							screen.blit(XO_Ximg,(243,103))
+						elif i == 2:
+							screen.blit(XO_Ximg,(370,103))
+						elif i == 3:
+							screen.blit(XO_Ximg,(116,229))
+						elif i == 4:
+							screen.blit(XO_Ximg,(243,229))
+						elif i == 5:
+							screen.blit(XO_Ximg,(370,229))
+						elif i == 6:
+							screen.blit(XO_Ximg,(116,355))
+						elif i == 7:
+							screen.blit(XO_Ximg,(243,355))
+						elif i == 8:
+							screen.blit(XO_Ximg,(370,355))
+					elif XO_O[i] == 'O':
+						if i == 0:
+							screen.blit(XO_Oimg,(116,103))
+						elif i == 1:
+							screen.blit(XO_Oimg,(243,103))
+						elif i == 2:
+							screen.blit(XO_Oimg,(370,103))
+						elif i == 3:
+							screen.blit(XO_Oimg,(116,229))
+						elif i == 4:
+							screen.blit(XO_Oimg,(243,229))
+						elif i == 5:
+							screen.blit(XO_Oimg,(370,229))
+						elif i == 6:
+							screen.blit(XO_Oimg,(116,355))
+						elif i == 7:
+							screen.blit(XO_Oimg,(243,355))
+						elif i == 8:
+							screen.blit(XO_Oimg,(370,355))
 
 
 
