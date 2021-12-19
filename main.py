@@ -994,8 +994,25 @@ while running:
 					XO_x2 = random.randint(1,100)
 					XO_ans = random.randint(1,10)
 					XO_q_ans = XO_x1*XO_ans+XO_x2
-					XO_question = f'{XO_x1} x {XO_ans} + {XO_x2}= ?'
-					XO_RAP = random.randint(1,4)
+					XO_question = f'{XO_x1} x (?) + {XO_x2} = {XO_q_ans}'
+					XO_qIMG = XO_font.render(XO_question,True,(0,0,0))
+					XO_qRECT = XO_qIMG.get_rect(topleft=(47,607))
+					XO_RAP = random.randint(0,3)
+					XO_AnsButton[XO_RAP].set_text(str(XO_ans))
+				for i in range(4):
+					XO_AnsButton[i].run(screen,click,s_m_o_f)
+					if XO_AnsButton[i].get_return() == XO_RAP:
+						XO_O[XO_selected] = 'O'
+						XO_selected = None
+						XO_wait = True
+					elif XO_AnsButton[i].get_return() != XO_RAP and XO_AnsButton[i].get_return() != None:
+						XO_selected = None
+						XO_wait = True
+
+				screen.blit(XO_qIMG,XO_qRECT)
+
+
+
 			elif XO_lose == True:
 				print('Computer win!')
 			elif XO_win == True:

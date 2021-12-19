@@ -79,35 +79,42 @@ class T_Button():
 	def __init__(self,btn_img,btn_img_hover,pos,varibles_return,font):
 		self.button = [btn_img,btn_img_hover]
 		self.rect = self.button[0].get_rect(topleft=pos)
-		self.cmd = cmd
 		self.index = 0
 		self.text = ''
+		self.font = font
 		self.text_img = font.render(self.text, True ,(0,0,0))
 		self.text_rect = self.text_img.get_rect(center = self.rect.center)
 		self.varibles_return = varibles_return
+		self.can_return = False
 
 	def run(self,scr,click,s_m_o_f):
 		mouse_pos = pygame.mouse.get_pos()
 		if self.rect.collidepoint(mouse_pos):
 			self.index = 1
+			self.can_return = False
 			if click and pygame.mouse.get_pressed()[0]:
 				s_m_o_f()
-				return self.varibles_return
-				print('RETURNED')
+				self.can_return = True
 		else:
 			self.index = 0
 			self.col = False
+			self.can_return = False
 
 		scr.blit(self.button[self.index],self.rect)
+		scr.blit(self.text_img,self.text_rect)
 
 	def set_text(self,text):
 		self.text = text
-		self.text_img = font.render(self.text, True ,(0,0,0))
+		self.text_img = self.font.render(self.text, True ,(0,0,0))
 		self.text_rect = self.text_img.get_rect(center = self.rect.center)
 
-
+	def get_return(self):
+		if self.can_return:
+			return self.varibles_return
+		else:
+			return None
 # X O Games ============================================== #
-XO_font = pygame.font.Font(None,15)
+XO_font = pygame.font.Font(None,25)
 XO_selected = None
 def set_selected(which):
 	global XO_selected,XO_wait
@@ -137,5 +144,12 @@ temp1 = pygame.image.load('assets\\buttons\\ans_1.png').convert_alpha()
 temp2 = pygame.image.load('assets\\buttons\\ans_2.png').convert_alpha()
 for i in range(4):
 	if i == 0:
-	temp = T_Button(temp1,temp2,font)
+		temp = T_Button(temp1,temp2,(41,641),i,XO_font)
+	elif i == 1:
+		temp = T_Button(temp1,temp2,(201,641),i,XO_font)
+	elif i == 2:
+		temp = T_Button(temp1,temp2,(351,641),i,XO_font)
+	elif i == 3:
+		temp = T_Button(temp1,temp2,(501,641),i,XO_font)
+	XO_AnsButton.append(temp)
 
