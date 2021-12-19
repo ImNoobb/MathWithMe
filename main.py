@@ -539,18 +539,18 @@ for i in range(19):
 	class_button_img.append([temp,temp2])
 
 # Bai 7 Buttons === #
-def l7_screen_display_dai_I(bai):
+def l7_screen_display_dai_I(bai,y):
 	global scroll_y,running,baigiang_running
 	screen.fill((255,255,255))
-	if 720-lop7_baigiang[y][bai].get_height()>0:
+	if 680-lop7_baigiang[y][bai].get_height()>0:
 		scroll_y = 0
 	elif scroll_y>0:
 		scroll_y = 0
-	elif scroll_y<720-lop7_baigiang[y][bai].get_height():
-		scroll_y = 720-lop7_baigiang[y][bai].get_height()
+	elif scroll_y<680-lop7_baigiang[y][bai].get_height():
+		scroll_y = 680-lop7_baigiang[y][bai].get_height()
 	screen.blit(lop7_baigiang[y][bai],(200,scroll_y))
 	back_to_class.run(screen,click,s_m_o_f)
-	show_label(screen, 'Bản quyền thuộc về Bộ GD và ĐT', font, (255,0,0), (1100,700))
+	show_label(screen, 'Bản quyền thuộc về Bộ GD và ĐT', font, (255,0,0), (1100,640))
 	pygame.display.update()
 	clock.tick(60)
 	for event in pygame.event.get():
@@ -568,7 +568,7 @@ def lop7_bai(bai,chuong):
 	if chuong == 'daiI':
 		scroll_y = 0
 		while baigiang_running:
-			l7_screen_display_dai_I(bai)
+			l7_screen_display_dai_I(bai,0)
 
 				
 

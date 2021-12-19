@@ -3,6 +3,7 @@ from pygame.locals import *
 
 lop6_baigiang = []
 lop7_baigiang = []
+# Lop 6 ============================================================================== #
 list_temp = []
 for i in range(18):
     tempppp = pygame.image.load(f'assets\\baigiang\\lop6\\bai{i+1}.png').convert()
@@ -32,3 +33,10 @@ for i in range(9):
     tempppp = pygame.image.load(f'assets\\baigiang\\lop6\\bai{i+1}_5.png').convert()
     list_temp.append(tempppp)
 lop6_baigiang.append(list_temp)
+
+# Lop 7 ============================================================================== #
+list_temp = []
+for i in range(12):
+    tempppp = pygame.image.load(f'assets\\baigiang\\lop7\\bai{i+1}.png').convert()
+    list_temp.append(tempppp)
+lop7_baigiang.append(list_temp)
