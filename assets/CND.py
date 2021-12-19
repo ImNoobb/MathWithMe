@@ -75,6 +75,25 @@ def show_label(scr,text,font,color,center_pos):
 	rect = img.get_rect(center = center_pos)
 	scr.blit(img,rect)
 
+def show_label_tl(scr,texts,font,tl_pos):
+	x = tl_pos[0]
+	y = tl_pos[1]
+	for text in texts:
+		if '<!>' in text:
+			color = (255,0,0)
+		elif '<o>' in text:
+			color = (0,255,0)
+		elif '<c>' in text:
+			color = (255,200,0)
+		else:
+			color = None
+		img = font.render(text, True,(0,0,0),color)
+		rect = img.get_rect(topleft = (x,y))
+		scr.blit(img,rect)
+		y += 25
+
+XO_textY = 147
+
 class T_Button():
 	def __init__(self,btn_img,btn_img_hover,pos,varibles_return,font):
 		self.button = [btn_img,btn_img_hover]
@@ -144,13 +163,13 @@ temp1 = pygame.image.load('assets\\buttons\\ans_1.png').convert_alpha()
 temp2 = pygame.image.load('assets\\buttons\\ans_2.png').convert_alpha()
 for i in range(4):
 	if i == 0:
-		temp = T_Button(temp1,temp2,(41,641),i,XO_font)
+		temp = T_Button(temp1,temp2,(41,621),i,XO_font)
 	elif i == 1:
-		temp = T_Button(temp1,temp2,(241,641),i,XO_font)
+		temp = T_Button(temp1,temp2,(241,621),i,XO_font)
 	elif i == 2:
-		temp = T_Button(temp1,temp2,(441,641),i,XO_font)
+		temp = T_Button(temp1,temp2,(441,621),i,XO_font)
 	elif i == 3:
-		temp = T_Button(temp1,temp2,(641,641),i,XO_font)
+		temp = T_Button(temp1,temp2,(641,621),i,XO_font)
 	XO_AnsButton.append(temp)
 
 XO_a = [None,None,None]
@@ -159,4 +178,4 @@ XO_OK = False
 XO_player_choose_img = pygame.image.load('assets\\buttons\\XO_player_choose.png').convert()
 XO_pos = None
 XO_replay = False
-
+XO_text = ['Đang là lượt của bạn, hãy chọn một ô']

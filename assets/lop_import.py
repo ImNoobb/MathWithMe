@@ -26,3 +26,9 @@ for i in range(10):
     tempppp = pygame.image.load(f'assets\\baigiang\\lop6\\bai{i+1}_3.png').convert()
     list_temp.append(tempppp)
 lop6_baigiang.append(list_temp)
+
+list_temp = []
+for i in range(9):
+    tempppp = pygame.image.load(f'assets\\baigiang\\lop6\\bai{i+1}_5.png').convert()
+    list_temp.append(tempppp)
+lop6_baigiang.append(list_temp)

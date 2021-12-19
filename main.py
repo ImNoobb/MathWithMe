@@ -1,4 +1,4 @@
-import pygame,random
+import pygame,random,time
 from pygame.locals import *
 
 
@@ -350,7 +350,7 @@ setting_5 = pygame.image.load('assets\\buttons\\settings_5.png').convert_alpha()
 setting_6 = pygame.image.load('assets\\buttons\\settings_6.png').convert_alpha()
 
 setting_list = [setting_1,setting_2,setting_3,setting_4,setting_5,setting_6]
-setting_button = A_Button(setting_list,0.5,(1280-205,720-155),settings_cmd)
+setting_button = A_Button(setting_list,0.5,(1280-205,500),settings_cmd)
 # Back to lop 6 =================================================================== #
 def back_6():
 	global lop6,lop6_Dai_I,lop6_Dai_II,lop6_Dai_III,lop6_Hinh_I,lop6_Hinh_II
@@ -415,6 +415,10 @@ def lop6_bai(bai,chuong):
 		scroll_y = 0
 		while baigiang_running:
 			l6_screen_display_dai(bai,3)
+	elif chuong == 'hinhII':
+		scroll_y = 0
+		while baigiang_running:
+			l6_screen_display_dai(bai,4)
 		
 
 				
@@ -729,6 +733,7 @@ def s_m_o_f():     #
 running = True
 #pygame.mouse.set_pos((1280/2,720/2))
 font = pygame.font.Font('assets\\arial.TTF',20)
+font2 = pygame.font.Font('assets\\arial.TTF',15)
 # ===================================================== #
 while running:
 	if pygame.mouse.get_pressed()[0] and can_c:
@@ -930,10 +935,12 @@ while running:
 				if XO_O[0] == XO_O[1] == XO_O[2] == 'O' or XO_O[3] == XO_O[4] == XO_O[5] == 'O' or XO_O[6] == XO_O[7] == XO_O[8] == 'O' or XO_O[0] == XO_O[3] == XO_O[6] == 'O' or XO_O[1] == XO_O[4] == XO_O[7] == 'O' or XO_O[2] == XO_O[5] == XO_O[8] == 'O' or XO_O[0] == XO_O[4] == XO_O[8] == 'O' or XO_O[2] == XO_O[4] == XO_O[6] == 'O':
 					XO_win = True
 					XO_wait = False
+					XO_text.append('Chúc mừng, bạn đã chiến thắng!!')
+					
 				elif XO_O[0] == XO_O[1] == XO_O[2] == 'X' or XO_O[3] == XO_O[4] == XO_O[5] == 'X' or XO_O[6] == XO_O[7] == XO_O[8] == 'X' or XO_O[0] == XO_O[3] == XO_O[6] == 'X' or XO_O[1] == XO_O[4] == XO_O[7] == 'X' or XO_O[2] == XO_O[5] == XO_O[8] == 'X' or XO_O[0] == XO_O[4] == XO_O[8] == 'X' or XO_O[2] == XO_O[4] == XO_O[6] == 'X':
 					XO_lose = True
 					XO_wait = False
-
+					XO_text.append('Máy tính đã chiến thắng, chúc bạn may mắn lần sau')
 				if XO_turn == 'c':
 					XO_turn = 'p'
 					XO_ingenerate = True
@@ -942,6 +949,9 @@ while running:
 						if XO_O[XO_c_pick] == 'n':
 							XO_O[XO_c_pick] = 'X'
 							XO_ingenerate = False
+							time.sleep(1)
+							XO_text.append(f'<c>Máy tính chọn ô số {XO_c_pick}           ')
+							XO_text.append('<o>Lượt của bạn, hãy chọn một ô:         ')
 
 				for i in range(9):
 					if XO_O[i] == 'n':
@@ -952,6 +962,7 @@ while running:
 								XO_selected = i
 								XO_wait = False
 								s_m_o_f()
+								XO_text.append(f'<o>Đã chọn ô {i}                ')
 						else:
 							XO_index[i] = 0
 
@@ -996,6 +1007,7 @@ while running:
 							screen.blit(XO_Oimg,(370,355))
 			elif XO_wait == False and XO_win == False and XO_lose == False:
 				if XO_turn == 'p':
+					XO_text.append('<o> Hãy trả lời câu hỏi để tích "O"       ')
 					XO_turn = 'c'
 					XO_x1 = random.randint(1,10)
 					XO_x2 = random.randint(1,100)
@@ -1003,7 +1015,7 @@ while running:
 					XO_q_ans = XO_x1*XO_ans+XO_x2
 					XO_question = f'{XO_x1} x (?) + {XO_x2} = {XO_q_ans}'
 					XO_qIMG = XO_font.render(XO_question,True,(0,0,0))
-					XO_qRECT = XO_qIMG.get_rect(topleft=(47,607))
+					XO_qRECT = XO_qIMG.get_rect(topleft=(47,575))
 					XO_RAP = random.randint(0,3)
 					XO_AnsButton[XO_RAP].set_text(str(XO_ans))
 					for i in range(3):
@@ -1029,9 +1041,11 @@ while running:
 						XO_O[XO_selected] = 'O'
 						XO_selected = None
 						XO_wait = True
+						XO_text.append('<o> Bạn đã trả lời chính xác, đã đánh dấu!')
 					elif XO_AnsButton[i].get_return() != XO_RAP and XO_AnsButton[i].get_return() != None:
 						XO_selected = None
 						XO_wait = True
+						XO_text.append('<!> Thôi, sai mất rồi :(                  ')
 
 				screen.blit(XO_qIMG,XO_qRECT)
 				if XO_selected == 0:
@@ -1097,6 +1111,58 @@ while running:
 
 			elif XO_lose == True:
 				XO_replay_button.run(screen,click,s_m_o_f)
+				for i in range(9):
+					if XO_O[i] == 'n':
+						mouse_pos = pygame.mouse.get_pos()
+						if XO_rect[i].collidepoint(mouse_pos):
+							XO_index[i] = 1
+							if click and pygame.mouse.get_pressed()[0]:
+								XO_selected = i
+								XO_wait = False
+								s_m_o_f()
+								XO_text.append(f'<o>Đã chọn ô {i}                ')
+						else:
+							XO_index[i] = 0
+
+						screen.blit(XO_button[XO_index[i]],XO_rect[i])
+					elif XO_O[i] == 'X':
+						if i == 0:
+							screen.blit(XO_Ximg,(116,103))
+						elif i == 1:
+							screen.blit(XO_Ximg,(243,103))
+						elif i == 2:
+							screen.blit(XO_Ximg,(370,103))
+						elif i == 3:
+							screen.blit(XO_Ximg,(116,229))
+						elif i == 4:
+							screen.blit(XO_Ximg,(243,229))
+						elif i == 5:
+							screen.blit(XO_Ximg,(370,229))
+						elif i == 6:
+							screen.blit(XO_Ximg,(116,355))
+						elif i == 7:
+							screen.blit(XO_Ximg,(243,355))
+						elif i == 8:
+							screen.blit(XO_Ximg,(370,355))
+					elif XO_O[i] == 'O':
+						if i == 0:
+							screen.blit(XO_Oimg,(116,103))
+						elif i == 1:
+							screen.blit(XO_Oimg,(243,103))
+						elif i == 2:
+							screen.blit(XO_Oimg,(370,103))
+						elif i == 3:
+							screen.blit(XO_Oimg,(116,229))
+						elif i == 4:
+							screen.blit(XO_Oimg,(243,229))
+						elif i == 5:
+							screen.blit(XO_Oimg,(370,229))
+						elif i == 6:
+							screen.blit(XO_Oimg,(116,355))
+						elif i == 7:
+							screen.blit(XO_Oimg,(243,355))
+						elif i == 8:
+							screen.blit(XO_Oimg,(370,355))
 				if XO_replay:
 					XO_font = pygame.font.Font(None,25)
 					XO_selected = None
@@ -1124,13 +1190,13 @@ while running:
 					temp2 = pygame.image.load('assets\\buttons\\ans_2.png').convert_alpha()
 					for i in range(4):
 						if i == 0:
-							temp = T_Button(temp1,temp2,(41,641),i,XO_font)
+							temp = T_Button(temp1,temp2,(41,621),i,XO_font)
 						elif i == 1:
-							temp = T_Button(temp1,temp2,(241,641),i,XO_font)
+							temp = T_Button(temp1,temp2,(241,621),i,XO_font)
 						elif i == 2:
-							temp = T_Button(temp1,temp2,(441,641),i,XO_font)
+							temp = T_Button(temp1,temp2,(441,621),i,XO_font)
 						elif i == 3:
-							temp = T_Button(temp1,temp2,(641,641),i,XO_font)
+							temp = T_Button(temp1,temp2,(641,621),i,XO_font)
 						XO_AnsButton.append(temp)
 
 					XO_a = [None,None,None]
@@ -1139,8 +1205,61 @@ while running:
 					XO_player_choose_img = pygame.image.load('assets\\buttons\\XO_player_choose.png').convert()
 					XO_pos = None
 					XO_replay = False
+					XO_text = ['Đang là lượt của bạn, hãy chọn một ô']
 			elif XO_win == True:
 				XO_replay_button.run(screen,click,s_m_o_f)
+				for i in range(9):
+					if XO_O[i] == 'n':
+						mouse_pos = pygame.mouse.get_pos()
+						if XO_rect[i].collidepoint(mouse_pos):
+							XO_index[i] = 1
+							if click and pygame.mouse.get_pressed()[0]:
+								XO_selected = i
+								XO_wait = False
+								s_m_o_f()
+								XO_text.append(f'<o>Đã chọn ô {i}                ')
+						else:
+							XO_index[i] = 0
+
+						screen.blit(XO_button[XO_index[i]],XO_rect[i])
+					elif XO_O[i] == 'X':
+						if i == 0:
+							screen.blit(XO_Ximg,(116,103))
+						elif i == 1:
+							screen.blit(XO_Ximg,(243,103))
+						elif i == 2:
+							screen.blit(XO_Ximg,(370,103))
+						elif i == 3:
+							screen.blit(XO_Ximg,(116,229))
+						elif i == 4:
+							screen.blit(XO_Ximg,(243,229))
+						elif i == 5:
+							screen.blit(XO_Ximg,(370,229))
+						elif i == 6:
+							screen.blit(XO_Ximg,(116,355))
+						elif i == 7:
+							screen.blit(XO_Ximg,(243,355))
+						elif i == 8:
+							screen.blit(XO_Ximg,(370,355))
+					elif XO_O[i] == 'O':
+						if i == 0:
+							screen.blit(XO_Oimg,(116,103))
+						elif i == 1:
+							screen.blit(XO_Oimg,(243,103))
+						elif i == 2:
+							screen.blit(XO_Oimg,(370,103))
+						elif i == 3:
+							screen.blit(XO_Oimg,(116,229))
+						elif i == 4:
+							screen.blit(XO_Oimg,(243,229))
+						elif i == 5:
+							screen.blit(XO_Oimg,(370,229))
+						elif i == 6:
+							screen.blit(XO_Oimg,(116,355))
+						elif i == 7:
+							screen.blit(XO_Oimg,(243,355))
+						elif i == 8:
+							screen.blit(XO_Oimg,(370,355))
 				if XO_replay:
 					XO_font = pygame.font.Font(None,25)
 					XO_selected = None
@@ -1168,13 +1287,13 @@ while running:
 					temp2 = pygame.image.load('assets\\buttons\\ans_2.png').convert_alpha()
 					for i in range(4):
 						if i == 0:
-							temp = T_Button(temp1,temp2,(41,641),i,XO_font)
+							temp = T_Button(temp1,temp2,(41,621),i,XO_font)
 						elif i == 1:
-							temp = T_Button(temp1,temp2,(241,641),i,XO_font)
+							temp = T_Button(temp1,temp2,(241,621),i,XO_font)
 						elif i == 2:
-							temp = T_Button(temp1,temp2,(441,641),i,XO_font)
+							temp = T_Button(temp1,temp2,(441,621),i,XO_font)
 						elif i == 3:
-							temp = T_Button(temp1,temp2,(641,641),i,XO_font)
+							temp = T_Button(temp1,temp2,(641,621),i,XO_font)
 						XO_AnsButton.append(temp)
 
 					XO_a = [None,None,None]
@@ -1183,6 +1302,15 @@ while running:
 					XO_player_choose_img = pygame.image.load('assets\\buttons\\XO_player_choose.png').convert()
 					XO_pos = None
 					XO_replay = False
+					XO_text = ['Đang là lượt của bạn, hãy chọn một ô']
+			
+			if len(XO_text) > 15:
+				list_temp = []
+				for i in range(len(XO_text)-15,16):
+					temp = XO_text[i]
+					list_temp.append(temp)
+				XO_text = list_temp
+			show_label_tl(screen,XO_text,font,(740,147))
 
 		else:
 			screen.blit(lop6_bg,(0,0))
@@ -1453,8 +1581,6 @@ while running:
 		back_button_to_sc.run(screen,click,s_m_o_f)
 
 
-	close_button.run(screen,click,s_m_o_f)
-	minimize_button.run(screen,click,s_m_o_f)
 
 
 	if pygame.mouse.get_pressed()[0] == False and can_c==False:
