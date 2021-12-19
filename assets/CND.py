@@ -156,3 +156,7 @@ for i in range(4):
 XO_a = [None,None,None]
 XO_a_pos = [None,None,None]
 XO_OK = False
+XO_player_choose_img = pygame.image.load('assets\\buttons\\XO_player_choose.png').convert()
+XO_pos = None
+XO_replay = False
+

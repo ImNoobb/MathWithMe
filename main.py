@@ -704,6 +704,14 @@ def start_l6():
 temp1 = pygame.image.load('assets\\buttons\\toanXO_1.png').convert_alpha()
 temp2 = pygame.image.load('assets\\buttons\\toanXO_2.png').convert_alpha()
 X_O_game6 = N_Button(temp1,temp2,(782,282),start_l6)
+# =============================================#
+temp1 = pygame.image.load('assets\\buttons\\replay_button.png').convert_alpha()
+temp2 = pygame.image.load('assets\\buttons\\replay_button_1.png').convert_alpha()
+XO_replay = False
+def replay():
+	global XO_replay
+	XO_replay = True
+XO_replay_button = N_Button(temp1,temp2,(566,580),replay)
 # BackGrounds ===================================================================== #
 lop6_bg = pygame.image.load('assets\\backgrounds\\lop6_bg.png').convert()
 lop7_bg = pygame.image.load('assets\\backgrounds\\lop7_bg.png').convert()
@@ -1003,11 +1011,12 @@ while running:
 							XO_a[i] = random.randint(1,10)
 							for j in range(3):
 								if j != i:
-									if XO_a[i] == XO_a[j] or XO_a[i] == XO_q_ans:
+									if XO_a[i] == XO_a[j] or XO_a[i] == XO_ans:
+										XO_OK = False
 										break
 									XO_OK = True
 
-							if XO_OK:
+							if XO_OK and XO_a[i] != XO_ans:
 								break
 					j = 0
 					for i in range(4):
@@ -1025,6 +1034,25 @@ while running:
 						XO_wait = True
 
 				screen.blit(XO_qIMG,XO_qRECT)
+				if XO_selected == 0:
+					XO_pos = (116,103)
+				elif XO_selected == 1:
+					XO_pos =(243,103)
+				elif XO_selected == 2:
+					XO_pos =(370,103)
+				elif XO_selected == 3:
+					XO_pos =(116,229)
+				elif XO_selected == 4:
+					XO_pos =(243,229)
+				elif XO_selected == 5:
+					XO_pos =(370,229)
+				elif XO_selected == 6:
+					XO_pos =(116,355)
+				elif XO_selected == 7:
+					XO_pos =(243,355)
+				elif XO_selected == 8:
+					XO_pos =(370,355)
+				screen.blit(XO_player_choose_img,XO_pos)
 				for i in range(9):
 					if XO_O[i] == 'X':
 						if i == 0:
@@ -1068,9 +1096,93 @@ while running:
 
 
 			elif XO_lose == True:
-				print('Computer win!')
+				XO_replay_button.run(screen,click,s_m_o_f)
+				if XO_replay:
+					XO_font = pygame.font.Font(None,25)
+					XO_selected = None
+					XO_running = True
+					XO_wait = True
+					XO_O = ['n','n','n','n','n','n','n','n','n']
+					XO_turn = 'p'
+					XO_bg = pygame.image.load('assets\\backgrounds\\X_O_bg.png').convert()
+					temp1 = pygame.image.load('assets\\buttons\\X_O_button.png').convert()
+					temp2 = pygame.image.load('assets\\buttons\\X_O_button_1.png').convert()
+					XO_button = [temp1,temp2]
+					XO_x1,XO_x2 = 0,0
+					XO_ans = 0
+					XO_q_ans = 0
+					XO_question = ''
+					XO_Ximg = pygame.image.load('assets\\buttons\\X_button_.png').convert()
+					XO_Oimg = pygame.image.load('assets\\buttons\\O_button.png').convert()
+					XO_win = False
+					XO_lose = False
+					XO_rect = [temp1.get_rect(topleft=(116,103)),temp1.get_rect(topleft=(243,103)),temp1.get_rect(topleft=(370,103)),temp1.get_rect(topleft=(116,229)),temp1.get_rect(topleft=(243,229)),temp1.get_rect(topleft=(370,229)),temp1.get_rect(topleft=(116,355)),temp1.get_rect(topleft=(243,355)),temp1.get_rect(topleft=(370,355))]
+					XO_index = [0,0,0,0,0,0,0,0,0]
+					XO_RAP = None
+					XO_AnsButton = []
+					temp1 = pygame.image.load('assets\\buttons\\ans_1.png').convert_alpha()
+					temp2 = pygame.image.load('assets\\buttons\\ans_2.png').convert_alpha()
+					for i in range(4):
+						if i == 0:
+							temp = T_Button(temp1,temp2,(41,641),i,XO_font)
+						elif i == 1:
+							temp = T_Button(temp1,temp2,(241,641),i,XO_font)
+						elif i == 2:
+							temp = T_Button(temp1,temp2,(441,641),i,XO_font)
+						elif i == 3:
+							temp = T_Button(temp1,temp2,(641,641),i,XO_font)
+						XO_AnsButton.append(temp)
+
+					XO_a = [None,None,None]
+					XO_a_pos = [None,None,None]
+					XO_OK = False
+					XO_player_choose_img = pygame.image.load('assets\\buttons\\XO_player_choose.png').convert()
+					XO_pos = None
+					XO_replay = False
 			elif XO_win == True:
-				print('PLayer WIN!!')
+				XO_replay_button.run(screen,click,s_m_o_f)
+				if XO_replay:
+					XO_font = pygame.font.Font(None,25)
+					XO_selected = None
+					XO_running = True
+					XO_wait = True
+					XO_O = ['n','n','n','n','n','n','n','n','n']
+					XO_turn = 'p'
+					XO_bg = pygame.image.load('assets\\backgrounds\\X_O_bg.png').convert()
+					temp1 = pygame.image.load('assets\\buttons\\X_O_button.png').convert()
+					temp2 = pygame.image.load('assets\\buttons\\X_O_button_1.png').convert()
+					XO_button = [temp1,temp2]
+					XO_x1,XO_x2 = 0,0
+					XO_ans = 0
+					XO_q_ans = 0
+					XO_question = ''
+					XO_Ximg = pygame.image.load('assets\\buttons\\X_button_.png').convert()
+					XO_Oimg = pygame.image.load('assets\\buttons\\O_button.png').convert()
+					XO_win = False
+					XO_lose = False
+					XO_rect = [temp1.get_rect(topleft=(116,103)),temp1.get_rect(topleft=(243,103)),temp1.get_rect(topleft=(370,103)),temp1.get_rect(topleft=(116,229)),temp1.get_rect(topleft=(243,229)),temp1.get_rect(topleft=(370,229)),temp1.get_rect(topleft=(116,355)),temp1.get_rect(topleft=(243,355)),temp1.get_rect(topleft=(370,355))]
+					XO_index = [0,0,0,0,0,0,0,0,0]
+					XO_RAP = None
+					XO_AnsButton = []
+					temp1 = pygame.image.load('assets\\buttons\\ans_1.png').convert_alpha()
+					temp2 = pygame.image.load('assets\\buttons\\ans_2.png').convert_alpha()
+					for i in range(4):
+						if i == 0:
+							temp = T_Button(temp1,temp2,(41,641),i,XO_font)
+						elif i == 1:
+							temp = T_Button(temp1,temp2,(241,641),i,XO_font)
+						elif i == 2:
+							temp = T_Button(temp1,temp2,(441,641),i,XO_font)
+						elif i == 3:
+							temp = T_Button(temp1,temp2,(641,641),i,XO_font)
+						XO_AnsButton.append(temp)
+
+					XO_a = [None,None,None]
+					XO_a_pos = [None,None,None]
+					XO_OK = False
+					XO_player_choose_img = pygame.image.load('assets\\buttons\\XO_player_choose.png').convert()
+					XO_pos = None
+					XO_replay = False
 
 		else:
 			screen.blit(lop6_bg,(0,0))
