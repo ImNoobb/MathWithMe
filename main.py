@@ -569,6 +569,30 @@ def lop7_bai(bai,chuong):
 		scroll_y = 0
 		while baigiang_running:
 			l7_screen_display_dai_I(bai,0)
+	elif chuong == 'daiII':
+		scroll_y = 0
+		while baigiang_running:
+			l7_screen_display_dai_I(bai,1)
+	elif chuong == 'daiIII':
+		scroll_y = 0
+		while baigiang_running:
+			l7_screen_display_dai_I(bai,2)
+	elif chuong == 'daiIV':
+		scroll_y = 0
+		while baigiang_running:
+			l7_screen_display_dai_I(bai,3)
+	elif chuong == 'hinhI':
+		scroll_y = 0
+		while baigiang_running:
+			l7_screen_display_dai_I(bai,4)
+	elif chuong == 'hinhII':
+		scroll_y = 0
+		while baigiang_running:
+			l7_screen_display_dai_I(bai,5)
+	elif chuong == 'hinhIII':
+		scroll_y = 0
+		while baigiang_running:
+			l7_screen_display_dai_I(bai,6)
 
 				
 
@@ -1466,6 +1490,10 @@ while running:
 					elif i == 5:
 						show_label(screen, f'BÀI {i+1}: CỘNG, TRỪ ĐA THỨC', font, (0,0,0), (640,630))
 					elif i == 6:
+						show_label(screen, f'BÀI {i+1}: ĐA THỨC MỘT BIẾN', font, (0,0,0), (640,630))
+					elif i == 7:
+						show_label(screen, f'BÀI {i+1}: CỘNG TRỪ ĐA THỨC MỘT BIẾN', font, (0,0,0), (640,630))
+					elif i == 8:
 						show_label(screen, f'BÀI {i+1}: NGHIỆM CỦA ĐA THỨC MỘT BIẾN', font, (0,0,0), (640,630))
 		elif lop7_Hinh_I:
 			screen.blit(choose_class_bg,(-10,-10))

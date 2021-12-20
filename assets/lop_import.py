@@ -40,3 +40,39 @@ for i in range(12):
     tempppp = pygame.image.load(f'assets\\baigiang\\lop7\\bai{i+1}.png').convert()
     list_temp.append(tempppp)
 lop7_baigiang.append(list_temp)
+
+list_temp = []
+for i in range(7):
+    tempppp = pygame.image.load(f'assets\\baigiang\\lop7\\bai{i+1}_1.png').convert()
+    list_temp.append(tempppp)
+lop7_baigiang.append(list_temp)
+
+list_temp = []
+for i in range(4):
+    tempppp = pygame.image.load(f'assets\\baigiang\\lop7\\bai{i+1}_2.png').convert()
+    list_temp.append(tempppp)
+lop7_baigiang.append(list_temp)
+
+list_temp = []
+for i in range(9):
+    tempppp = pygame.image.load(f'assets\\baigiang\\lop7\\bai{i+1}_3.png').convert()
+    list_temp.append(tempppp)
+lop7_baigiang.append(list_temp)
+
+list_temp = []
+for i in range(7):
+    tempppp = pygame.image.load(f'assets\\baigiang\\lop7\\bai{i+1}_4.png').convert()
+    list_temp.append(tempppp)
+lop7_baigiang.append(list_temp)
+
+list_temp = []
+for i in range(9):
+    tempppp = pygame.image.load(f'assets\\baigiang\\lop7\\bai{i+1}_5.png').convert()
+    list_temp.append(tempppp)
+lop7_baigiang.append(list_temp)
+
+list_temp = []
+for i in range(9):
+    tempppp = pygame.image.load(f'assets\\baigiang\\lop7\\bai{i+1}_6.png').convert()
+    list_temp.append(tempppp)
+lop7_baigiang.append(list_temp)
