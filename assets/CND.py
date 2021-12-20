@@ -180,3 +180,6 @@ XO_pos = None
 XO_replay = False
 XO_text = ['Đang là lượt của bạn, hãy chọn một ô']
 # Cá mập tử thần ================== #
+CM_wait = True
+CM_ingenerate = None
+

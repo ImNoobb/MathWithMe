@@ -823,13 +823,13 @@ while running:
 		setting_button.run(screen,click,s_m_o_f)
 
 		if lop6_button.get_collide():
-			show_label(screen,'Học chương trình lớp 6',font,(0,0,0),(1280/2,700))
+			show_label(screen,'Học chương trình lớp 6',font,(0,0,0),(1280/2,660))
 		if lop7_button.get_collide():
-			show_label(screen,'Học chương trình lớp 7',font,(0,0,0),(1280/2,700))
+			show_label(screen,'Học chương trình lớp 7',font,(0,0,0),(1280/2,660))
 		if lop8_button.get_collide():
-			show_label(screen,'Học chương trình lớp 8',font,(0,0,0),(1280/2,700))
+			show_label(screen,'Học chương trình lớp 8',font,(0,0,0),(1280/2,660))
 		if lop9_button.get_collide():
-			show_label(screen,'Học chương trình lớp 9',font,(0,0,0),(1280/2,700))
+			show_label(screen,'Học chương trình lớp 9',font,(0,0,0),(1280/2,660))
 	elif lop6:
 		if lop6_Dai_I:
 			screen.blit(choose_class_bg,(-10,-10))
@@ -1577,18 +1577,18 @@ while running:
 
 			Chuong_IV_Dai_Button.run(screen,click,s_m_o_f)
 			if Chuong_I_Dai_Button.get_collide():
-				show_label(screen,'CHƯƠNG I: SỐ HỮU TỈ. SỐ THỰC',font,(0,0,0),(1280/2,700))
-			if Chuong_II_Dai_Button.get_collide():
-				show_label(screen,'CHƯƠNG II: HÀM SỐ VÀ ĐỒ THỊ',font,(0,0,0),(1280/2,700))
-			if Chuong_III_Dai_Button.get_collide():
-				show_label(screen,'CHƯƠNG III: THỐNG KÊ',font,(0,0,0),(1280/2,700))
-			if Chuong_IV_Dai_Button.get_collide():
-				show_label(screen,'CHƯƠNG IV: BIỂU THỨC ĐẠI SỐ',font,(0,0,0),(1280/2,700))
-			if Chuong_I_Hinh_Button.get_collide():
-				show_label(screen,'CHƯƠNG I: ĐƯỜNG THẲNG VUÔNG GÓC',font,(0,0,0),(1280/2,700))
-			if Chuong_II_Hinh_Button.get_collide():
-				show_label(screen,'CHƯƠNG II: TAM GIÁC',font,(0,0,0),(1280/2,700))
-			if Chuong_III_Hinh_Button.get_collide():
+				show_label(screen,'CHƯƠNG I: SỐ HỮU TỈ. SỐ THỰC',font,(0,0,0),(1280/2,660))
+			elif Chuong_II_Dai_Button.get_collide():
+				show_label(screen,'CHƯƠNG II: HÀM SỐ VÀ ĐỒ THỊ',font,(0,0,0),(1280/2,660))
+			elif Chuong_III_Dai_Button.get_collide():
+				show_label(screen,'CHƯƠNG III: THỐNG KÊ',font,(0,0,0),(1280/2,660))
+			elif Chuong_IV_Dai_Button.get_collide():
+				show_label(screen,'CHƯƠNG IV: BIỂU THỨC ĐẠI SỐ',font,(0,0,0),(1280/2,660))
+			elif Chuong_I_Hinh_Button.get_collide():
+				show_label(screen,'CHƯƠNG I: ĐƯỜNG THẲNG VUÔNG GÓC',font,(0,0,0),(1280/2,660))
+			elif Chuong_II_Hinh_Button.get_collide():
+				show_label(screen,'CHƯƠNG II: TAM GIÁC',font,(0,0,0),(1280/2,660))
+			elif Chuong_III_Hinh_Button.get_collide():
 				show_label(screen,'CHƯƠNG III: QUAN HỆ GIỮA CÁC YẾU TỐ TRONG TAM GIÁC. CÁC ĐƯỜNG ĐỒNG QUY CỦA TAM GIÁC',font,(0,0,0),(1280/2,700))
 	elif lop8:
 		if lop8_Dai_I:
