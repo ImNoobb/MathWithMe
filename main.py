@@ -158,10 +158,10 @@ def lop8_cmd():
 	Chuong_I_Hinh_Button.change_cmd(lambda: Chuong_I_cmd(8,'hinh'))
 	Chuong_II_Dai_Button.change_cmd(lambda:Chuong_II_cmd(8,'dai'))
 	Chuong_II_Hinh_Button.change_cmd(lambda: Chuong_II_cmd(8,'hinh'))
-	Chuong_III_Dai_Button.change_cmd(lambda:Chuong_II_cmd(8,'dai'))
-	Chuong_III_Hinh_Button.change_cmd(lambda: Chuong_II_cmd(8,'hinh'))
-	Chuong_IV_Dai_Button.change_cmd(lambda:Chuong_II_cmd(8,'dai'))
-	Chuong_IV_Hinh_Button.change_cmd(lambda: Chuong_II_cmd(8,'hinh'))
+	Chuong_III_Dai_Button.change_cmd(lambda:Chuong_III_cmd(8,'dai'))
+	Chuong_III_Hinh_Button.change_cmd(lambda: Chuong_III_cmd(8,'hinh'))
+	Chuong_IV_Dai_Button.change_cmd(lambda:Chuong_IV_cmd(8,'dai'))
+	Chuong_IV_Hinh_Button.change_cmd(lambda: Chuong_IV_cmd(8,'hinh'))
 
 lop8_1 = pygame.image.load('assets\\buttons\\lop8_1.png').convert_alpha()
 lop8_2 = pygame.image.load('assets\\buttons\\lop8_2.png').convert_alpha()
@@ -527,16 +527,6 @@ def back_7():
 	lop7_Hinh_III = False
 back_button_to_l7 = N_Button(back1,back2,(0,0),back_7)
 
-def back___():
-	global baigiang_running
-	baigiang_running = False
-back_to_class = N_Button(back1, back2, (0,0), back___)
-
-class_button_img = []
-for i in range(19):
-	temp = pygame.image.load(f'assets\\buttons\\bai{i+1}_1.png').convert_alpha()
-	temp2 = pygame.image.load(f'assets\\buttons\\bai{i+1}_2.png').convert_alpha()
-	class_button_img.append([temp,temp2])
 
 # Bai 7 Buttons === #
 def l7_screen_display_dai_I(bai,y):
@@ -726,6 +716,18 @@ for i in range(1,10):
 	lop7_buttons_Hinh_III.append(temp)
 
 # Bai 8 Buttons === #
+def back_8():
+	global lop7,lop8_Dai_I,lop8_Dai_II,lop8_Dai_III,lop8_Dai_IV,lop8_Hinh_I,lop8_Hinh_II,lop8_Hinh_III,lop8_Hinh_IV
+	lop8_Dai_I = False
+	lop8_Dai_II = False
+	lop8_Dai_III = False
+	lop8_Dai_IV = False
+	lop8_Hinh_I = False
+	lop8_Hinh_II = False
+	lop8_Hinh_III = False
+	lop8_Hinh_IV = False
+back_button_to_l8 = N_Button(back1,back2,(0,0),back_8)
+
 def l8_screen_display_dai_I(bai,y):
 	global scroll_y,running,baigiang_running
 	screen.fill((255,255,255))
@@ -1798,42 +1800,61 @@ while running:
 	elif lop8:
 		if lop8_Dai_I:
 			screen.blit(choose_class_bg,(-10,-10))
-			back_button_to_l6.run(screen,click,s_m_o_f)
+			back_button_to_l8.run(screen,click,s_m_o_f)
 			for i in range(9):
 				lop8_buttons_Dai_I[i].run(screen,click,s_m_o_f)
+				if lop8_buttons_Dai_I[i].get_collide():
+					if i == 0:
+						show_label(screen, f'BÀI {i+1}: NHÂN ĐƠN THỨC VỚI ĐƠN THỨC', font, (0,0,0), (640,630))
+					elif i == 1:
+						show_label(screen, f'BÀI {i+1}: NHÂN ĐA THỨC VỚI ĐA THỨC', font, (0,0,0), (640,630))
+					elif i == 2:
+						show_label(screen, f'BÀI {i+1}: NHỮNG HẰNG ĐẲNG THỨC ĐÁNG NHỚ', font, (0,0,0), (640,630))
+					elif i == 3:
+						show_label(screen, f'BÀI {i+1}: NHỮNG HẰNG ĐẲNG THỨC ĐÁNG NHỚ (tiếp)', font, (0,0,0), (640,630))
+					elif i == 4:
+						show_label(screen, f'BÀI {i+1}: NHỮNG HẰNG ĐẲNG THỨC ĐÁNG NHỚ (tiếp)', font, (0,0,0), (640,630))
+					elif i == 5:
+						show_label(screen, f'BÀI {i+1}: PHÂN TÍCH ĐA THỨC THÀNH NHÂN TỬ BẰNG PHƯƠNG PHÁP ĐẶT NHÂN TỬ CHUNG', font, (0,0,0), (640,630))
+					elif i == 6:
+						show_label(screen, f'BÀI {i+1}: PHÂN TÍCH ĐA THỨC THÀNH NHÂN TỬ BẰNG PHƯƠNG PHÁP DÙNG HẰNG ĐẲNG THỨC', font, (0,0,0), (640,630))
+					elif i == 7:
+						show_label(screen, f'BÀI {i+1}: PHÂN TÍCH ĐA THỨC THÀNH NHÂN TỬ BẰNG PHƯƠNG PHÁP NHÓM HẠNG TỬ', font, (0,0,0), (640,630))
+					elif i == 8:
+						show_label(screen, f'BÀI {i+1}: PHÂN TÍCH ĐA THỨC THÀNH NHÂN TỬ BẰNG CÁCH PHỐI HỢP NHIỀU PHƯƠNG PHÁP', font, (0,0,0), (640,630))
 		elif lop8_Dai_II:
 			screen.blit(choose_class_bg,(-10,-10))
-			back_button_to_l6.run(screen,click,s_m_o_f)
+			back_button_to_l8.run(screen,click,s_m_o_f)
 			for i in range(9):
 				lop8_buttons_Dai_II[i].run(screen,click,s_m_o_f)
 		elif lop8_Dai_III:
 			screen.blit(choose_class_bg,(-10,-10))
-			back_button_to_l6.run(screen,click,s_m_o_f)
-			for i in range(9):
+			back_button_to_l8.run(screen,click,s_m_o_f)
+			for i in range(7):
 				lop8_buttons_Dai_III[i].run(screen,click,s_m_o_f)
 		elif lop8_Dai_IV:
 			screen.blit(choose_class_bg,(-10,-10))
-			back_button_to_l6.run(screen,click,s_m_o_f)
-			for i in range(9):
+			back_button_to_l8.run(screen,click,s_m_o_f)
+			for i in range(5):
 				lop8_buttons_Dai_IV[i].run(screen,click,s_m_o_f)
 		elif lop8_Hinh_I:
 			screen.blit(choose_class_bg,(-10,-10))
-			back_button_to_l6.run(screen,click,s_m_o_f)
-			for i in range(9):
+			back_button_to_l8.run(screen,click,s_m_o_f)
+			for i in range(12):
 				lop8_buttons_Hinh_I[i].run(screen,click,s_m_o_f)
 		elif lop8_Hinh_II:
-			creen.blit(choose_class_bg,(-10,-10))
-			back_button_to_l6.run(screen,click,s_m_o_f)
-			for i in range(9):
+			screen.blit(choose_class_bg,(-10,-10))
+			back_button_to_l8.run(screen,click,s_m_o_f)
+			for i in range(6):
 				lop8_buttons_Hinh_II[i].run(screen,click,s_m_o_f)
 		elif lop8_Hinh_III:
-			creen.blit(choose_class_bg,(-10,-10))
-			back_button_to_l6.run(screen,click,s_m_o_f)
+			screen.blit(choose_class_bg,(-10,-10))
+			back_button_to_l8.run(screen,click,s_m_o_f)
 			for i in range(9):
 				lop8_buttons_Hinh_III[i].run(screen,click,s_m_o_f)
 		elif lop8_Hinh_IV:
-			creen.blit(choose_class_bg,(-10,-10))
-			back_button_to_l6.run(screen,click,s_m_o_f)
+			screen.blit(choose_class_bg,(-10,-10))
+			back_button_to_l8.run(screen,click,s_m_o_f)
 			for i in range(9):
 				lop8_buttons_Hinh_IV[i].run(screen,click,s_m_o_f)
 		else:
@@ -1895,5 +1916,4 @@ while running:
 	pygame.display.update()
 	clock.tick(60)
 	check_quit()
-
 
