@@ -1775,6 +1775,7 @@ while running:
 		elif CM_l7:
 			if CM_ingenerate:
 				for i in range(6):
+					CM_t = ''
 					CM_var[i] = random.randrange(-20,20)
 					if CM_var[i] >= 0 and i != 0:
 						CM_tvar[i] = '+'+ str(CM_var[i])
@@ -1793,10 +1794,10 @@ while running:
 				CM_question = f'Cho đa thức {CM_tvar[0]}x{CM_tvar[1]}xy{CM_tvar[2]}y{CM_tvar[3]}x{CM_tvar[4]}y{CM_tvar[5]} . Hãy tìm hệ số của {CM_WTFind}.'
 				CM_ingenerate = False
 			screen.blit(CM_bg,(0,0))
-			show_label_topleft(screen,CM_question,font,(0,0,0),(78,55))
-			show_label_topleft(screen,str(CM_t),font,(0,0,0),(78,70))
 			for i in range(10):
 				CM_buttons[i].run(screen,click,s_m_o_f)
+			show_label_topleft(screen,CM_question,font,(0,0,0),(78,55))
+			show_label_topleft(screen,get_CM_t(),font,(0,0,0),(78,75))
 		else:
 			screen.blit(lop7_bg,(0,0))
 			back_button_to_sc7.run(screen,click,s_m_o_f)

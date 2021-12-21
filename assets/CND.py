@@ -196,7 +196,11 @@ CM_buttons = []
 CM_t = ''
 def CM_add(s):
 	global CM_t
-	CM_t += str(s)
+	if len(CM_t)<2:
+		CM_t += str(s)
+
+def get_CM_t():
+	return CM_t
 for i in range(10):
 	temp1 = pygame.image.load(f'assets\\buttons\\CM\\b_{i}_1.png').convert()
 	temp2 = pygame.image.load(f'assets\\buttons\\CM\\b_{i}_2.png').convert()
