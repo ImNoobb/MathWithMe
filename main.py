@@ -1995,17 +1995,17 @@ while running:
 			Chuong_IV_Hinh_Button.run(screen,click,s_m_o_f)
 	elif lop9:
 		if lop9_Dai_I:
-			print('lop9_Dai_I')
+			pass
 		elif lop9_Dai_II:
-			print('lop9_Dai_II')
+			pass
 		elif lop9_Dai_III:
 			pass
 		elif lop9_Dai_IV:
 			pass
 		elif lop9_Hinh_I:
-			print('lop9_I')
+			pass
 		elif lop9_Hinh_II:
-			print('lop9II')
+			pass
 		elif lop9_Hinh_III:
 			pass
 		elif lop9_Hinh_IV:
@@ -2038,4 +2038,3 @@ while running:
 	pygame.display.update()
 	clock.tick(60)
 	check_quit()
-
