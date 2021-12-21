@@ -1827,36 +1827,158 @@ while running:
 			back_button_to_l8.run(screen,click,s_m_o_f)
 			for i in range(9):
 				lop8_buttons_Dai_II[i].run(screen,click,s_m_o_f)
+				if lop8_buttons_Dai_II[i].run(screen,click,s_m_o_f):
+					if i == 0:
+						show_label(screen, f'BÀI {i+1}: PHÂN THỨC ĐẠI SỐ', font, (0,0,0), (640,630))
+					elif i == 1:
+						show_label(screen, f'BÀI {i+1}: TÍNH CHẤT CƠ BẢN CỦA PHÂN THỨC', font, (0,0,0), (640,630))
+					elif i == 2:
+						show_label(screen, f'BÀI {i+1}: RÚT GỌN PHÂN THỨC', font, (0,0,0), (640,630))
+					elif i == 3:
+						show_label(screen, f'BÀI {i+1}: QUY ĐỒNG MẪU THỨC NHIỀU PHÂN THỨC', font, (0,0,0), (640,630))
+					elif i == 4:
+						show_label(screen, f'BÀI {i+1}: PHÉP CỘNG CÁC PHÂN THỨC ĐẠI SỐ', font, (0,0,0), (640,630))
+					elif i == 5:
+						show_label(screen, f'BÀI {i+1}: PHÉP TRỪ CÁC PHÂN THỨC ĐẠI SỐ', font, (0,0,0), (640,630))
+					elif i == 6:
+						show_label(screen, f'BÀI {i+1}: PHÉP NHÂN CÁC PHÂN THỨC ĐẠI SỐ', font, (0,0,0), (640,630))
+					elif i == 7:
+						show_label(screen, f'BÀI {i+1}: PHÉP CHIA CÁC PHÂN THỨC ĐẠI SỐ', font, (0,0,0), (640,630))
+					elif i == 8:
+						show_label(screen, f'BÀI {i+1}: BIẾN ĐỔI CÁC BIỂU THỨC HỮU TỈ. GIÁ TRỊ CỦA PHÂN THỨC', font, (0,0,0), (640,630))
+
 		elif lop8_Dai_III:
 			screen.blit(choose_class_bg,(-10,-10))
 			back_button_to_l8.run(screen,click,s_m_o_f)
 			for i in range(7):
 				lop8_buttons_Dai_III[i].run(screen,click,s_m_o_f)
+				if lop8_buttons_Dai_III[i].get_collide():
+					if i == 0:
+						show_label(screen, f'BÀI {i+1}: MỞ ĐẦU VỀ PHƯƠNG TRÌNH', font, (0,0,0), (640,630))
+					elif i == 1:
+						show_label(screen, f'BÀI {i+1}: PHƯƠNG TRÌNH BẬC NHẤT MỘT ẨN VÀ CÁCH GIẢI', font, (0,0,0), (640,630))
+					elif i == 2:
+						show_label(screen, f'BÀI {i+1}: PHƯƠNG TRÌNH ĐƯA ĐƯỢC VỀ DẠNG ax + b = 0', font, (0,0,0), (640,630))
+					elif i == 3:
+						show_label(screen, f'BÀI {i+1}: PHƯƠNG TRÌNH TÍCH', font, (0,0,0), (640,630))
+					elif i == 4:
+						show_label(screen, f'BÀI {i+1}: PHƯƠNG TRÌNH CHỨA ẨN Ở MẪU', font, (0,0,0), (640,630))
+					elif i == 5:
+						show_label(screen, f'BÀI {i+1}: GIẢI BÀI TOÁN BẰNG CÁCH LẬP PHƯƠNG TRÌNH', font, (0,0,0), (640,630))
+					elif i == 0:
+						show_label(screen, f'BÀI {i+1}: GIẢI BÀI TOÁN BẰNG CÁCH LẬP PHƯƠNG TRÌNH (tiếp)', font, (0,0,0), (640,630))
 		elif lop8_Dai_IV:
 			screen.blit(choose_class_bg,(-10,-10))
 			back_button_to_l8.run(screen,click,s_m_o_f)
 			for i in range(5):
 				lop8_buttons_Dai_IV[i].run(screen,click,s_m_o_f)
+				if lop8_buttons_Dai_IV[i].get_collide():
+					if i == 0:
+						show_label(screen, f'BÀI {i+1}: LIÊN HỆ GIỮA THỨ TỰ VÀ PHÉP CỘNG', font, (0,0,0), (640,630))
+					elif i == 1:
+						show_label(screen, f'BÀI {i+1}: LIÊN HỆ GIỮA THỨ TỰ VÀ PHÉP NHÂN', font, (0,0,0), (640,630))
+					elif i == 2:
+						show_label(screen, f'BÀI {i+1}: BẤT PHƯƠNG TRÌNH MỘT ẨN', font, (0,0,0), (640,630))
+					elif i == 3:
+						show_label(screen, f'BÀI {i+1}: BẤT PHƯƠNG TRÌNH BẬC NHẤT MỘT ẨN', font, (0,0,0), (640,630))
+					elif i == 4:
+						show_label(screen, f'BÀI {i+1}: PHƯƠNG TRÌNH CHỨA DẤU GIÁ TRỊ TUYỆT ĐỐI', font, (0,0,0), (640,630))
 		elif lop8_Hinh_I:
 			screen.blit(choose_class_bg,(-10,-10))
 			back_button_to_l8.run(screen,click,s_m_o_f)
 			for i in range(12):
 				lop8_buttons_Hinh_I[i].run(screen,click,s_m_o_f)
+				if lop8_buttons_Hinh_I[i].get_collide():
+					if i == 0:
+						show_label(screen, f'BÀI {i+1}: TỨ GIÁC', font, (0,0,0), (640,630))
+					elif i == 1:
+						show_label(screen, f'BÀI {i+1}: HÌNH THANG', font, (0,0,0), (640,630))
+					elif i == 2:
+						show_label(screen, f'BÀI {i+1}: HÌNH THANG CÂN', font, (0,0,0), (640,630))
+					elif i == 3:
+						show_label(screen, f'BÀI {i+1}: ĐƯỜNG TRUNG BÌNH CỦA TAM GIÁC, CỦA HÌNH THANG', font, (0,0,0), (640,630))
+					elif i == 4:
+						show_label(screen, f'BÀI {i+1}: DỰNG HÌNH BẰNG THƯỚC VÀ COMPA. DỰNG HÌNH THANG', font, (0,0,0), (640,630))
+					elif i == 5:
+						show_label(screen, f'BÀI {i+1}: ĐỐI XỨNG TRỤC', font, (0,0,0), (640,630))
+					elif i == 6:
+						show_label(screen, f'BÀI {i+1}: HÌNH BÌNH HÀNH', font, (0,0,0), (640,630))
+					elif i == 7:
+						show_label(screen, f'BÀI {i+1}: ĐỐI XỨNG TÂM', font, (0,0,0), (640,630))
+					elif i == 8:
+						show_label(screen, f'BÀI {i+1}: HÌNH CHỮ NHẬT', font, (0,0,0), (640,630))
+					elif i == 9:
+						show_label(screen, f'BÀI {i+1}: ĐƯỜNG THẲNG SAONG SAONG VỚI MỘT ĐƯỜNG THẲNG CHO TRƯỚC', font, (0,0,0), (640,630))
+					elif i == 10:
+						show_label(screen, f'BÀI {i+1}: HÌNH THOI', font, (0,0,0), (640,630))
+					elif i == 11:
+						show_label(screen, f'BÀI {i+1}: HÌNH VUÔNG', font, (0,0,0), (640,630))
 		elif lop8_Hinh_II:
 			screen.blit(choose_class_bg,(-10,-10))
 			back_button_to_l8.run(screen,click,s_m_o_f)
 			for i in range(6):
 				lop8_buttons_Hinh_II[i].run(screen,click,s_m_o_f)
+				if lop8_buttons_Hinh_II[i].get_collide():
+					if i == 0:
+						show_label(screen, f'BÀI {i+1}: ĐA GIÁC. ĐA GIÁC ĐỀU', font, (0,0,0), (640,630))
+					elif i == 1:
+						show_label(screen, f'BÀI {i+1}: DIỆN TÍCH HÌNH CHỮ NHẬT', font, (0,0,0), (640,630))
+					elif i == 2:
+						show_label(screen, f'BÀI {i+1}: DIỆN TÍCH HÌNH TAM GIÁC', font, (0,0,0), (640,630))
+					elif i == 3:
+						show_label(screen, f'BÀI {i+1}: DIỆN TÍCH HÌNH THANG', font, (0,0,0), (640,630))
+					elif i == 4:
+						show_label(screen, f'BÀI {i+1}: DIỆN TÍCH HÌNH THOI', font, (0,0,0), (640,630))
+					elif i == 5:
+						show_label(screen, f'BÀI {i+1}: DIỆN TÍCH ĐA GIÁC', font, (0,0,0), (640,630))
 		elif lop8_Hinh_III:
 			screen.blit(choose_class_bg,(-10,-10))
 			back_button_to_l8.run(screen,click,s_m_o_f)
 			for i in range(9):
 				lop8_buttons_Hinh_III[i].run(screen,click,s_m_o_f)
+				if lop8_buttons_Hinh_III[i].get_collide():
+					if i == 0:
+						show_label(screen, f'BÀI {i+1}: ĐỊNH LÍ TA-LÉT TRONG TAM GIÁC', font, (0,0,0), (640,630))
+					elif i == 1:
+						show_label(screen, f'BÀI {i+1}: ĐỊNH LÍ ĐẢO VÀ HỆ QUẢ CỦA ĐỊNH LÍ TA-LÉT', font, (0,0,0), (640,630))
+					elif i == 2:
+						show_label(screen, f'BÀI {i+1}: TÍNH CHẤT ĐƯỜNG PHÂN GIÁC CỦA TAM GIÁC', font, (0,0,0), (640,630))
+					elif i == 3:
+						show_label(screen, f'BÀI {i+1}: KHÁI NIỆM HAI TAM GIÁC ĐỒNG DẠNG', font, (0,0,0), (640,630))
+					elif i == 4:
+						show_label(screen, f'BÀI {i+1}: TRƯỜNG HỢP ĐỒNG DẠNG THỨ NHẤT', font, (0,0,0), (640,630))
+					elif i == 5:
+						show_label(screen, f'BÀI {i+1}: TRƯỜNG HỢP ĐỒNG DẠNG THỨ HAI', font, (0,0,0), (640,630))
+					elif i == 6:
+						show_label(screen, f'BÀI {i+1}: TRƯỜNG HỢP ĐỒNG DẠNG THỨ BA', font, (0,0,0), (640,630))
+					elif i == 7:
+						show_label(screen, f'BÀI {i+1}: CÁC TRƯỜNG HỢP ĐỒNG DẠNG CỦA TAM GIÁC VUÔNG', font, (0,0,0), (640,630))
+					elif i == 8:
+						show_label(screen, f'BÀI {i+1}: ỨNG DỤNG THỰC TẾ CỦA TAM GIÁC ĐỒNG DẠNG', font, (0,0,0), (640,630))
 		elif lop8_Hinh_IV:
 			screen.blit(choose_class_bg,(-10,-10))
 			back_button_to_l8.run(screen,click,s_m_o_f)
 			for i in range(9):
 				lop8_buttons_Hinh_IV[i].run(screen,click,s_m_o_f)
+				if lop8_buttons_Hinh_IV[i].get_collide():
+					if i == 0:
+						show_label(screen, f'BÀI {i+1}: HÌNH HỘP CHỮ NHẬT', font, (0,0,0), (640,630))
+					elif i == 1:
+						show_label(screen, f'BÀI {i+1}: HÌNH HỘP CHỮ NHẬT (tiếp)', font, (0,0,0), (640,630))
+					elif i == 2:
+						show_label(screen, f'BÀI {i+1}: THỂ TÍCH CỦA HÌNH HỘP CHỮ NHẬT', font, (0,0,0), (640,630))
+					elif i == 3:
+						show_label(screen, f'BÀI {i+1}: HÌNH LĂNG TRỤ ĐỨNG', font, (0,0,0), (640,630))
+					elif i == 4:
+						show_label(screen, f'BÀI {i+1}: DIỆN TÍCH XUNG QUANH CỦA HÌNH LĂNG TRỤ ĐỨNG', font, (0,0,0), (640,630))
+					elif i == 5:
+						show_label(screen, f'BÀI {i+1}: THỂ TÍCH CỦA HÌNH LĂNG TRỤ ĐỨNG', font, (0,0,0), (640,630))
+					elif i == 6:
+						show_label(screen, f'BÀI {i+1}: HÌNH CHÓP ĐỀU VÀ HÌNH CHÓP CỤT ĐỀU', font, (0,0,0), (640,630))
+					elif i == 7:
+						show_label(screen, f'BÀI {i+1}: DIỆN TÍCH XUNG QUANH CỦA HÌNH CHÓP ĐỀU', font, (0,0,0), (640,630))
+					elif i == 8:
+						show_label(screen, f'BÀI {i+1}: THỂ TÍCH CỦA HÌNH CHÓP ĐỀU', font, (0,0,0), (640,630))
 		else:
 			screen.blit(lop8_bg,(0,0))
 			back_button_to_sc8.run(screen,click,s_m_o_f)
