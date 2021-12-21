@@ -41,6 +41,7 @@ lop6_Hinh_I = False
 lop6_Hinh_II = False
 
 
+CM_l7 = True
 lop7 = False
 lop7_Dai_I = False
 lop7_Dai_II = False
@@ -1000,7 +1001,8 @@ lop7_bg = pygame.image.load('assets\\backgrounds\\lop7_bg.png').convert()
 lop8_bg = pygame.image.load('assets\\backgrounds\\lop8_bg.png').convert()
 lop9_bg = pygame.image.load('assets\\backgrounds\\lop9_bg.png').convert()
 start_bg = pygame.image.load('assets\\backgrounds\\start_bg.jpg').convert()
-choose_class_bg = pygame.image.load('assets\\backgrounds\\choose_class_bg.jpg')
+choose_class_bg = pygame.image.load('assets\\backgrounds\\choose_class_bg.jpg').convert()
+CM_bg = pygame.image.load('assets\\backgrounds\\CM_bg.png').convert()
 ####################
 click = False      #
 can_c = True       #
@@ -1770,6 +1772,31 @@ while running:
 						show_label(screen, f'BÀI {i+1}: TÍNH CHẤT BA ĐƯỜNG TRUNG TRỰC CỦA TAM GIÁC', font, (0,0,0), (640,630))
 					elif i == 8:
 						show_label(screen, f'BÀI {i+1}: TÍNH CHẤT BA ĐƯỜNG CAO CỦA TAM GIÁC', font, (0,0,0), (640,630))
+		elif CM_l7:
+			if CM_ingenerate:
+				for i in range(6):
+					CM_var[i] = random.randrange(-20,20)
+					if CM_var[i] >= 0 and i != 0:
+						CM_tvar[i] = '+'+ str(CM_var[i])
+					elif CM_var[i] >= 0 and i == 0:
+						CM_tvar[i] = str(CM_var[i])
+					elif CM_var[i] < 0:
+						CM_tvar[i] = str(CM_var[i])
+				CM_WTFind = random.choice(['x','xy','y'])
+				if CM_WTFind == 'x':
+					CM_ans = CM_var[0] + CM_var[3]
+				elif CM_WTFind == 'xy':
+					CM_ans = CM_var[1]
+				elif CM_WTFind == 'y':
+					CM_ans = CM_var[2] + CM_var[4]
+
+				CM_question = f'Cho đa thức {CM_tvar[0]}x{CM_tvar[1]}xy{CM_tvar[2]}y{CM_tvar[3]}x{CM_tvar[4]}y{CM_tvar[5]} . Hãy tìm hệ số của {CM_WTFind}.'
+				CM_ingenerate = False
+			screen.blit(CM_bg,(0,0))
+			show_label_topleft(screen,CM_question,font,(0,0,0),(78,55))
+			show_label_topleft(screen,str(CM_t),font,(0,0,0),(78,70))
+			for i in range(10):
+				CM_buttons[i].run(screen,click,s_m_o_f)
 		else:
 			screen.blit(lop7_bg,(0,0))
 			back_button_to_sc7.run(screen,click,s_m_o_f)

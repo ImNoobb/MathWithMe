@@ -75,6 +75,11 @@ def show_label(scr,text,font,color,center_pos):
 	rect = img.get_rect(center = center_pos)
 	scr.blit(img,rect)
 
+def show_label_topleft(scr,text,font,color,tl):
+	img = font.render(text, True, color)
+	rect = img.get_rect(topleft = tl)
+	scr.blit(img,rect)
+
 def show_label_tl(scr,texts,font,tl_pos):
 	x = tl_pos[0]
 	y = tl_pos[1]
@@ -181,5 +186,38 @@ XO_replay = False
 XO_text = ['Đang là lượt của bạn, hãy chọn một ô']
 # Cá mập tử thần ================== #
 CM_wait = True
-CM_ingenerate = None
-
+CM_ingenerate = True
+CM_type = [['rutgon'],['timcanhhuyen','timcanhgv']]
+CM_var = [0,0,0,0,0,0]
+CM_tvar = ['','','','','','']
+CM_WTFind = None
+CM_fw = None
+CM_buttons = []
+CM_t = ''
+def CM_add(s):
+	global CM_t
+	CM_t += str(s)
+for i in range(10):
+	temp1 = pygame.image.load(f'assets\\buttons\\CM\\b_{i}_1.png').convert()
+	temp2 = pygame.image.load(f'assets\\buttons\\CM\\b_{i}_2.png').convert()
+	if i == 0:
+		temp = N_Button(temp1,temp2,(76,162),lambda: CM_add('0'))
+	elif i == 1:
+		temp = N_Button(temp1,temp2,(76+75,162),lambda: CM_add('1'))
+	elif i == 2:
+		temp = N_Button(temp1,temp2,(76+75*2,162),lambda: CM_add('2'))
+	elif i == 3:
+		temp = N_Button(temp1,temp2,(76,162+29),lambda: CM_add('3'))
+	elif i == 4:
+		temp = N_Button(temp1,temp2,(76+75,162+29),lambda: CM_add('4'))
+	elif i == 5:
+		temp = N_Button(temp1,temp2,(76+75*2,162+29),lambda: CM_add('5'))
+	elif i == 6:
+		temp = N_Button(temp1,temp2,(76,162+29+29),lambda: CM_add('6'))
+	elif i == 7:
+		temp = N_Button(temp1,temp2,(76+75,162+29+29),lambda: CM_add('7'))
+	elif i == 8:
+		temp = N_Button(temp1,temp2,(76+75*2,162+29+29),lambda: CM_add('8'))
+	elif i == 9:
+		temp = N_Button(temp1,temp2,(76,162+29+29+29+29),lambda: CM_add('9'))
+	CM_buttons.append(temp)
