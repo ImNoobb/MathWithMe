@@ -13,7 +13,6 @@ pygame.display.set_icon(icon)
 pygame.display.update()
 clock = pygame.time.Clock()
 scroll_y  = 0
-from assets.lop_import import *
 from assets.CND import *
 def check_quit():
 	global running,scroll_y
@@ -376,14 +375,19 @@ for i in range(19):
 # Bai 6 Buttons === #
 def l6_screen_display_dai(bai,y):
 	global scroll_y,running,baigiang_running
+	if bai == 0:
+		img = pygame.image.load('assets\\baigiang\\lop6\\bai1.png').convert_alpha()
+	else:
+		print(str(i)+'  '+str(bai))
+		img = pygame.image.load('assets\\baigiang\\lop6\\bai1_1.png').convert_alpha()
 	screen.fill((255,255,255))
-	if 720-lop6_baigiang[y][bai].get_height()>0:
+	if 720-img.get_height()>0:
 		scroll_y = 0
 	elif scroll_y>0:
 		scroll_y = 0
-	elif scroll_y<680-lop6_baigiang[y][bai].get_height():
-		scroll_y = 680-lop6_baigiang[y][bai].get_height()
-	screen.blit(lop6_baigiang[y][bai],(200,scroll_y))
+	elif scroll_y<680-img.get_height():
+		scroll_y = 680-img.get_height()
+	screen.blit(img,(200,scroll_y))
 	back_to_class.run(screen,click,s_m_o_f)
 	show_label(screen, 'Bản quyền thuộc về Bộ GD và ĐT', font, (255,0,0), (1100,660))
 	pygame.display.update()
