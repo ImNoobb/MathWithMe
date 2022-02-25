@@ -40,7 +40,7 @@ lop6_Hinh_I = False
 lop6_Hinh_II = False
 
 
-CM_l7 = True
+CM_l7 = False
 lop7 = False
 lop7_Dai_I = False
 lop7_Dai_II = False
@@ -119,14 +119,7 @@ def lop6_cmd():
 	Chuong_III_Dai_Button.change_cmd(lambda:Chuong_III_cmd(6,'dai'))
 
 
-lop6_1 = pygame.image.load('assets\\buttons\\lop6_1.png').convert_alpha()
-lop6_2 = pygame.image.load('assets\\buttons\\lop6_2.png').convert_alpha()
-lop6_3 = pygame.image.load('assets\\buttons\\lop6_3.png').convert_alpha()
-lop6_4 = pygame.image.load('assets\\buttons\\lop6_4.png').convert_alpha()
-lop6_5 = pygame.image.load('assets\\buttons\\lop6_5.png').convert_alpha()
-lop6_6 = pygame.image.load('assets\\buttons\\lop6_6.png').convert_alpha()
-lop6_list = [lop6_1,lop6_2,lop6_3,lop6_4,lop6_5,lop6_6]
-lop6_button = A_Button(lop6_list,0.5,(245,180),lop6_cmd)
+lop6_button = A_Button([pygame.image.load('assets\\buttons\\lop6_1.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop6_2.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop6_3.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop6_4.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop6_5.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop6_6.png').convert_alpha()],0.5,(245,180),lop6_cmd)
 # Lop 7 Button ==================================================================== #
 def lop7_cmd():
 	global lop7,select_class
@@ -141,14 +134,7 @@ def lop7_cmd():
 	Chuong_IV_Dai_Button.change_cmd(lambda:Chuong_IV_cmd(7,'dai'))
 
 
-lop7_1 = pygame.image.load('assets\\buttons\\lop7_1.png').convert_alpha()
-lop7_2 = pygame.image.load('assets\\buttons\\lop7_2.png').convert_alpha()
-lop7_3 = pygame.image.load('assets\\buttons\\lop7_3.png').convert_alpha()
-lop7_4 = pygame.image.load('assets\\buttons\\lop7_4.png').convert_alpha()
-lop7_5 = pygame.image.load('assets\\buttons\\lop7_5.png').convert_alpha()
-lop7_6 = pygame.image.load('assets\\buttons\\lop7_6.png').convert_alpha()
-lop7_list = [lop7_1,lop7_2,lop7_3,lop7_4,lop7_5,lop7_6]
-lop7_button = A_Button(lop7_list,0.5,(470,180),lop7_cmd)
+lop7_button = A_Button([pygame.image.load('assets\\buttons\\lop7_1.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop7_2.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop7_3.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop7_4.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop7_5.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop7_6.png').convert_alpha()],0.5,(470,180),lop7_cmd)
 # Lop 8 Button ==================================================================== #
 def lop8_cmd():
 	global lop8,select_class
@@ -163,14 +149,7 @@ def lop8_cmd():
 	Chuong_IV_Dai_Button.change_cmd(lambda:Chuong_IV_cmd(8,'dai'))
 	Chuong_IV_Hinh_Button.change_cmd(lambda: Chuong_IV_cmd(8,'hinh'))
 
-lop8_1 = pygame.image.load('assets\\buttons\\lop8_1.png').convert_alpha()
-lop8_2 = pygame.image.load('assets\\buttons\\lop8_2.png').convert_alpha()
-lop8_3 = pygame.image.load('assets\\buttons\\lop8_3.png').convert_alpha()
-lop8_4 = pygame.image.load('assets\\buttons\\lop8_4.png').convert_alpha()
-lop8_5 = pygame.image.load('assets\\buttons\\lop8_5.png').convert_alpha()
-lop8_6 = pygame.image.load('assets\\buttons\\lop8_6.png').convert_alpha()
-lop8_list = [lop8_1,lop8_2,lop8_3,lop8_4,lop8_5,lop8_6]
-lop8_button = A_Button(lop8_list,0.5,(695,180),lop8_cmd)
+lop8_button = A_Button([pygame.image.load('assets\\buttons\\lop8_1.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop8_2.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop8_3.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop8_4.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop8_5.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop8_6.png').convert_alpha()],0.5,(695,180),lop8_cmd)
 # Lop 9 Button ==================================================================== #
 def lop9_cmd():
 	global lop9,select_class
@@ -185,14 +164,7 @@ def lop9_cmd():
 	Chuong_IV_Dai_Button.change_cmd(lambda:Chuong_II_cmd(9,'dai'))
 	Chuong_IV_Hinh_Button.change_cmd(lambda: Chuong_II_cmd(9,'hinh'))
 
-lop9_1 = pygame.image.load('assets\\buttons\\lop9_1.png').convert_alpha()
-lop9_2 = pygame.image.load('assets\\buttons\\lop9_2.png').convert_alpha()
-lop9_3 = pygame.image.load('assets\\buttons\\lop9_3.png').convert_alpha()
-lop9_4 = pygame.image.load('assets\\buttons\\lop9_4.png').convert_alpha()
-lop9_5 = pygame.image.load('assets\\buttons\\lop9_5.png').convert_alpha()
-lop9_6 = pygame.image.load('assets\\buttons\\lop9_6.png').convert_alpha()
-lop9_list = [lop9_1,lop9_2,lop9_3,lop9_4,lop9_5,lop9_6]
-lop9_button = A_Button(lop9_list,0.5,(920,180),lop9_cmd)
+lop9_button = A_Button([pygame.image.load('assets\\buttons\\lop9_1.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop9_2.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop9_3.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop9_4.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop9_5.png').convert_alpha(),pygame.image.load('assets\\buttons\\lop9_6.png').convert_alpha()],0.5,(920,180),lop9_cmd)
 # Back Button ===================================================================== #
 def back_now(s1,s2):
 	global select_class,start,lop6,lop7,lop8,lop9,setting
@@ -375,11 +347,10 @@ for i in range(19):
 # Bai 6 Buttons === #
 def l6_screen_display_dai(bai,y):
 	global scroll_y,running,baigiang_running
-	if bai == 0:
-		img = pygame.image.load('assets\\baigiang\\lop6\\bai1.png').convert_alpha()
+	if y == 0:
+		img = pygame.image.load(f'assets\\baigiang\\lop6\\bai{bai+1}.png').convert_alpha()
 	else:
-		print(str(i)+'  '+str(bai))
-		img = pygame.image.load('assets\\baigiang\\lop6\\bai1_1.png').convert_alpha()
+		img = pygame.image.load(f'assets\\baigiang\\lop6\\bai{bai+1}_{y}.png').convert_alpha()
 	screen.fill((255,255,255))
 	if 720-img.get_height()>0:
 		scroll_y = 0
@@ -537,13 +508,17 @@ back_button_to_l7 = N_Button(back1,back2,(0,0),back_7)
 def l7_screen_display_dai_I(bai,y):
 	global scroll_y,running,baigiang_running
 	screen.fill((255,255,255))
-	if 680-lop7_baigiang[y][bai].get_height()>0:
+	if y == 0:
+		img = pygame.image.load(f'assets\\baigiang\\lop7\\bai{bai+1}.png').convert_alpha()
+	else:
+		img = pygame.image.load(f'assets\\baigiang\\lop7\\bai{bai+1}_{y}.png').convert_alpha()
+	if 680-img.get_height()>0:
 		scroll_y = 0
 	elif scroll_y>0:
 		scroll_y = 0
-	elif scroll_y<680-lop7_baigiang[y][bai].get_height():
-		scroll_y = 680-lop7_baigiang[y][bai].get_height()
-	screen.blit(lop7_baigiang[y][bai],(200,scroll_y))
+	elif scroll_y<680-img.get_height():
+		scroll_y = 680-img.get_height()
+	screen.blit(img,(200,scroll_y))
 	back_to_class.run(screen,click,s_m_o_f)
 	show_label(screen, 'Bản quyền thuộc về Bộ GD và ĐT', font, (255,0,0), (1100,640))
 	pygame.display.update()
@@ -720,222 +695,6 @@ for i in range(1,10):
 	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop7_bai(i,'hinhIII'))
 	lop7_buttons_Hinh_III.append(temp)
 
-# Bai 8 Buttons === #
-def back_8():
-	global lop7,lop8_Dai_I,lop8_Dai_II,lop8_Dai_III,lop8_Dai_IV,lop8_Hinh_I,lop8_Hinh_II,lop8_Hinh_III,lop8_Hinh_IV
-	lop8_Dai_I = False
-	lop8_Dai_II = False
-	lop8_Dai_III = False
-	lop8_Dai_IV = False
-	lop8_Hinh_I = False
-	lop8_Hinh_II = False
-	lop8_Hinh_III = False
-	lop8_Hinh_IV = False
-back_button_to_l8 = N_Button(back1,back2,(0,0),back_8)
-
-def l8_screen_display_dai_I(bai,y):
-	global scroll_y,running,baigiang_running
-	screen.fill((255,255,255))
-	if 680-lop8_baigiang[y][bai].get_height()>0:
-		scroll_y = 0
-	elif scroll_y>0:
-		scroll_y = 0
-	elif scroll_y<680-lop8_baigiang[y][bai].get_height():
-		scroll_y = 680-lop8_baigiang[y][bai].get_height()
-	screen.blit(lop8_baigiang[y][bai],(200,scroll_y))
-	back_to_class.run(screen,click,s_m_o_f)
-	show_label(screen, 'Bản quyền thuộc về Bộ GD và ĐT', font, (255,0,0), (1100,640))
-	pygame.display.update()
-	clock.tick(60)
-	for event in pygame.event.get():
-		if event.type == MOUSEBUTTONDOWN:
-			if event.button == 4:
-				scroll_y += 40
-			elif event.button == 5:
-				scroll_y -= 40
-		if event.type == QUIT:
-			quit()
-
-def lop8_bai(bai,chuong):
-	global scroll_y,running,baigiang_running
-	baigiang_running = True
-	if chuong == 'daiI':
-		scroll_y = 0
-		while baigiang_running:
-			l8_screen_display_dai_I(bai,0)
-	elif chuong == 'daiII':
-		scroll_y = 0
-		while baigiang_running:
-			l8_screen_display_dai_I(bai,1)
-	elif chuong == 'daiIII':
-		scroll_y = 0
-		while baigiang_running:
-			l8_screen_display_dai_I(bai,2)
-	elif chuong == 'daiIV':
-		scroll_y = 0
-		while baigiang_running:
-			l8_screen_display_dai_I(bai,3)
-	elif chuong == 'hinhI':
-		scroll_y = 0
-		while baigiang_running:
-			l8_screen_display_dai_I(bai,4)
-	elif chuong == 'hinhII':
-		scroll_y = 0
-		while baigiang_running:
-			l8_screen_display_dai_I(bai,5)
-	elif chuong == 'hinhIII':
-		scroll_y = 0
-		while baigiang_running:
-			l8_screen_display_dai_I(bai,6)
-
-				
-
-lop8_buttons_Dai_I = []
-for i in range(1,10):
-	if i<=5:
-		posX = 100+(i-1)*230
-		posY = 100
-	elif i<=10:
-		posX = 100+(i-7)*230
-		posY = 225
-	elif i<=15:
-		posX = 100+(i-11)*230
-		posY = 350
-	else:
-		posX = 100+(i-17)*230
-		posY = 475
-
-	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop8_bai(i,'daiI'))
-	lop8_buttons_Dai_I.append(temp)
-
-
-lop8_buttons_Dai_II = []
-for i in range(1,10):
-	if i<=5:
-		posX = 100+(i-1)*230
-		posY = 100
-	elif i<=10:
-		posX = 100+(i-7)*230
-		posY = 225
-	elif i<=15:
-		posX = 100+(i-11)*230
-		posY = 350
-	else:
-		posX = 100+(i-17)*230
-		posY = 475
-
-	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop8_bai(i,'daiII'))
-	lop8_buttons_Dai_II.append(temp)
-
-
-lop8_buttons_Dai_III = []
-for i in range(1,8):
-	if i<=5:
-		posX = 100+(i-1)*230
-		posY = 100
-	elif i<=10:
-		posX = 100+(i-7)*230
-		posY = 225
-	elif i<=15:
-		posX = 100+(i-11)*230
-		posY = 350
-	else:
-		posX = 100+(i-17)*230
-		posY = 475
-
-	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop8_bai(i,'daiIII'))
-	lop8_buttons_Dai_III.append(temp)
-
-lop8_buttons_Dai_IV = []
-for i in range(1,6):
-	if i<=5:
-		posX = 100+(i-1)*230
-		posY = 100
-	elif i<=10:
-		posX = 100+(i-7)*230
-		posY = 225
-	elif i<=15:
-		posX = 100+(i-11)*230
-		posY = 350
-	else:
-		posX = 100+(i-17)*230
-		posY = 475
-
-	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop8_bai(i,'daiIV'))
-	lop8_buttons_Dai_IV.append(temp)
-
-
-lop8_buttons_Hinh_I = []
-for i in range(1,13):
-	if i<=5:
-		posX = 100+(i-1)*230
-		posY = 100
-	elif i<=10:
-		posX = 100+(i-7)*230
-		posY = 225
-	elif i<=15:
-		posX = 100+(i-11)*230
-		posY = 350
-	else:
-		posX = 100+(i-17)*230
-		posY = 475
-
-	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop8_bai(i,'hinhI'))
-	lop8_buttons_Hinh_I.append(temp)
-
-lop8_buttons_Hinh_II = []
-for i in range(1,7):
-	if i<=5:
-		posX = 100+(i-1)*230
-		posY = 100
-	elif i<=10:
-		posX = 100+(i-7)*230
-		posY = 225
-	elif i<=15:
-		posX = 100+(i-11)*230
-		posY = 350
-	else:
-		posX = 100+(i-17)*230
-		posY = 475
-
-	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop8_bai(i,'hinhII'))
-	lop8_buttons_Hinh_II.append(temp)
-
-lop8_buttons_Hinh_III = []
-for i in range(1,10):
-	if i<=5:
-		posX = 100+(i-1)*230
-		posY = 100
-	elif i<=10:
-		posX = 100+(i-7)*230
-		posY = 225
-	elif i<=15:
-		posX = 100+(i-11)*230
-		posY = 350
-	else:
-		posX = 100+(i-17)*230
-		posY = 475
-
-	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop8_bai(i,'hinhIII'))
-	lop8_buttons_Hinh_III.append(temp)
-
-lop8_buttons_Hinh_IV = []
-for i in range(1,10):
-	if i<=5:
-		posX = 100+(i-1)*230
-		posY = 100
-	elif i<=10:
-		posX = 100+(i-7)*230
-		posY = 225
-	elif i<=15:
-		posX = 100+(i-11)*230
-		posY = 350
-	else:
-		posX = 100+(i-17)*230
-		posY = 475
-
-	temp = N_Button(class_button_img[i-1][0],class_button_img[i-1][1],(posX,posY),lambda: lop8_bai(i,'hinhIV'))
-	lop8_buttons_Hinh_IV.append(temp)
 
 # X O Games Lop6 Button ========== #
 def start_l6():
@@ -1830,232 +1589,15 @@ while running:
 			elif Chuong_III_Hinh_Button.get_collide():
 				show_label(screen,'CHƯƠNG III: QUAN HỆ GIỮA CÁC YẾU TỐ TRONG TAM GIÁC. CÁC ĐƯỜNG ĐỒNG QUY CỦA TAM GIÁC',font,(0,0,0),(1280/2,700))
 	elif lop8:
-		if lop8_Dai_I:
-			screen.blit(choose_class_bg,(-10,-10))
-			back_button_to_l8.run(screen,click,s_m_o_f)
-			for i in range(9):
-				lop8_buttons_Dai_I[i].run(screen,click,s_m_o_f)
-				if lop8_buttons_Dai_I[i].get_collide():
-					if i == 0:
-						show_label(screen, f'BÀI {i+1}: NHÂN ĐƠN THỨC VỚI ĐƠN THỨC', font, (0,0,0), (640,630))
-					elif i == 1:
-						show_label(screen, f'BÀI {i+1}: NHÂN ĐA THỨC VỚI ĐA THỨC', font, (0,0,0), (640,630))
-					elif i == 2:
-						show_label(screen, f'BÀI {i+1}: NHỮNG HẰNG ĐẲNG THỨC ĐÁNG NHỚ', font, (0,0,0), (640,630))
-					elif i == 3:
-						show_label(screen, f'BÀI {i+1}: NHỮNG HẰNG ĐẲNG THỨC ĐÁNG NHỚ (tiếp)', font, (0,0,0), (640,630))
-					elif i == 4:
-						show_label(screen, f'BÀI {i+1}: NHỮNG HẰNG ĐẲNG THỨC ĐÁNG NHỚ (tiếp)', font, (0,0,0), (640,630))
-					elif i == 5:
-						show_label(screen, f'BÀI {i+1}: PHÂN TÍCH ĐA THỨC THÀNH NHÂN TỬ BẰNG PHƯƠNG PHÁP ĐẶT NHÂN TỬ CHUNG', font, (0,0,0), (640,630))
-					elif i == 6:
-						show_label(screen, f'BÀI {i+1}: PHÂN TÍCH ĐA THỨC THÀNH NHÂN TỬ BẰNG PHƯƠNG PHÁP DÙNG HẰNG ĐẲNG THỨC', font, (0,0,0), (640,630))
-					elif i == 7:
-						show_label(screen, f'BÀI {i+1}: PHÂN TÍCH ĐA THỨC THÀNH NHÂN TỬ BẰNG PHƯƠNG PHÁP NHÓM HẠNG TỬ', font, (0,0,0), (640,630))
-					elif i == 8:
-						show_label(screen, f'BÀI {i+1}: PHÂN TÍCH ĐA THỨC THÀNH NHÂN TỬ BẰNG CÁCH PHỐI HỢP NHIỀU PHƯƠNG PHÁP', font, (0,0,0), (640,630))
-		elif lop8_Dai_II:
-			screen.blit(choose_class_bg,(-10,-10))
-			back_button_to_l8.run(screen,click,s_m_o_f)
-			for i in range(9):
-				lop8_buttons_Dai_II[i].run(screen,click,s_m_o_f)
-				if lop8_buttons_Dai_II[i].run(screen,click,s_m_o_f):
-					if i == 0:
-						show_label(screen, f'BÀI {i+1}: PHÂN THỨC ĐẠI SỐ', font, (0,0,0), (640,630))
-					elif i == 1:
-						show_label(screen, f'BÀI {i+1}: TÍNH CHẤT CƠ BẢN CỦA PHÂN THỨC', font, (0,0,0), (640,630))
-					elif i == 2:
-						show_label(screen, f'BÀI {i+1}: RÚT GỌN PHÂN THỨC', font, (0,0,0), (640,630))
-					elif i == 3:
-						show_label(screen, f'BÀI {i+1}: QUY ĐỒNG MẪU THỨC NHIỀU PHÂN THỨC', font, (0,0,0), (640,630))
-					elif i == 4:
-						show_label(screen, f'BÀI {i+1}: PHÉP CỘNG CÁC PHÂN THỨC ĐẠI SỐ', font, (0,0,0), (640,630))
-					elif i == 5:
-						show_label(screen, f'BÀI {i+1}: PHÉP TRỪ CÁC PHÂN THỨC ĐẠI SỐ', font, (0,0,0), (640,630))
-					elif i == 6:
-						show_label(screen, f'BÀI {i+1}: PHÉP NHÂN CÁC PHÂN THỨC ĐẠI SỐ', font, (0,0,0), (640,630))
-					elif i == 7:
-						show_label(screen, f'BÀI {i+1}: PHÉP CHIA CÁC PHÂN THỨC ĐẠI SỐ', font, (0,0,0), (640,630))
-					elif i == 8:
-						show_label(screen, f'BÀI {i+1}: BIẾN ĐỔI CÁC BIỂU THỨC HỮU TỈ. GIÁ TRỊ CỦA PHÂN THỨC', font, (0,0,0), (640,630))
-
-		elif lop8_Dai_III:
-			screen.blit(choose_class_bg,(-10,-10))
-			back_button_to_l8.run(screen,click,s_m_o_f)
-			for i in range(7):
-				lop8_buttons_Dai_III[i].run(screen,click,s_m_o_f)
-				if lop8_buttons_Dai_III[i].get_collide():
-					if i == 0:
-						show_label(screen, f'BÀI {i+1}: MỞ ĐẦU VỀ PHƯƠNG TRÌNH', font, (0,0,0), (640,630))
-					elif i == 1:
-						show_label(screen, f'BÀI {i+1}: PHƯƠNG TRÌNH BẬC NHẤT MỘT ẨN VÀ CÁCH GIẢI', font, (0,0,0), (640,630))
-					elif i == 2:
-						show_label(screen, f'BÀI {i+1}: PHƯƠNG TRÌNH ĐƯA ĐƯỢC VỀ DẠNG ax + b = 0', font, (0,0,0), (640,630))
-					elif i == 3:
-						show_label(screen, f'BÀI {i+1}: PHƯƠNG TRÌNH TÍCH', font, (0,0,0), (640,630))
-					elif i == 4:
-						show_label(screen, f'BÀI {i+1}: PHƯƠNG TRÌNH CHỨA ẨN Ở MẪU', font, (0,0,0), (640,630))
-					elif i == 5:
-						show_label(screen, f'BÀI {i+1}: GIẢI BÀI TOÁN BẰNG CÁCH LẬP PHƯƠNG TRÌNH', font, (0,0,0), (640,630))
-					elif i == 0:
-						show_label(screen, f'BÀI {i+1}: GIẢI BÀI TOÁN BẰNG CÁCH LẬP PHƯƠNG TRÌNH (tiếp)', font, (0,0,0), (640,630))
-		elif lop8_Dai_IV:
-			screen.blit(choose_class_bg,(-10,-10))
-			back_button_to_l8.run(screen,click,s_m_o_f)
-			for i in range(5):
-				lop8_buttons_Dai_IV[i].run(screen,click,s_m_o_f)
-				if lop8_buttons_Dai_IV[i].get_collide():
-					if i == 0:
-						show_label(screen, f'BÀI {i+1}: LIÊN HỆ GIỮA THỨ TỰ VÀ PHÉP CỘNG', font, (0,0,0), (640,630))
-					elif i == 1:
-						show_label(screen, f'BÀI {i+1}: LIÊN HỆ GIỮA THỨ TỰ VÀ PHÉP NHÂN', font, (0,0,0), (640,630))
-					elif i == 2:
-						show_label(screen, f'BÀI {i+1}: BẤT PHƯƠNG TRÌNH MỘT ẨN', font, (0,0,0), (640,630))
-					elif i == 3:
-						show_label(screen, f'BÀI {i+1}: BẤT PHƯƠNG TRÌNH BẬC NHẤT MỘT ẨN', font, (0,0,0), (640,630))
-					elif i == 4:
-						show_label(screen, f'BÀI {i+1}: PHƯƠNG TRÌNH CHỨA DẤU GIÁ TRỊ TUYỆT ĐỐI', font, (0,0,0), (640,630))
-		elif lop8_Hinh_I:
-			screen.blit(choose_class_bg,(-10,-10))
-			back_button_to_l8.run(screen,click,s_m_o_f)
-			for i in range(12):
-				lop8_buttons_Hinh_I[i].run(screen,click,s_m_o_f)
-				if lop8_buttons_Hinh_I[i].get_collide():
-					if i == 0:
-						show_label(screen, f'BÀI {i+1}: TỨ GIÁC', font, (0,0,0), (640,630))
-					elif i == 1:
-						show_label(screen, f'BÀI {i+1}: HÌNH THANG', font, (0,0,0), (640,630))
-					elif i == 2:
-						show_label(screen, f'BÀI {i+1}: HÌNH THANG CÂN', font, (0,0,0), (640,630))
-					elif i == 3:
-						show_label(screen, f'BÀI {i+1}: ĐƯỜNG TRUNG BÌNH CỦA TAM GIÁC, CỦA HÌNH THANG', font, (0,0,0), (640,630))
-					elif i == 4:
-						show_label(screen, f'BÀI {i+1}: DỰNG HÌNH BẰNG THƯỚC VÀ COMPA. DỰNG HÌNH THANG', font, (0,0,0), (640,630))
-					elif i == 5:
-						show_label(screen, f'BÀI {i+1}: ĐỐI XỨNG TRỤC', font, (0,0,0), (640,630))
-					elif i == 6:
-						show_label(screen, f'BÀI {i+1}: HÌNH BÌNH HÀNH', font, (0,0,0), (640,630))
-					elif i == 7:
-						show_label(screen, f'BÀI {i+1}: ĐỐI XỨNG TÂM', font, (0,0,0), (640,630))
-					elif i == 8:
-						show_label(screen, f'BÀI {i+1}: HÌNH CHỮ NHẬT', font, (0,0,0), (640,630))
-					elif i == 9:
-						show_label(screen, f'BÀI {i+1}: ĐƯỜNG THẲNG SAONG SAONG VỚI MỘT ĐƯỜNG THẲNG CHO TRƯỚC', font, (0,0,0), (640,630))
-					elif i == 10:
-						show_label(screen, f'BÀI {i+1}: HÌNH THOI', font, (0,0,0), (640,630))
-					elif i == 11:
-						show_label(screen, f'BÀI {i+1}: HÌNH VUÔNG', font, (0,0,0), (640,630))
-		elif lop8_Hinh_II:
-			screen.blit(choose_class_bg,(-10,-10))
-			back_button_to_l8.run(screen,click,s_m_o_f)
-			for i in range(6):
-				lop8_buttons_Hinh_II[i].run(screen,click,s_m_o_f)
-				if lop8_buttons_Hinh_II[i].get_collide():
-					if i == 0:
-						show_label(screen, f'BÀI {i+1}: ĐA GIÁC. ĐA GIÁC ĐỀU', font, (0,0,0), (640,630))
-					elif i == 1:
-						show_label(screen, f'BÀI {i+1}: DIỆN TÍCH HÌNH CHỮ NHẬT', font, (0,0,0), (640,630))
-					elif i == 2:
-						show_label(screen, f'BÀI {i+1}: DIỆN TÍCH HÌNH TAM GIÁC', font, (0,0,0), (640,630))
-					elif i == 3:
-						show_label(screen, f'BÀI {i+1}: DIỆN TÍCH HÌNH THANG', font, (0,0,0), (640,630))
-					elif i == 4:
-						show_label(screen, f'BÀI {i+1}: DIỆN TÍCH HÌNH THOI', font, (0,0,0), (640,630))
-					elif i == 5:
-						show_label(screen, f'BÀI {i+1}: DIỆN TÍCH ĐA GIÁC', font, (0,0,0), (640,630))
-		elif lop8_Hinh_III:
-			screen.blit(choose_class_bg,(-10,-10))
-			back_button_to_l8.run(screen,click,s_m_o_f)
-			for i in range(9):
-				lop8_buttons_Hinh_III[i].run(screen,click,s_m_o_f)
-				if lop8_buttons_Hinh_III[i].get_collide():
-					if i == 0:
-						show_label(screen, f'BÀI {i+1}: ĐỊNH LÍ TA-LÉT TRONG TAM GIÁC', font, (0,0,0), (640,630))
-					elif i == 1:
-						show_label(screen, f'BÀI {i+1}: ĐỊNH LÍ ĐẢO VÀ HỆ QUẢ CỦA ĐỊNH LÍ TA-LÉT', font, (0,0,0), (640,630))
-					elif i == 2:
-						show_label(screen, f'BÀI {i+1}: TÍNH CHẤT ĐƯỜNG PHÂN GIÁC CỦA TAM GIÁC', font, (0,0,0), (640,630))
-					elif i == 3:
-						show_label(screen, f'BÀI {i+1}: KHÁI NIỆM HAI TAM GIÁC ĐỒNG DẠNG', font, (0,0,0), (640,630))
-					elif i == 4:
-						show_label(screen, f'BÀI {i+1}: TRƯỜNG HỢP ĐỒNG DẠNG THỨ NHẤT', font, (0,0,0), (640,630))
-					elif i == 5:
-						show_label(screen, f'BÀI {i+1}: TRƯỜNG HỢP ĐỒNG DẠNG THỨ HAI', font, (0,0,0), (640,630))
-					elif i == 6:
-						show_label(screen, f'BÀI {i+1}: TRƯỜNG HỢP ĐỒNG DẠNG THỨ BA', font, (0,0,0), (640,630))
-					elif i == 7:
-						show_label(screen, f'BÀI {i+1}: CÁC TRƯỜNG HỢP ĐỒNG DẠNG CỦA TAM GIÁC VUÔNG', font, (0,0,0), (640,630))
-					elif i == 8:
-						show_label(screen, f'BÀI {i+1}: ỨNG DỤNG THỰC TẾ CỦA TAM GIÁC ĐỒNG DẠNG', font, (0,0,0), (640,630))
-		elif lop8_Hinh_IV:
-			screen.blit(choose_class_bg,(-10,-10))
-			back_button_to_l8.run(screen,click,s_m_o_f)
-			for i in range(9):
-				lop8_buttons_Hinh_IV[i].run(screen,click,s_m_o_f)
-				if lop8_buttons_Hinh_IV[i].get_collide():
-					if i == 0:
-						show_label(screen, f'BÀI {i+1}: HÌNH HỘP CHỮ NHẬT', font, (0,0,0), (640,630))
-					elif i == 1:
-						show_label(screen, f'BÀI {i+1}: HÌNH HỘP CHỮ NHẬT (tiếp)', font, (0,0,0), (640,630))
-					elif i == 2:
-						show_label(screen, f'BÀI {i+1}: THỂ TÍCH CỦA HÌNH HỘP CHỮ NHẬT', font, (0,0,0), (640,630))
-					elif i == 3:
-						show_label(screen, f'BÀI {i+1}: HÌNH LĂNG TRỤ ĐỨNG', font, (0,0,0), (640,630))
-					elif i == 4:
-						show_label(screen, f'BÀI {i+1}: DIỆN TÍCH XUNG QUANH CỦA HÌNH LĂNG TRỤ ĐỨNG', font, (0,0,0), (640,630))
-					elif i == 5:
-						show_label(screen, f'BÀI {i+1}: THỂ TÍCH CỦA HÌNH LĂNG TRỤ ĐỨNG', font, (0,0,0), (640,630))
-					elif i == 6:
-						show_label(screen, f'BÀI {i+1}: HÌNH CHÓP ĐỀU VÀ HÌNH CHÓP CỤT ĐỀU', font, (0,0,0), (640,630))
-					elif i == 7:
-						show_label(screen, f'BÀI {i+1}: DIỆN TÍCH XUNG QUANH CỦA HÌNH CHÓP ĐỀU', font, (0,0,0), (640,630))
-					elif i == 8:
-						show_label(screen, f'BÀI {i+1}: THỂ TÍCH CỦA HÌNH CHÓP ĐỀU', font, (0,0,0), (640,630))
-		else:
-			screen.blit(lop8_bg,(0,0))
-			back_button_to_sc8.run(screen,click,s_m_o_f)
-			Chuong_I_Dai_Button.run(screen,click,s_m_o_f)
-			Chuong_I_Hinh_Button.run(screen,click,s_m_o_f)
-
-			Chuong_II_Dai_Button.run(screen,click,s_m_o_f)
-			Chuong_II_Hinh_Button.run(screen,click,s_m_o_f)
-
-			Chuong_III_Dai_Button.run(screen,click,s_m_o_f)
-			Chuong_III_Hinh_Button.run(screen,click,s_m_o_f)
-
-			Chuong_IV_Dai_Button.run(screen,click,s_m_o_f)
-			Chuong_IV_Hinh_Button.run(screen,click,s_m_o_f)
+		screen.fill((255,255,255))
+		back_button_to_sc8.run(screen,click,s_m_o_f)
+		img = font.render('Chưa cập nhật :(', True, (0,0,0))
+		screen.blit(img,(100,100))
 	elif lop9:
-		if lop9_Dai_I:
-			pass
-		elif lop9_Dai_II:
-			pass
-		elif lop9_Dai_III:
-			pass
-		elif lop9_Dai_IV:
-			pass
-		elif lop9_Hinh_I:
-			pass
-		elif lop9_Hinh_II:
-			pass
-		elif lop9_Hinh_III:
-			pass
-		elif lop9_Hinh_IV:
-			pass
-		else:
-			screen.blit(lop9_bg,(0,0))
-			back_button_to_sc9.run(screen,click,s_m_o_f)
-			Chuong_I_Dai_Button.run(screen,click,s_m_o_f)
-			Chuong_I_Hinh_Button.run(screen,click,s_m_o_f)
-
-			Chuong_II_Dai_Button.run(screen,click,s_m_o_f)
-			Chuong_II_Hinh_Button.run(screen,click,s_m_o_f)
-
-			Chuong_III_Dai_Button.run(screen,click,s_m_o_f)
-			Chuong_III_Hinh_Button.run(screen,click,s_m_o_f)
-
-			Chuong_IV_Dai_Button.run(screen,click,s_m_o_f)
-			Chuong_IV_Hinh_Button.run(screen,click,s_m_o_f)
+		screen.fill((255,255,255))
+		back_button_to_sc9.run(screen,click,s_m_o_f)
+		img = font.render('Chưa cập nhật :(', True, (0,0,0))
+		screen.blit(img,(100,100))
 	elif setting:
 		screen.fill((255,255,255))
 		back_button_to_sc.run(screen,click,s_m_o_f)
